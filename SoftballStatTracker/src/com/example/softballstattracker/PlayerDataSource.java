@@ -18,8 +18,8 @@ public class PlayerDataSource {
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.ID,
-		  						  SQLiteHelper.NAME, 
-		  						  SQLiteHelper.DATE_CREATED };
+		  						  SQLiteHelper.NAME }; 
+		  						  //SQLiteHelper.DATE_CREATED 
 
   public PlayerDataSource(Context context) 
   {
