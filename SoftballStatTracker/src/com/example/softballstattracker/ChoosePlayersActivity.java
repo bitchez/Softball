@@ -4,6 +4,7 @@ import java.util.List;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.view.Menu;
 import android.view.View;
@@ -25,6 +26,9 @@ public class ChoosePlayersActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_players);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 		
 		InitializeDataSources();
 		

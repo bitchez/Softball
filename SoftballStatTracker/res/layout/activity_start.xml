@@ -10,12 +10,12 @@
 
     <Button
         android:id="@+id/start"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp"
-        android:onClick="StartEvent"
-        android:text="Start" />
+        android:layout_marginBottom="30dp"
+        android:onClick="startEvent"
+        android:text="@string/start" />
     
 </RelativeLayout>

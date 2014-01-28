@@ -8,54 +8,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddGameActivity" >
 
-    <EditText
-        android:id="@+id/gameNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="game name" />
-
     <Button
-        android:id="@+id/choosePlayers"
-        android:layout_width="wrap_content"
+        android:id="@+id/chooseplayers"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:onClick="choosePlayers"
+        android:text="@string/choose_players" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/gameNameInput"
-        android:layout_marginTop="132dp"
-        android:onClick="ChoosePlayers"
-        android:text="Choose Players" />
+        android:layout_marginTop="30dp"
+        android:text="@string/datePlayed"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/gameDateInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/gameNameInput"
-        android:layout_below="@+id/gameNameInput"
-        android:layout_marginTop="66dp"
+        android:layout_below="@+id/textView2"
         android:ems="10"
         android:hint="dd/mm/yyyy"
-        android:inputType="date" />
+        android:inputType="date" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gameDateInput"
-        android:layout_below="@+id/gameNameInput"
-        android:layout_marginTop="32dp"
-        android:text="When was this game played?" />
+        <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/shortDescription"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/gameNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="69dp"
-        android:text="Descibe this game in one word" />
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/gameName" />
+    
+
 
 </RelativeLayout>

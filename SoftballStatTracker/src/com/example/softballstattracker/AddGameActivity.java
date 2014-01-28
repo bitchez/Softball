@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.softballstattracker.DataSources.GameDataSource;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -19,6 +20,9 @@ public class AddGameActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_game);
 		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+		
 		gameDataSource = new GameDataSource(this);
 		gameDataSource.open();
 	}
@@ -29,7 +33,7 @@ public class AddGameActivity extends Activity {
 		return true;
 	}
 	
-	public void ChoosePlayers(View view)
+	public void choosePlayers(View view)
 	{
 		Intent intent = new Intent(this, ChoosePlayersActivity.class);	
 	    startActivity(intent);

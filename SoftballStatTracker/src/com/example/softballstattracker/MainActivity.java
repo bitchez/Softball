@@ -1,6 +1,7 @@
 package com.example.softballstattracker;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -12,6 +13,9 @@ public class MainActivity extends Activity {
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
