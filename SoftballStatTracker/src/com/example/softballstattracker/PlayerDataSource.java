@@ -18,8 +18,8 @@ public class PlayerDataSource {
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.ID,
-		  						  SQLiteHelper.NAME }; 
-		  						  //SQLiteHelper.DATE_CREATED 
+		  						  SQLiteHelper.NAME,
+		  						  SQLiteHelper.DATE_CREATED }; 
 
   public PlayerDataSource(Context context) 
   {
@@ -40,7 +40,7 @@ public class PlayerDataSource {
 	
     ContentValues values = new ContentValues();
     values.put(SQLiteHelper.NAME, playerName);
-    //values.put(SQLiteHelper.DATE_CREATED, dateTime);
+    values.put(SQLiteHelper.DATE_CREATED, dateTime);
 
     long insertId = database.insert(SQLiteHelper.TABLE_PLAYERS, null, values);
     
@@ -66,7 +66,7 @@ public class PlayerDataSource {
     List<Player> players = new ArrayList<Player>();
 
     Cursor cursor = database.query(SQLiteHelper.TABLE_PLAYERS,
-        allColumns, null, null, null, null, null);
+        allColumns, null, null, null, null, "DateCreated");
 
     cursor.moveToFirst();
     
@@ -86,6 +86,7 @@ public class PlayerDataSource {
     Player player = new Player();
     player.setId(cursor.getLong(0));
     player.setName(cursor.getString(1));
+    player.setDateCreated(cursor.getString(2));
     return player;
   }
 } 
