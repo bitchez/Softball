@@ -1,5 +1,6 @@
---Create Games table
-	db.execSQL("CREATE TABLE Games (ID INTEGER PRIMARY KEY autoincrement, Name TEXT, DateCreated TEXT, PlayerId NUMERIC)"); 
-			
+--Create DB tables
+	db.execSQL("CREATE TABLE Games (ID INTEGER PRIMARY KEY, Name TEXT, DateCreated TEXT, PlayerId NUMERIC) 
+			    CREATE TABLE Players (ID integer primary key autoincrement, Name text not null, DateCreated string)"
+				
 --Get Max ID from Games table
  database.rawQuery("SELECT MAX(ID) FROM Games", null);

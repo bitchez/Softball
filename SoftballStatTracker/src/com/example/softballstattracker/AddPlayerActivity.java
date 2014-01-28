@@ -28,14 +28,21 @@ public class AddPlayerActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.add_player, menu);
-		return false;
+		getMenuInflater().inflate(R.menu.add_player, menu);
+		return true;
 	}
 	
 	public void SavePlayer(View view){
 		
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
+		
+		if(DoesPlayerNameExist(playerNameInput))
+	    {
+			playerNameInput.setError("Player name is required");
+	    }
+		else
+		{
+		
 		String playerName = playerNameInput.getText().toString();
 		
 		//save new player to DB
@@ -43,10 +50,11 @@ public class AddPlayerActivity extends Activity {
 		
 		Intent intent = new Intent(this, AddGameActivity.class);
 	    startActivity(intent);
+		}
 	}
 	
-	public void Back(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-	    startActivity(intent);
+	 private boolean DoesPlayerNameExist(EditText playerName) {
+		return (playerName.getText().toString().trim().equals(""));
+		
 	}
 }

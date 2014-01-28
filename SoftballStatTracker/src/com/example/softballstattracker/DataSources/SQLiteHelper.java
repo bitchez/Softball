@@ -17,8 +17,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String DATE_CREATED = "DateCreated";
 	public static final String PLAYER_ID = "PlayerId";
 	public static final String DATABASE_NAME = "SoftballStatsDB.db";
-	private static final int DATABASE_VERSION = 10;
+	private static final int DATABASE_VERSION = 11;
 
+	
+	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (ID INTEGER PRIMARY KEY autoincrement, Name text not null, DateCreated string)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (ID INTEGER PRIMARY KEY, Name TEXT, DateCreated TEXT, PlayerId NUMERIC)";
+			    								  
+	
 	public SQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -26,7 +31,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) 
 	{
-		//db.execSQL(DATABASE_CREATE);
+		db.execSQL(DATABASE_CREATE_PLAYERS);
+		db.execSQL(DATABASE_CREATE_GAMES);
 	}
 
 	@Override
@@ -36,7 +42,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 				+ oldVersion + " to " + newVersion
 				+ ", which will destroy all old data");
 		
-		db.execSQL("DELETE FROM Players");
+		//drop tables and create new ones
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAYERS);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMES);
+	    onCreate(db);
+		//db.execSQL("DELETE FROM Players");
 		}
 
 }
