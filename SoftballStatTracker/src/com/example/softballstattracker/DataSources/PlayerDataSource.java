@@ -6,7 +6,6 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 import com.example.softballstattracker.Player;
-import com.example.softballstattracker.SQLiteHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -69,7 +68,7 @@ public class PlayerDataSource {
     List<Player> players = new ArrayList<Player>();
 
     Cursor cursor = database.query(SQLiteHelper.TABLE_PLAYERS,
-        allColumns, null, null, null, null, "DateCreated");
+        allColumns, null, null, null, null, "DateCreated" + " DESC");
 
     cursor.moveToFirst();
     

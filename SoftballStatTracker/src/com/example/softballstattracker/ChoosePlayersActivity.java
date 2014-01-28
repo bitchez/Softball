@@ -1,5 +1,6 @@
 package com.example.softballstattracker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.softballstattracker.DataSources.GameDataSource;
@@ -16,8 +17,10 @@ import android.widget.EditText;
 public class ChoosePlayersActivity extends ListActivity {
 	
 	private PlayerDataSource playerDataSource;
-	private GameDataSource gameDataSource;
+	private GameDataSource gamesDataSource;
+	private List<Player> selectedPlayers;
 	private List<Player> players;
+	private List<Game> games;
 	EditText gameNameInput;
 	EditText gameDateInput;
 	
@@ -35,8 +38,8 @@ public class ChoosePlayersActivity extends ListActivity {
 	private void InitializeDataSources() {
 		playerDataSource = new PlayerDataSource(this);
 		playerDataSource.open();
-		gameDataSource = new GameDataSource(this);
-		gameDataSource.open();
+		gamesDataSource = new GameDataSource(this);
+		gamesDataSource.open();
 		
 		players = playerDataSource.getAllPlayers();
 	}
@@ -45,22 +48,30 @@ public class ChoosePlayersActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.choose_players, menu);
-		return true;
+		return false;
 	}
 	
-	public void AddGame(View view){
+	public void AddPlayerStats(View view)
+	{
+		CreateGamesForSelectedPlayers();
+	}
+
+	private void CreateGamesForSelectedPlayers() 
+	{
+		//gameNameInput = (EditText)findViewById(R.id.gameNameInput);
+		//String gameName = gameNameInput.getText().toString();
 		
-		gameNameInput = (EditText)findViewById(R.id.gameNameInput);
-		String gameName = gameNameInput.getText().toString();
+		//gameDateInput = (EditText)findViewById(R.id.gameNameInput);
+		//String dateCreated = gameDateInput.getText().toString();
 		
-		gameDateInput = (EditText)findViewById(R.id.gameNameInput);
-		String dateCreated = gameDateInput.getText().toString();
+		int gameId = gamesDataSource.getMaxGameId();
 		
-//		Game newGame = new Game();
-//		newGame.setName(gameName);
-//		newGame.setDateCreated(dateCreated);
-//		
-//		gameDataSource.createGame(newGame);
+		Game newGame = new Game();
+		//newGame.setName(gameName);
+		newGame.setId(gameId);
+		
+		gamesDataSource.createGame(newGame);
+		
 	}
 }
 

@@ -6,7 +6,6 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 import com.example.softballstattracker.Game;
-import com.example.softballstattracker.SQLiteHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -43,9 +42,10 @@ public class GameDataSource {
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
+    values.put(SQLiteHelper.ID, game.getId());
     values.put(SQLiteHelper.NAME, game.getname());
-    values.put(SQLiteHelper.DATE_CREATED, game.getDateCreated());
-  //  values.put(SQL, value)
+    values.put(SQLiteHelper.DATE_CREATED, dateTime);
+    values.put(SQLiteHelper.PLAYER_ID, game.getPlayerId());
 
     long insertId = database.insert(SQLiteHelper.TABLE_GAMES, null, values);
     
@@ -73,11 +73,20 @@ public class GameDataSource {
       Games.add(Game);
       cursor.moveToNext();
     }
-    
-    // make sure to close the cursor
+  
     cursor.close();
     return Games;
   }
+  
+  public int getMaxGameId() {
+	    
+    Cursor cursor = database.rawQuery("SELECT MAX(ID) FROM Games", null);
+    cursor.moveToFirst();
+    
+    int maxId = cursor.getInt(0);
+    cursor.close();
+    return maxId;
+ }
 
   private Game cursorToGame(Cursor cursor) 
   {
