@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AddPlayerActivity" >
+
+    <EditText
+        android:id="@+id/playerNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+     <Button
+         android:id="@+id/backButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/savePlayerButton"
+         android:layout_alignBottom="@+id/savePlayerButton"
+         android:layout_alignLeft="@+id/playerNameInput"
+         android:layout_marginLeft="15dp"
+         android:onClick="Back"
+         android:text="Back" />
+
+     <Button
+         android:id="@+id/savePlayerButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/playerNameInput"
+         android:layout_marginTop="27dp"
+         android:layout_toRightOf="@+id/backButton"
+         android:onClick="SavePlayer"
+         android:text="Next bitch" />
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/playerNameInput"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="54dp"
+         android:text="Player Name?" />
+
+</RelativeLayout>
