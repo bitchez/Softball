@@ -1,9 +1,12 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.DataSources;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.joda.time.DateTime;
+
+import com.example.softballstattracker.Player;
+import com.example.softballstattracker.SQLiteHelper;
 
 import android.content.ContentValues;
 import android.content.Context;

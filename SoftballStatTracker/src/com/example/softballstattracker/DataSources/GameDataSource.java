@@ -1,0 +1,91 @@
+package com.example.softballstattracker.DataSources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.joda.time.DateTime;
+
+import com.example.softballstattracker.Game;
+import com.example.softballstattracker.SQLiteHelper;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+
+public class GameDataSource {
+
+  // Database fields
+  private SQLiteDatabase database;
+  private SQLiteHelper dbHelper;
+  private String[] allColumns = { SQLiteHelper.ID,
+		  						  SQLiteHelper.NAME,
+		  						  SQLiteHelper.DATE_CREATED,
+		  						  SQLiteHelper.PLAYER_ID}; 
+
+  public GameDataSource(Context context) 
+  {
+    dbHelper = new SQLiteHelper(context);
+  }
+
+  public void open() throws SQLException {
+    database = dbHelper.getWritableDatabase();
+  }
+
+  public void close() {
+    dbHelper.close();
+  }
+
+  public Game createGame(Game game) 
+  {  
+	String dateTime = DateTime.now().toString();
+	
+    ContentValues values = new ContentValues();
+    values.put(SQLiteHelper.NAME, game.getname());
+    values.put(SQLiteHelper.DATE_CREATED, game.getDateCreated());
+  //  values.put(SQL, value)
+
+    long insertId = database.insert(SQLiteHelper.TABLE_GAMES, null, values);
+    
+    Cursor cursor = database.query(SQLiteHelper.TABLE_GAMES,
+        allColumns, SQLiteHelper.ID + " = " + insertId, null,
+        null, null, null);
+    
+    cursor.moveToFirst();
+    
+    Game newGame = cursorToGame(cursor);
+    cursor.close();
+    return newGame;
+  }
+
+  public List<Game> getAllGames() {
+    List<Game> Games = new ArrayList<Game>();
+
+    Cursor cursor = database.query(SQLiteHelper.TABLE_GAMES,
+        allColumns, null, null, null, null, "DateCreated");
+
+    cursor.moveToFirst();
+    
+    while (!cursor.isAfterLast()) {
+      Game Game = cursorToGame(cursor);
+      Games.add(Game);
+      cursor.moveToNext();
+    }
+    
+    // make sure to close the cursor
+    cursor.close();
+    return Games;
+  }
+
+  private Game cursorToGame(Cursor cursor) 
+  {
+    Game Game = new Game();
+    Game.setId(cursor.getLong(0));
+    Game.setName(cursor.getString(1));
+    Game.setDateCreated(cursor.getString(2));
+    Game.setPlayerId(cursor.getLong(3));
+    return Game;
+  }
+} 

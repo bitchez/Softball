@@ -1,0 +1,3 @@
+--Create Games table
+db.execSQL("CREATE TABLE Games (ID INTEGER PRIMARY KEY autoincrement, Name TEXT, DateCreated TEXT, PlayerId NUMERIC)"); 
+		
