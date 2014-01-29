@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.util.SparseBooleanArray;
@@ -32,13 +33,19 @@ public class ChoosePlayersActivity extends ListActivity {
 		setContentView(R.layout.activity_choose_players);
 		et_date = (TextView) findViewById(R.id.textView1);
 		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+		
 		Bundle bundle=getIntent().getExtras();
 		if (bundle != null)
 		{
 			//getting the value store in "date_input"
 			String myText = bundle.getString("date_input");
-			//appending the value of the contents in et_date or textView1
-			et_date.append(" on date: " + myText);
+			if(myText != null && !myText.isEmpty())
+			{
+				//appending the value of the contents in et_date or textView1
+				et_date.append(" on date: " + myText);
+			}
 		}
 		
 		initializeDataSources();

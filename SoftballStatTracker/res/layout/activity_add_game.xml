@@ -19,16 +19,6 @@
         android:text="@string/choose_players" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/gameNameInput"
-        android:layout_marginTop="30dp"
-        android:text="@string/datePlayed"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -64,9 +54,42 @@
         android:layout_alignRight="@+id/imageButton1"
         android:layout_below="@+id/textView1"
         android:ems="10"
-        android:hint="@string/gameName" >
+        android:hint="@string/gameName"
+        android:inputType="text|textCapWords|textImeMultiLine"
+        android:imeOptions="actionDone" />"
 
         <requestFocus />
-    </EditText>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/gameNameInput"
+            android:layout_marginTop="20dp"
+            android:text="@string/datePlayed"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/gameDateInput"
+            android:layout_below="@+id/gameDateInput"
+            android:layout_marginTop="20dp"
+            android:text="Opponent Played? (Optional)"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/opponent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Opponent"
+            android:inputType="text|textCapWords|textImeMultiLine"
+        	android:imeOptions="actionDone" />
 
 </RelativeLayout>

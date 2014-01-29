@@ -8,16 +8,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddPlayerActivity" >
 
-    <EditText
-        android:id="@+id/playerNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:ems="10" >
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="58dp"
+         android:textStyle="bold"
+         android:text="Player Name?"
+         android:textSize="25sp" />
 
-        <requestFocus />
-    </EditText>
+     <EditText
+         android:id="@+id/playerNameInput"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/textView1"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="14dp"
+         android:ems="10"
+         android:hint="Player Name"
+         android:inputType="text|textCapWords|textImeMultiLine"
+         android:imeOptions="actionDone" >
+
+         <requestFocus />
+     </EditText>
+
+     <Button
+         android:id="@+id/savePlayerButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignRight="@+id/playerNameInput"
+         android:layout_below="@+id/playerNameInput"
+         android:layout_marginTop="15dp"
+         android:onClick="SavePlayer"
+         android:text="Next -->" />
 
      <Button
          android:id="@+id/backButton"
@@ -26,27 +51,7 @@
          android:layout_alignBaseline="@+id/savePlayerButton"
          android:layout_alignBottom="@+id/savePlayerButton"
          android:layout_alignLeft="@+id/playerNameInput"
-         android:layout_marginLeft="15dp"
          android:onClick="Back"
          android:text="Back" />
-
-     <Button
-         android:id="@+id/savePlayerButton"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/playerNameInput"
-         android:layout_marginTop="27dp"
-         android:layout_toRightOf="@+id/backButton"
-         android:onClick="SavePlayer"
-         android:text="Next bitch" />
-
-     <TextView
-         android:id="@+id/textView1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/playerNameInput"
-         android:layout_alignParentTop="true"
-         android:layout_marginTop="54dp"
-         android:text="Player Name?" />
 
 </RelativeLayout>
