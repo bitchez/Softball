@@ -18,7 +18,7 @@ public class GameDataSource {
   // Database fields
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
-  private String[] allColumns = { SQLiteHelper.ID,
+  private String[] allColumns = { SQLiteHelper.GAME_ID,
 		  						  SQLiteHelper.NAME,
 		  						  SQLiteHelper.DATE_CREATED,
 		  						  SQLiteHelper.PLAYER_ID}; 
@@ -48,7 +48,7 @@ public class GameDataSource {
     long insertId = database.insert(SQLiteHelper.TABLE_GAMES, null, values);
     
     Cursor cursor = database.query(SQLiteHelper.TABLE_GAMES,
-        allColumns, SQLiteHelper.ID + " = " + insertId, null,
+        allColumns, SQLiteHelper.GAME_ID + " = " + insertId, null,
         null, null, null);
     
     cursor.moveToFirst();

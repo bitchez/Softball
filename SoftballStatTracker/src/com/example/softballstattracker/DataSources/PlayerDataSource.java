@@ -19,7 +19,7 @@ public class PlayerDataSource {
   // Database fields
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
-  private String[] allColumns = { SQLiteHelper.ID,
+  private String[] allColumns = { SQLiteHelper.PLAYER_ID,
 		  						  SQLiteHelper.NAME,
 		  						  SQLiteHelper.DATE_CREATED }; 
 
@@ -47,7 +47,7 @@ public class PlayerDataSource {
     long insertId = database.insert(SQLiteHelper.TABLE_PLAYERS, null, values);
     
     Cursor cursor = database.query(SQLiteHelper.TABLE_PLAYERS,
-        allColumns, SQLiteHelper.ID + " = " + insertId, null,
+        allColumns, SQLiteHelper.PLAYER_ID + " = " + insertId, null,
         null, null, null);
     
     cursor.moveToFirst();
@@ -60,7 +60,7 @@ public class PlayerDataSource {
   public void deletePlayer(Player player) {
     long id = player.getId();
     System.out.println("Player deleted with id: " + id);
-    database.delete(SQLiteHelper.TABLE_PLAYERS, SQLiteHelper.ID
+    database.delete(SQLiteHelper.TABLE_PLAYERS, SQLiteHelper.PLAYER_ID
         + " = " + id, null);
   }
 
