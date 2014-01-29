@@ -1,6 +1,12 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.Activites;
 
 import java.util.Calendar;
+
+import com.example.softballstattracker.R;
+import com.example.softballstattracker.R.id;
+import com.example.softballstattracker.R.layout;
+import com.example.softballstattracker.R.menu;
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;

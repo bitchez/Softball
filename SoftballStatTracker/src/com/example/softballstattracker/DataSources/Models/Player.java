@@ -1,4 +1,4 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.DataSources.Models;
 
 public class Player {
 	

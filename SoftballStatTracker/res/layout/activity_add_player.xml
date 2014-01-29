@@ -27,10 +27,9 @@
          android:layout_centerHorizontal="true"
          android:layout_marginTop="14dp"
          android:ems="10"
-         android:hint="Player Name"
+         android:hint="enter name"
          android:inputType="text|textCapWords|textImeMultiLine"
          android:imeOptions="actionDone" >
-
          <requestFocus />
      </EditText>
 
@@ -38,20 +37,10 @@
          android:id="@+id/savePlayerButton"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignRight="@+id/playerNameInput"
          android:layout_below="@+id/playerNameInput"
+         android:layout_centerHorizontal="true"
          android:layout_marginTop="15dp"
-         android:onClick="SavePlayer"
-         android:text="Next -->" />
-
-     <Button
-         android:id="@+id/backButton"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBaseline="@+id/savePlayerButton"
-         android:layout_alignBottom="@+id/savePlayerButton"
-         android:layout_alignLeft="@+id/playerNameInput"
-         android:onClick="Back"
-         android:text="Back" />
+         android:onClick="savePlayer"
+         android:text="Next" />
 
 </RelativeLayout>

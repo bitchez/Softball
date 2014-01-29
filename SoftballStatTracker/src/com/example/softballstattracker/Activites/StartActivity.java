@@ -1,4 +1,7 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.Activites;
+
+import com.example.softballstattracker.R;
+import com.example.softballstattracker.R.layout;
 
 import android.os.Bundle;
 import android.app.ActionBar;

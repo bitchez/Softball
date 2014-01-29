@@ -1,9 +1,16 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.Activites;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
+import com.example.softballstattracker.DataSources.Models.Game;
+import com.example.softballstattracker.DataSources.Models.Player;
+import com.example.softballstattracker.R.id;
+import com.example.softballstattracker.R.layout;
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.ListActivity;

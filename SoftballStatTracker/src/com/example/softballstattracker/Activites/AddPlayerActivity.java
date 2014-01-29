@@ -1,16 +1,14 @@
-package com.example.softballstattracker;
+package com.example.softballstattracker.Activites;
  
-import java.util.List;
-
+import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
-
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 
 public class AddPlayerActivity extends Activity {
@@ -36,7 +34,7 @@ public class AddPlayerActivity extends Activity {
 		return true;
 	}
 	
-	public void SavePlayer(View view){
+	public void savePlayer(View view){
 		
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		

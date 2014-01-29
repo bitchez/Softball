@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
-import com.example.softballstattracker.Player;
+import com.example.softballstattracker.DataSources.Models.Player;
 
 import android.content.ContentValues;
 import android.content.Context;
