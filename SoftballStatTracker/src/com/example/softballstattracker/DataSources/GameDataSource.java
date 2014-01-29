@@ -12,7 +12,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class GameDataSource {
 
@@ -42,7 +41,6 @@ public class GameDataSource {
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
-    values.put(SQLiteHelper.ID, game.getId());
     values.put(SQLiteHelper.NAME, game.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
     values.put(SQLiteHelper.PLAYER_ID, game.getPlayerId());
@@ -90,11 +88,11 @@ public class GameDataSource {
 
   private Game cursorToGame(Cursor cursor) 
   {
-    Game Game = new Game();
-    Game.setId(cursor.getLong(0));
-    Game.setName(cursor.getString(1));
-    Game.setDateCreated(cursor.getString(2));
-    Game.setPlayerId(cursor.getLong(3));
-    return Game;
+    Game game = new Game();
+    game.setId(cursor.getLong(0));
+    game.setName(cursor.getString(1));
+    game.setDateCreated(cursor.getString(2));
+    game.setPlayerId(cursor.getLong(3));
+    return game;
   }
 } 

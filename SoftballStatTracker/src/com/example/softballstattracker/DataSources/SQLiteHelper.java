@@ -21,7 +21,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
 	
 	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (ID INTEGER PRIMARY KEY autoincrement, Name text not null, DateCreated string)";
-	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (ID INTEGER PRIMARY KEY, Name TEXT, DateCreated TEXT, PlayerId NUMERIC)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (ID INTEGER PRIMARY KEY autoincrement, Name TEXT, DateCreated TEXT, PlayerId NUMERIC)";
 			    								  
 	
 	public SQLiteHelper(Context context) {
