@@ -1,12 +1,12 @@
 package com.example.softballstattracker;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.app.ListActivity;
-import android.view.Menu;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,8 +17,9 @@ public class ChoosePlayersActivity extends ListActivity {
 	
 	private PlayerDataSource playerDataSource;
 	private GameDataSource gamesDataSource;
+	private List<Player> selectedPlayers = new ArrayList<Player>();
 	private List<Player> players;
-	private List<Game> games;
+	private ListView playerListView;
 	EditText gameNameInput;
 	EditText gameDateInput;
 	
@@ -27,66 +28,66 @@ public class ChoosePlayersActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_players);
 		
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
-		
-		InitializeDataSources();
-		
-        ListView playerList = getListView();
-        
-        playerList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);        
-		
+		initializeDataSources();
+		setupListView();
+	}
+
+	private void setupListView() {
+		playerListView = getListView();
+		playerListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_checked, players);
 		setListAdapter(adapter);
 	}
-	
 
-
-	private void InitializeDataSources() {
+	private void initializeDataSources() 
+	{
 		playerDataSource = new PlayerDataSource(this);
-		playerDataSource.open();
 		gamesDataSource = new GameDataSource(this);
+		playerDataSource.open();
 		gamesDataSource.open();
-		
 		players = playerDataSource.getAllPlayers();
 	}
 	
-	
-	public void onListItemClick(
-			ListView parent, View v, int position, long id)
+	public void onListItemClick(ListView parent, View view, int position, long id)
 	{
-	
-		Toast.makeText(this, "You have selected player: " + players.get(position), Toast.LENGTH_SHORT).show();
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.choose_players, menu);
-		return false;
+	    super.onListItemClick(parent, view, position, id); 
+		Player selectedPlayer = players.get(position);
+		Toast.makeText(this, "You have selected player: " + selectedPlayer, Toast.LENGTH_SHORT).show();
 	}
 	
 	public void AddPlayerStats(View view)
 	{
-		CreateGamesForSelectedPlayers();
+		selectedPlayers = getChosenPlayers();
+		createGamesForSelectedPlayers(selectedPlayers);
 	}
 
-	private void CreateGamesForSelectedPlayers() 
+	private List<Player> getChosenPlayers() 
 	{
-		//gameNameInput = (EditText)findViewById(R.id.gameNameInput);
-		//String gameName = gameNameInput.getText().toString();
+		int length = playerListView.getCount();
+		List<Player> chosenPlayers = new ArrayList<Player>();;
+				
+		SparseBooleanArray checked = playerListView.getCheckedItemPositions();
+		//loop through entire list of players 
+		for (int i = 0; i < length; i++)
+		 if (checked.get(i)) 
+		 {
+		   Player player = players.get(i);
+		   chosenPlayers.add(player);
+		 }
 		
-		//gameDateInput = (EditText)findViewById(R.id.gameNameInput);
-		//String dateCreated = gameDateInput.getText().toString();
+		return chosenPlayers;
+	}
+
+	private void createGamesForSelectedPlayers(List<Player> players) {
 		
-		int gameId = gamesDataSource.getMaxGameId();
-		
-		Game newGame = new Game();
-		//newGame.setName(gameName);
-		newGame.setId(gameId);
-		
-		gamesDataSource.createGame(newGame);
-		
+		for (int i = 0; i < players.size(); i++)
+		{
+			Player player = players.get(i);
+			
+			Game newGame = new Game();
+			newGame.setName("new fuckin game");
+			newGame.setPlayerId(player.getId());
+			gamesDataSource.createGame(newGame);
+		}
 	}
 }
-
