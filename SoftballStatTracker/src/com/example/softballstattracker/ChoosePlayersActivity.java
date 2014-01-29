@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ListView;
+import android.widget.Button;
 
 public class ChoosePlayersActivity extends ListActivity {
 	
@@ -24,6 +25,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	private List<Player> players;
 	private ListView playerListView;
 	TextView et_date;
+	Button addStats;
 	EditText gameNameInput;
 	EditText gameDateInput;
 	
@@ -32,6 +34,7 @@ public class ChoosePlayersActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_players);
 		et_date = (TextView) findViewById(R.id.textView1);
+		addStats = (Button) findViewById(R.id.button1);
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
@@ -40,11 +43,16 @@ public class ChoosePlayersActivity extends ListActivity {
 		if (bundle != null)
 		{
 			//getting the value store in "date_input"
-			String myText = bundle.getString("date_input");
-			if(myText != null && !myText.isEmpty())
+			String gameDate = bundle.getString("date_input");
+			String opponent = bundle.getString("Opponent_input");
+			if(gameDate != null && !gameDate.isEmpty())
 			{
 				//appending the value of the contents in et_date or textView1
-				et_date.append(" on date: " + myText);
+				et_date.append(" on date: " + gameDate);
+			}
+			if(opponent != null && !opponent.isEmpty())
+			{
+				addStats.append(" to game against: " + opponent);
 			}
 		}
 		

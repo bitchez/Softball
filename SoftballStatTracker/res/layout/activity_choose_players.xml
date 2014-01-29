@@ -25,7 +25,6 @@
         android:layout_centerHorizontal="true"
         android:onClick="AddPlayerStats"
         android:text="@string/addStats"
-        android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:textSize="15sp" />
 

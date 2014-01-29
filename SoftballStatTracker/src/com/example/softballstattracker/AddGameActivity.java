@@ -80,9 +80,12 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	public void choosePlayers(View view)
 	{
 		EditText et_1 = (EditText) findViewById(R.id.gameDateInput);
+		EditText op = (EditText) findViewById(R.id.opponent);
+		String opponentString = op.getText().toString();
 		String s = et_1.getText().toString();
 		Intent intent = new Intent(this, ChoosePlayersActivity.class);
 		intent.putExtra("date_input", s);
+		intent.putExtra("Opponent_input", opponentString);
 	    startActivity(intent);
 	}
 	
