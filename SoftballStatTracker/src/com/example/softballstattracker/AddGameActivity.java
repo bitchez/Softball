@@ -49,33 +49,40 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	}
 	
 	@Override
-	 public void onClick(View v) {
+	public void onClick(View v) 
+	{
 	  showDialog(0);
-	 }
+	}
 
-	 @Override
-	 @Deprecated
-	 protected Dialog onCreateDialog(int id) {
-	  return new DatePickerDialog(this, datePickerListener, year, month, day);
-	 }
+	@Override
+	@Deprecated
+	protected Dialog onCreateDialog(int id) 
+	{
+		return new DatePickerDialog(this, datePickerListener, year, month, day);
+	}
 
-	 private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
-		 public void onDateSet(DatePicker view, int selectedYear,
-		 int selectedMonth, int selectedDay) {
-			 et.setText((selectedMonth + 1) + " / " + selectedDay + " / "
-			 + selectedYear);
-		 }
-	 };
+	private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int selectedYear,
+		int selectedMonth, int selectedDay) 
+		{
+			et.setText((selectedMonth + 1) + " / " + selectedDay + " / "
+			+ selectedYear);
+		}
+	};
+	 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.add_game, menu);
 		return true;
 	}
-	
+
 	public void choosePlayers(View view)
 	{
-		Intent intent = new Intent(this, ChoosePlayersActivity.class);	
+		EditText et_1 = (EditText) findViewById(R.id.gameDateInput);
+		String s = et_1.getText().toString();
+		Intent intent = new Intent(this, ChoosePlayersActivity.class);
+		intent.putExtra("date_input", s);
 	    startActivity(intent);
 	}
 	

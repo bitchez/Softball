@@ -6,10 +6,12 @@ import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
 import android.os.Bundle;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ListView;
 
@@ -20,6 +22,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	private List<Player> selectedPlayers = new ArrayList<Player>();
 	private List<Player> players;
 	private ListView playerListView;
+	TextView et_date;
 	EditText gameNameInput;
 	EditText gameDateInput;
 	
@@ -27,6 +30,16 @@ public class ChoosePlayersActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_players);
+		et_date = (TextView) findViewById(R.id.textView1);
+		
+		Bundle bundle=getIntent().getExtras();
+		if (bundle != null)
+		{
+			//getting the value store in "date_input"
+			String myText = bundle.getString("date_input");
+			//appending the value of the contents in et_date or textView1
+			et_date.append(" on date: " + myText);
+		}
 		
 		initializeDataSources();
 		setupListView();

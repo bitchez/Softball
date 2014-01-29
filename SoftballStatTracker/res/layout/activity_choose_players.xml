@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/button1"
-        android:text="@string/choosePlayersGame"
+        android:text="Choose players for game"
         android:textSize="20sp" />
 
     <Button
