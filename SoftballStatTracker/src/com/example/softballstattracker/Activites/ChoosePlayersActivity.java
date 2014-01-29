@@ -6,8 +6,8 @@ import java.util.List;
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
-import com.example.softballstattracker.DataSources.Models.Game;
-import com.example.softballstattracker.DataSources.Models.Player;
+import com.example.softballstattracker.Models.Game;
+import com.example.softballstattracker.Models.Player;
 import com.example.softballstattracker.R.id;
 import com.example.softballstattracker.R.layout;
 
