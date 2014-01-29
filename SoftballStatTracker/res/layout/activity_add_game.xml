@@ -28,19 +28,6 @@
         android:text="@string/datePlayed"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/gameDateInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gameNameInput"
-        android:layout_below="@+id/textView2"
-        android:ems="10"
-        android:hint="dd/mm/yyyy"
-        android:inputType="date" >
-
-        <requestFocus />
-    </EditText>
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
@@ -51,14 +38,35 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/gameNameInput"
+        android:id="@+id/gameDateInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/imageButton1"
+        android:layout_alignLeft="@+id/textView2"
+        android:editable="false"
         android:ems="10"
-        android:hint="@string/gameName" />
-    
+        android:hint="dd/mm/yyyy" />
 
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@+id/gameDateInput"
+        android:contentDescription="selectdate"
+        android:cropToPadding="true"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <EditText
+        android:id="@+id/gameNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageButton1"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="@string/gameName" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
