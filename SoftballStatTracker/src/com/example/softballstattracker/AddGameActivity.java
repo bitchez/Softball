@@ -62,7 +62,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	 private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
 		 public void onDateSet(DatePicker view, int selectedYear,
 		 int selectedMonth, int selectedDay) {
-			 et.setText(selectedDay + " / " + (selectedMonth + 1) + " / "
+			 et.setText((selectedMonth + 1) + " / " + selectedDay + " / "
 			 + selectedYear);
 		 }
 	 };
