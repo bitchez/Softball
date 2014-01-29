@@ -24,40 +24,46 @@ public class ChoosePlayersActivity extends ListActivity {
 	private List<Player> selectedPlayers = new ArrayList<Player>();
 	private List<Player> players;
 	private ListView playerListView;
-	TextView et_date;
-	Button addStats;
+	private String gameDate;
+	private String gameName;
+	private String opponentName;
 	EditText gameNameInput;
-	EditText gameDateInput;
+	EditText gameDateInputs;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_players);
-		et_date = (TextView) findViewById(R.id.textView1);
-		addStats = (Button) findViewById(R.id.button1);
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
-		Bundle bundle=getIntent().getExtras();
+		getAddGameInformation();
+		initializeDataSources();
+		setupListView();
+	}
+
+	private void getAddGameInformation() 
+	{
+		TextView et_date = (TextView) findViewById(R.id.textView1);
+		Button addStats = (Button) findViewById(R.id.button1);
+		
+		Bundle bundle = getIntent().getExtras();
 		if (bundle != null)
 		{
-			//getting the value store in "date_input"
-			String gameDate = bundle.getString("date_input");
-			String opponent = bundle.getString("Opponent_input");
+			gameName = bundle.getString("gameName_input");
+			gameDate = bundle.getString("gameDate_input");
+			opponentName = bundle.getString("opponentName_input");
 			if(gameDate != null && !gameDate.isEmpty())
 			{
 				//appending the value of the contents in et_date or textView1
 				et_date.append(" on date: " + gameDate);
 			}
-			if(opponent != null && !opponent.isEmpty())
+			if(opponentName != null && !opponentName.isEmpty())
 			{
-				addStats.append(" to game against: " + opponent);
+				addStats.append(" to game against: " + opponentName);
 			}
 		}
-		
-		initializeDataSources();
-		setupListView();
 	}
 
 	private void setupListView() {
@@ -113,7 +119,8 @@ public class ChoosePlayersActivity extends ListActivity {
 			Player player = players.get(i);
 			
 			Game newGame = new Game();
-			newGame.setName("new fuckin game");
+			newGame.setName(gameName);
+			newGame.setDateCreated(gameDate);
 			newGame.setPlayerId(player.getId());
 			gamesDataSource.createGame(newGame);
 		}
