@@ -6,11 +6,8 @@ import java.util.List;
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.GameDataSource;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
-import com.example.softballstattracker.Fragments.PlayersSelectedActivity;
 import com.example.softballstattracker.Models.Game;
 import com.example.softballstattracker.Models.Player;
-import com.example.softballstattracker.R.id;
-import com.example.softballstattracker.R.layout;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -29,7 +26,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	
 	private PlayerDataSource playerDataSource;
 	private GameDataSource gamesDataSource;
-	private List<Player> selectedPlayers = new ArrayList<Player>();
+	private ArrayList<Player> selectedPlayers = new ArrayList<Player>();
 	private List<Player> players;
 	private ListView playerListView;
 	private String gameDate;
@@ -96,30 +93,32 @@ public class ChoosePlayersActivity extends ListActivity {
 		Player selectedPlayer = players.get(position);
 		Toast.makeText(this, "You have selected player: " + selectedPlayer, Toast.LENGTH_SHORT).show();
 	}
+	
+	public void AddPlayerStats(View view)
+	{
+		selectedPlayers = getChosenPlayers();
+		createGamesForSelectedPlayers(selectedPlayers);
+		Intent intent = new Intent(this, StatsFragmentActivity.class);
+		//intent.putParcelableArrayListExtra("chosenPlayers", selectedPlayers);
+		startActivity(intent);
+	}
 
-	private List<Player> getChosenPlayers() 
+	private ArrayList<Player> getChosenPlayers() 
 	{
 		int length = playerListView.getCount();
-		List<Player> chosenPlayers = new ArrayList<Player>();;
+		ArrayList<Player> chosenPlayers = new ArrayList<Player>();
 				
-		SparseBooleanArray checked = playerListView.getCheckedItemPositions();
+		SparseBooleanArray checkedPlayers = playerListView.getCheckedItemPositions();
+		
 		//loop through entire list of players 
 		for (int i = 0; i < length; i++)
-		 if (checked.get(i)) 
+		 if (checkedPlayers.get(i)) 
 		 {
 		   Player player = players.get(i);
 		   chosenPlayers.add(player);
 		 }
 		
 		return chosenPlayers;
-	}
-	
-	public void AddPlayerStats(View view)
-	{
-		selectedPlayers = getChosenPlayers();
-		createGamesForSelectedPlayers(selectedPlayers);
-		Intent intent = new Intent(this, MainFragment.class);
-		startActivity(intent);
 	}
 
 	private void createGamesForSelectedPlayers(List<Player> players) {

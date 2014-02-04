@@ -39,7 +39,7 @@ public class AddPlayerActivity extends Activity {
 		
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
-		if(DoesPlayerNameExist(playerNameInput))
+		if(doesPlayerNameExist(playerNameInput))
 	    {
 			playerNameInput.setError("Player name is required");
 	    }
@@ -57,7 +57,7 @@ public class AddPlayerActivity extends Activity {
 		}
 	}
 	
-	 private boolean DoesPlayerNameExist(EditText playerName) {
+	 private boolean doesPlayerNameExist(EditText playerName) {
 		return (playerName.getText().toString().trim().equals(""));
 		
 	}
