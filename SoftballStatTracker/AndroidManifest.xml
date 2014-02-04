@@ -17,8 +17,7 @@
             android:name="com.example.softballstattracker.Activites.MainActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity
-            android:name="com.example.softballstattracker.Activites.StartActivity" >
+        <activity android:name="com.example.softballstattracker.Activites.StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,8 +33,16 @@
             android:label="@string/title_activity_add_game" >
         </activity>
         <activity
-     		android:name="com.example.softballstattracker.Activites.ChoosePlayersActivity"
+            android:name="com.example.softballstattracker.Activites.ChoosePlayersActivity"
             android:label="@string/title_activity_choose_players" >
+        </activity>
+        <activity
+            android:name="com.example.softballstattracker.Fragments.PlayersSelectedActivity"
+            android:label="@string/title_activity_players_selected" >
+        </activity>
+        <activity
+            android:name="com.example.softballstattracker.Activites.MainFragment"
+            android:label="@string/title_activity_main_fragment" >
         </activity>
     </application>
 
