@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.net.Uri;
 
 import android.widget.EditText;
 
@@ -50,8 +51,9 @@ public class AddPlayerActivity extends Activity {
 		//save new player to DB
 		playerDataSource.createPlayer(playerName);
 		
-		Intent intent = new Intent(this, AddGameActivity.class);
-	    startActivity(intent);
+		Intent intent = new Intent();
+		intent.setData(Uri.parse(playerName)); setResult(RESULT_OK, intent);
+	    finish();
 		}
 	}
 	

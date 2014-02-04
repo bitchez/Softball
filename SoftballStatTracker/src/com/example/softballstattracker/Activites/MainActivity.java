@@ -10,8 +10,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
+	
+	int request_Code = 1;
 
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -30,13 +33,24 @@ public class MainActivity extends Activity {
 	
 	public void AddPlayer(View view)
 	{     
-		Intent intent = new Intent(this, AddPlayerActivity.class);
-	    startActivity(intent);
+		startActivityForResult(new Intent(this, AddPlayerActivity.class), request_Code);
 	}
 	
 	public void AddGame(View view)
 	{     
 		Intent intent = new Intent(this, AddGameActivity.class);
 	    startActivity(intent);
+	}
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if (requestCode == request_Code) 
+		{
+			if (resultCode == RESULT_OK) 
+			{
+				Toast.makeText(this, data.getData().toString() + " added to player list.", Toast.LENGTH_LONG).show();
+			}
+		}
+		
 	}
 }
