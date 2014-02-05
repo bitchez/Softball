@@ -2,11 +2,8 @@ package com.example.softballstattracker.DataSources;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.joda.time.DateTime;
-
 import com.example.softballstattracker.Models.Game;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

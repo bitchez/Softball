@@ -1,7 +1,12 @@
 package com.example.softballstattracker.Models;
 
-public class Player {
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
+public class Player implements Parcelable {
 	
+	private static final String TAG = "Player object";
 	private long playerId; 
 	private String name;
 	private String dateCreated;
@@ -37,5 +42,52 @@ public class Player {
 	  {
 	    return name;
 	  }
+	  
+	   	//below logic is used for the purpose of serializing object through intent
+	   	@Override
+	   	public int describeContents() {
+	   		return 0;
+	   	}
+	   	
+	   	public static final Parcelable.Creator<Player> CREATOR 
+	   	= new Parcelable.Creator<Player>() {
+	   		
+	   		@Override
+	   		public Player createFromParcel(Parcel in) {
+	   			Log.v(TAG, "creating from parcel");
+	   			Player newPlayer = new Player();
+	   			newPlayer.playerId = in.readLong();
+	   			newPlayer.name = in.readString();
+	   			newPlayer.dateCreated = in.readString();
+	   			return newPlayer;
+	   		}
+	   
+	   		@Override
+	   		public Player[] newArray(int size) {
+	   		    return new Player[size];
+	   		}
+	   	};
+	   	
+		   
+	   	@Override
+	   	public void writeToParcel(Parcel out, int flags) {
+	   		Log.v(TAG, "writeToParcel..." + flags);
+	   		out.writeLong(playerId);
+	   		out.writeString(name);
+	   		out.writeString(dateCreated);
+	   	}
+	   	
+	   	 public Player(Parcel source) 
+	   	 {
+	   		Log.v(TAG, "Player(Player source): time to put back the parcel data");
+	   		playerId = source.readInt();
+	   		name = source.readString();
+	   		dateCreated = source.readString();
+	   	}
+	   
+	   	public Player() 
+	   	{
+	   		Log.d(TAG, "new player");
+	   	}
 
 }

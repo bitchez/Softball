@@ -2,23 +2,20 @@ package com.example.softballstattracker.Activites;
 
 import java.util.Calendar;
 
-import com.example.softballstattracker.R;
-import com.example.softballstattracker.R.id;
-import com.example.softballstattracker.R.layout;
-import com.example.softballstattracker.R.menu;
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+
+import com.example.softballstattracker.R;
 
 public class AddGameActivity extends Activity implements OnClickListener {
 	

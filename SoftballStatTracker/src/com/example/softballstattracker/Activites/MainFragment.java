@@ -1,22 +1,24 @@
 package com.example.softballstattracker.Activites;
 
-import com.example.softballstattracker.R;
-import com.example.softballstattracker.R.layout;
-import com.example.softballstattracker.R.menu;
-
-import android.os.Bundle;
 import android.app.ActionBar;
-import android.app.Activity;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 
+import com.example.softballstattracker.R;
+
 public class MainFragment extends FragmentActivity {
+
+	private static final String TAG = "StatsActivityFragment";;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_fragment);
 		
+		Log.d(TAG, "created StatsActivityFragment");
+		
+		setContentView(R.layout.activity_main_fragment);
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 	}

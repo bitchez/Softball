@@ -3,33 +3,30 @@ package com.example.softballstattracker.Activites;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.softballstattracker.R;
-import com.example.softballstattracker.DataSources.GameDataSource;
-import com.example.softballstattracker.DataSources.PlayerDataSource;
-import com.example.softballstattracker.Fragments.PlayersSelectedActivity;
-import com.example.softballstattracker.Models.Game;
-import com.example.softballstattracker.Models.Player;
-import com.example.softballstattracker.R.id;
-import com.example.softballstattracker.R.layout;
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ListView;
-import android.widget.Button;
+
+import com.example.softballstattracker.R;
+import com.example.softballstattracker.DataSources.GameDataSource;
+import com.example.softballstattracker.DataSources.PlayerDataSource;
+import com.example.softballstattracker.Models.Game;
+import com.example.softballstattracker.Models.Player;
 
 public class ChoosePlayersActivity extends ListActivity {
 	
 	private PlayerDataSource playerDataSource;
 	private GameDataSource gamesDataSource;
-	private List<Player> selectedPlayers = new ArrayList<Player>();
+	private ArrayList<Player> selectedPlayers = new ArrayList<Player>();
 	private List<Player> players;
 	private ListView playerListView;
 	private String gameDate;
@@ -96,11 +93,20 @@ public class ChoosePlayersActivity extends ListActivity {
 		Player selectedPlayer = players.get(position);
 		Toast.makeText(this, "You have selected player: " + selectedPlayer, Toast.LENGTH_SHORT).show();
 	}
-
-	private List<Player> getChosenPlayers() 
+	
+	public void AddPlayerStats(View view)
+	{
+		selectedPlayers = getChosenPlayers();
+		createGamesForSelectedPlayers(selectedPlayers);
+		Intent intent = new Intent(this, MainFragment.class);
+		intent.putParcelableArrayListExtra("selectedPlayers", selectedPlayers);
+		startActivity(intent);
+	}
+	
+	private ArrayList<Player> getChosenPlayers() 
 	{
 		int length = playerListView.getCount();
-		List<Player> chosenPlayers = new ArrayList<Player>();;
+		ArrayList<Player> chosenPlayers = new ArrayList<Player>();;
 				
 		SparseBooleanArray checked = playerListView.getCheckedItemPositions();
 		//loop through entire list of players 
@@ -112,14 +118,6 @@ public class ChoosePlayersActivity extends ListActivity {
 		 }
 		
 		return chosenPlayers;
-	}
-	
-	public void AddPlayerStats(View view)
-	{
-		selectedPlayers = getChosenPlayers();
-		createGamesForSelectedPlayers(selectedPlayers);
-		Intent intent = new Intent(this, MainFragment.class);
-		startActivity(intent);
 	}
 
 	private void createGamesForSelectedPlayers(List<Player> players) {
