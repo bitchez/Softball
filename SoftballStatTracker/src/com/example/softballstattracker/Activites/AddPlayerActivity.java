@@ -35,8 +35,8 @@ public class AddPlayerActivity extends Activity {
 		return true;
 	}
 	
-	public void savePlayer(View view){
-		
+	public void savePlayer(View view) {
+		 
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
 		if(DoesPlayerNameExist(playerNameInput))
@@ -52,8 +52,10 @@ public class AddPlayerActivity extends Activity {
 		playerDataSource.createPlayer(playerName);
 		
 		Intent intent = new Intent();
-		intent.setData(Uri.parse(playerName)); setResult(RESULT_OK, intent);
+		intent.setData(Uri.parse(playerName)); 
+		setResult(RESULT_OK, intent);
 	    finish();
+	    
 		}
 	}
 	

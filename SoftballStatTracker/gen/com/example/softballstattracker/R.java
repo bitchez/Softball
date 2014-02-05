@@ -37,11 +37,11 @@ public final class R {
         public static final int imageButton1=0x7f090003;
         public static final int opponent=0x7f090007;
         public static final int playerNameInput=0x7f090008;
-        public static final int players_spinner=0x7f09000f;
+        public static final int players_spinner=0x7f09000e;
         public static final int savePlayerButton=0x7f090009;
-        public static final int spinner_fragment=0x7f09000d;
-        public static final int start=0x7f090010;
-        public static final int stats_fragment=0x7f09000e;
+        public static final int spinner_fragment=0x7f09000f;
+        public static final int start=0x7f09000d;
+        public static final int stats_fragment=0x7f090010;
         public static final int textView1=0x7f090001;
         public static final int textView2=0x7f090004;
         public static final int textView3=0x7f090006;
@@ -51,10 +51,10 @@ public final class R {
         public static final int activity_add_player=0x7f030001;
         public static final int activity_choose_players=0x7f030002;
         public static final int activity_main=0x7f030003;
-        public static final int activity_main_fragment=0x7f030004;
-        public static final int activity_players_selected=0x7f030005;
-        public static final int activity_start=0x7f030006;
-        public static final int stats_fragment=0x7f030007;
+        public static final int activity_start=0x7f030004;
+        public static final int edit_stats_fragment=0x7f030005;
+        public static final int players_stats_spinner_fragment=0x7f030006;
+        public static final int stats_activity_fragment=0x7f030007;
     }
     public static final class menu {
         public static final int add_game=0x7f080000;

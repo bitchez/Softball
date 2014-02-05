@@ -8,7 +8,7 @@ import android.view.Menu;
 
 import com.example.softballstattracker.R;
 
-public class MainFragment extends FragmentActivity {
+public class StatsFragmentActivity extends FragmentActivity {
 
 	private static final String TAG = "StatsActivityFragment";;
 
@@ -17,8 +17,7 @@ public class MainFragment extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		
 		Log.d(TAG, "created StatsActivityFragment");
-		
-		setContentView(R.layout.activity_main_fragment);
+		setContentView(R.layout.stats_activity_fragment);
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 	}

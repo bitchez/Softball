@@ -15,8 +15,7 @@ import android.widget.Spinner;
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.Models.Player;
 
-
-public class PlayersSelectedActivity extends Fragment {
+public class PlayerStatsSpinnerFragment extends Fragment {
 
 	private List<Player> selectedPlayers = new ArrayList<Player>();
 	
@@ -26,7 +25,7 @@ public class PlayersSelectedActivity extends Fragment {
 		Bundle statsFragActivity = getActivity().getIntent().getExtras();
 		selectedPlayers = statsFragActivity.getParcelableArrayList("selectedPlayers");
 		
-		View view = inflater.inflate(R.layout.activity_players_selected, container, false);
+		View view = inflater.inflate(R.layout.players_stats_spinner_fragment, container, false);
 		spinnerList(view);
 		return view;
 	}

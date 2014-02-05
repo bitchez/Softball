@@ -37,11 +37,11 @@
             android:label="@string/title_activity_choose_players" >
         </activity>
         <activity
-            android:name="com.example.softballstattracker.Fragments.PlayersSelectedActivity"
+            android:name="com.example.softballstattracker.Fragments.PlayerStatsSpinnerFragment"
             android:label="@string/title_activity_players_selected" >
         </activity>
         <activity
-            android:name="com.example.softballstattracker.Activites.MainFragment"
+            android:name="com.example.softballstattracker.Activites.StatsFragmentActivity"
             android:label="@string/title_activity_main_fragment" >
         </activity>
     </application>

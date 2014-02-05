@@ -6,16 +6,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainFragment" >
+    tools:context=".StatsFragmentActivity" >
 
 	<fragment
 	    android:id="@+id/spinner_fragment"
-	    android:name="com.example.softballstattracker.Fragments.PlayersSelectedActivity"
+	    android:name="com.example.softballstattracker.Fragments.PlayerStatsSpinnerFragment"
 	    android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        tools:layout="@layout/activity_players_selected"
+        tools:layout="@layout/players_stats_spinner_fragment"
         />
 
 	<fragment
@@ -26,6 +26,6 @@
 	    android:layout_alignLeft="@+id/spinner_fragment"
 	    android:layout_below="@+id/spinner_fragment"
 	    android:layout_marginTop="22dp"
-	    tools:layout="@layout/stats_fragment" />
+	    tools:layout="@layout/edit_stats_fragment" />
 
 </RelativeLayout>
