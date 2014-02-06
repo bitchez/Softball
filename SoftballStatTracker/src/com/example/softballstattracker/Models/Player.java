@@ -12,9 +12,10 @@ public class Player implements Parcelable {
 	private String dateCreated;
 	public boolean isPlayerChosen;
 	
-	 public long getId() {
-		    return playerId;
-		  }
+	 public long getId() 
+	 {
+	    return playerId;
+	 }
 
 	  public void setId(long playerId) {
 	    this.playerId = playerId;
@@ -32,9 +33,10 @@ public class Player implements Parcelable {
 		return dateCreated;
 	  }
 	  
-	  public void setDateCreated(String dateCreated) {
+	  public void setDateCreated(String dateCreated) 
+	  {
 		    this.dateCreated = dateCreated;
-		  }
+	  }
 		  
 	  // Will be used by the ArrayAdapter in the ListView
 	  @Override

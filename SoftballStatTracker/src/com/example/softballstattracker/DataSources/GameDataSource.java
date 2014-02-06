@@ -16,7 +16,7 @@ public class GameDataSource {
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.GAME_ID,
-		  						  SQLiteHelper.NAME,
+		  						  SQLiteHelper.GAME_NAME,
 		  						  SQLiteHelper.DATE_CREATED,
 		  						  SQLiteHelper.PLAYER_ID}; 
 
@@ -38,7 +38,7 @@ public class GameDataSource {
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
-    values.put(SQLiteHelper.NAME, game.getname());
+    values.put(SQLiteHelper.GAME_NAME, game.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
     values.put(SQLiteHelper.PLAYER_ID, game.getPlayerId());
 

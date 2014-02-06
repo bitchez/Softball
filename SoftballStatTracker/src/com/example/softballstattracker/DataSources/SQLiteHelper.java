@@ -10,16 +10,27 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String TABLE_PLAYERS = "Players";
 	public static final String TABLE_GAMES = "Games";
 	public static final String TABLE_STATS = "Stats";
-	public static final String NAME = "Name";
+	public static final String GAME_NAME = "GameName";
+	public static final String PLAYER_NAME = "PlayerName";
 	public static final String DATE_CREATED = "DateCreated";
+	public static final String STAT_ID = "StatId";
 	public static final String PLAYER_ID = "PlayerId";
 	public static final String GAME_ID = "GameId";
-	public static final String DATABASE_NAME = "SoftballStatsDB.db";
-	private static final int DATABASE_VERSION = 14;
+	public static final String AT_BATS = "AtBats";
+	public static final String HITS = "Hits";
+	public static final String SINGLES = "Singles";
+	public static final String DOUBLES = "Doubles";
+	public static final String TRIPLES = "Triples";
+	public static final String HOMERUNS = "Homeruns";
+	public static final String RUNS_BATTED_IN = "RBIs";
+	public static final String BEERS_DRANK = "BeersDrank";
+	public static final String PUTOUTS = "PutOuts";
+ 	public static final String DATABASE_NAME = "SoftballStatsDB.db";
+	private static final int DATABASE_VERSION = 17;
 	
-	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, Name text not null, DateCreated string)";
-	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY autoincrement, Name TEXT, DateCreated TEXT, PlayerId INTEGER)";
-	public static final String DATABASE_CREATE_STATS = "CREATE TABLE Stats (PlayerId INTEGER PRIMARY KEY, AtBats INTEGER, Average REAL, Hits INTEGER, Singles INTEGER, Doubles INTEGER, Triples INTEGER, RBIs INTEGER, Beers INTEGER, PutOuts INTEGER, GAMES INTEGER, GameID INTEGER not null, DateCreated string)";   								  
+	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, PlayerName text not null, DateCreated string)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY autoincrement, GameName TEXT, DateCreated string, PlayerId INTEGER)";
+	public static final String DATABASE_CREATE_STATS = "CREATE TABLE Stats (StatId INTEGER PRIMARY KEY autoincrement, PlayerId INTEGER, PlayerName string, AtBats INTEGER, Hits INTEGER, Singles INTEGER, Doubles INTEGER, Triples INTEGER, Homeruns INTEGER, RBIs INTEGER, PutOuts INTEGER, BeersDrank INTEGER, GameID INTEGER not null, DateCreated string)";   								  
 	
 	public SQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

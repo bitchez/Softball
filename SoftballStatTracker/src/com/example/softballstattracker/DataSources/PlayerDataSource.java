@@ -17,7 +17,7 @@ public class PlayerDataSource {
   private SQLiteDatabase database;
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.PLAYER_ID,
-		  						  SQLiteHelper.NAME,
+		  						  SQLiteHelper.PLAYER_NAME,
 		  						  SQLiteHelper.DATE_CREATED }; 
 
   public PlayerDataSource(Context context) 
@@ -38,7 +38,7 @@ public class PlayerDataSource {
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
-    values.put(SQLiteHelper.NAME, playerName);
+    values.put(SQLiteHelper.PLAYER_NAME, playerName);
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
 
     long insertId = database.insert(SQLiteHelper.TABLE_PLAYERS, null, values);

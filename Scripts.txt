@@ -1,12 +1,20 @@
---Create Games table
-"CREATE TABLE Games (PlayerId INTEGER PRIMARY KEY, Name TEXT, DateCreated TEXT, PlayerId NUMERIC) 
-
---Create Players table
-CREATE TABLE Players (GameId integer primary key autoincrement, Name text not null, DateCreated string)"
-				
---Create Stats table
-CREATE TABLE Stats (PlayerId INTEGER PRIMARY KEY, AtBats INTEGER, Average REAL, Hits INTEGER, Singles INTEGER, 
-Doubles INTEGER, Triples INTEGER, RBIs INTEGER, Beers INTEGER, PutOuts INTEGER, GAMES INTEGER, GameID INTEGER not null, DateCreated string)"
-				
+	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, PlayerName text not null, DateCreated string)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY autoincrement, GameName TEXT, DateCreated TEXT, PlayerId INTEGER)";
+	public static final String DATABASE_CREATE_STATS = "CREATE TABLE Stats (
+	PlayerId INTEGER PRIMARY KEY,
+	PlayerName string, 
+	AtBats INTEGER
+	Hits INTEGER,
+	Singles INTEGER, 
+	Doubles INTEGER, 
+	Triples INTEGER, 
+	Homeruns INTEGER, 
+	Average REAL,  
+	RBIs INTEGER, 
+	PutOuts INTEGER, 
+	BeersDrank INTEGER, 
+	GameID INTEGER not null, 
+	DateCreated string)";   								  
+					
 --Get Max ID from Games table
  database.rawQuery("SELECT MAX(ID) FROM Games", null);

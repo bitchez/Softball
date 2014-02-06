@@ -1,20 +1,24 @@
 package com.example.softballstattracker.Models;
 
 public class Stat {
-	
+	private long statId;
 	private long playerId;
 	private String playerName;
 	private int atBats;
-	private float average;
 	private int hits;
 	private int singles;
 	private int doubles;
 	private int triples;
 	private int homeRuns;
+	private int rbis;
 	private int putOuts;
 	private int beersDrank;
 	private long gameId;
 	private String dateCreated;
+	
+	public long getStatId() {
+		return statId;
+	}
 	
 	public long getPlayerId() {
 	  return playerId;
@@ -26,10 +30,6 @@ public class Stat {
 	
 	public int getAtBats() {
 		  return atBats;
-		}
-	
-	public float getAverage() {
-		  return average;
 		}
 	
 	public int getHits() {
@@ -50,6 +50,10 @@ public class Stat {
 	
 	public int getHomeRuns() {
 		  return homeRuns;
+		}
+	
+	public int getRunsBattedIn() {
+		  return rbis;
 		}
 	
 	public int getPutOuts() {
@@ -98,6 +102,10 @@ public class Stat {
 	
 	public void setHomeRuns(int homeRuns) {
 		this.homeRuns = homeRuns;
+	}
+	
+	public void setRbis(int rbis) {
+		this.rbis = rbis;
 	}
 	
 	public void setPutOuts(int putOuts) {
