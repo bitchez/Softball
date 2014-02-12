@@ -33,8 +33,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	private String gameName;
 	private String opponentName;
 	EditText gameNameInput;
-	EditText gameDateInputs;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,6 +58,7 @@ public class ChoosePlayersActivity extends ListActivity {
 			gameName = bundle.getString("gameName_input");
 			gameDate = bundle.getString("gameDate_input");
 			opponentName = bundle.getString("opponentName_input");
+			
 			if(gameDate != null && !gameDate.isEmpty())
 			{
 				//appending the value of the contents in et_date or textView1
@@ -72,6 +72,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	}
 
 	private void setupListView() {
+		
 		playerListView = getListView();
 		playerListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_checked, players);
@@ -94,7 +95,7 @@ public class ChoosePlayersActivity extends ListActivity {
 		Toast.makeText(this, "You have selected player: " + selectedPlayer, Toast.LENGTH_SHORT).show();
 	}
 	
-	public void AddPlayerStats(View view)
+	public void addPlayerStats(View view)
 	{
 		selectedPlayers = getChosenPlayers();
 		createGamesForSelectedPlayers(selectedPlayers);

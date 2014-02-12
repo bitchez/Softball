@@ -1,19 +1,19 @@
 package com.example.softballstattracker.Activites;
 
-import org.joda.time.DateTime;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
-import com.example.softballstattracker.R;
-import com.example.softballstattracker.DataSources.StatDataSource;
-import com.example.softballstattracker.Models.Stat;
 
-public class StatsFragmentActivity extends FragmentActivity {
+import com.example.softballstattracker.R;
+import com.example.softballstattracker.Fragments.EditStatsFragment;
+import com.example.softballstattracker.Interfaces.OnPlayerSelectedListener;
+import com.example.softballstattracker.Models.Player;
+
+public class StatsFragmentActivity extends FragmentActivity implements OnPlayerSelectedListener {
 
 	private static final String TAG = "StatsActivityFragment";
-	private StatDataSource statsDataSource;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +28,6 @@ public class StatsFragmentActivity extends FragmentActivity {
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
-		
-		statsDataSource = new StatDataSource(this);
-		statsDataSource.open();
-		
-		Log.d(TAG, "creating test Stat");
-		createTestStat();
-		Log.d(TAG, "finished creating test Stat");
-	}
-
-	private void createTestStat() 
-	{
-		String dateTime = DateTime.now().toString();
-		
-		Stat testStat = new Stat();
-		testStat.setPlayerId(1);
-		testStat.setPlayerName("test bitcth");
-		testStat.setAtBats(5);
-		testStat.setHits(2);
-		testStat.setSingles(1);
-		testStat.setDoubles(1);
-		testStat.setTriples(0);
-		testStat.setHomeRuns(0);
-		testStat.setRbis(1);
-		testStat.setPutOuts(0);
-		testStat.setBeerDrank(10);
-		testStat.setGameId(1);
-		testStat.setDateCreated(dateTime);
-		
-		statsDataSource.createStatistic(testStat);
 	}
 
 	@Override
@@ -66,4 +37,15 @@ public class StatsFragmentActivity extends FragmentActivity {
 		return true;
 	}
 
+	@Override
+	public void onPlayerSelected(Player selectedPlayer) 
+	{
+		EditStatsFragment statFrag = (EditStatsFragment)
+                getSupportFragmentManager().findFragmentById(R.id.stats_fragment);
+		
+		if(statFrag != null)
+		{
+			statFrag.updateStatsView(selectedPlayer);
+		} 
+	}
 }

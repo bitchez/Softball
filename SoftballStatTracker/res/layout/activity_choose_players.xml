@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:onClick="AddPlayerStats"
+        android:onClick="addPlayerStats"
         android:text="@string/addStats"
         android:layout_marginTop="10dp"
         android:textSize="15sp" />
