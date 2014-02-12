@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
-import android.widget.Spinner;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.StatDataSource;
@@ -43,8 +41,12 @@ public class EditStatsFragment extends Fragment {
 
 	public void updateStatsView(Player selectedPlayer) 
 	{
+		Bundle statsFragActivity = getActivity().getIntent().getExtras();
+		long currentGameId = statsFragActivity.getLong("currentGameId");
+		
 		newStat.setPlayerId(selectedPlayer.getId());
 		newStat.setPlayerName(selectedPlayer.getname());
+		newStat.setGameId(currentGameId);
 	}
 	
 	public void saveStats()
@@ -57,7 +59,6 @@ public class EditStatsFragment extends Fragment {
 		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
 		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
 		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
-		newStat.setGameId(111);
 
 		Log.v(TAG, "Saving Statistic");
 		statsDataSource.createStatistic(newStat);

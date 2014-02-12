@@ -19,19 +19,16 @@
     <string name="shortDescription">Short description of the game.</string>
     <string name="gameName">Game Name</string>
     <string name="title_activity_players_selected">PlayersSelectedActivity</string>
-
-    <string-array name="players_array">
-        <item>Placeholder player 1</item>
-        <item>Placeholder player 2</item>
-        <item>Placeholder player 3</item>
-        <item>Placeholder player 4</item>
-        <item>Placeholder player 5</item>
-        <item>Placeholder player 6</item>
-        <item>Placeholder player 7</item>
-        <item>Placeholder player 8</item>
-    </string-array>
-
+    
     <string name="text_label">Fragment Two</string>
     <string name="title_activity_main_fragment">MainFragment</string>
+    <string name="at_bats">At Bats</string>
+    <string name="singles">Singles</string>
+    <string name="doubles">Doubles</string>
+    <string name="triples">Triples</string>
+    <string name="homeruns">Homeruns</string>
+    <string name="rbis">RBIs</string>
+    <string name="put_outs">Put Outs</string>
+    <string name="beers_drank">Beers Drank</string>
 
 </resources>

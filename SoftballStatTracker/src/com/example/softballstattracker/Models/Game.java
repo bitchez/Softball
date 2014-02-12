@@ -5,7 +5,6 @@ public class Game {
 	private long gameId; 
 	private String name;
 	private String dateCreated;
-	private long playerId;
 	
 	 public long getId() {
 		return gameId;
@@ -29,14 +28,6 @@ public class Game {
 		  
 	  public void setDateCreated(String dateCreated) {
 		    this.dateCreated = dateCreated;
-		  }
-		  
-	  public long getPlayerId() {
-		    return playerId;
-		  }
-		  
-	  public void setPlayerId(long playerId) {
-		    this.playerId = playerId;
 		  }
 		  
 	  // Will be used by the ArrayAdapter in the ListView

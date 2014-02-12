@@ -17,8 +17,7 @@ public class GameDataSource {
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.GAME_ID,
 		  						  SQLiteHelper.GAME_NAME,
-		  						  SQLiteHelper.DATE_CREATED,
-		  						  SQLiteHelper.PLAYER_ID}; 
+		  						  SQLiteHelper.DATE_CREATED,}; 
 
   public GameDataSource(Context context) 
   {
@@ -37,15 +36,18 @@ public class GameDataSource {
   {  
 	String dateTime = DateTime.now().toString();
 	
+	int nextGameId = getMaxGameId() + 1;
+    game.setId(nextGameId);
+    
     ContentValues values = new ContentValues();
+    values.put(SQLiteHelper.GAME_ID, nextGameId);
     values.put(SQLiteHelper.GAME_NAME, game.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
-    values.put(SQLiteHelper.PLAYER_ID, game.getPlayerId());
 
-    long insertId = database.insert(SQLiteHelper.TABLE_GAMES, null, values);
+    database.insert(SQLiteHelper.TABLE_GAMES, null, values);
     
     Cursor cursor = database.query(SQLiteHelper.TABLE_GAMES,
-        allColumns, SQLiteHelper.GAME_ID + " = " + insertId, null,
+        allColumns, null, null,
         null, null, null);
     
     cursor.moveToFirst();
@@ -73,9 +75,9 @@ public class GameDataSource {
     return Games;
   }
   
-  public int getMaxGameId() {
-	    
-    Cursor cursor = database.rawQuery("SELECT MAX(ID) FROM Games", null);
+  public int getMaxGameId() 
+  {
+    Cursor cursor = database.rawQuery("SELECT MAX(GameID) FROM Games", null);
     cursor.moveToFirst();
     
     int maxId = cursor.getInt(0);
@@ -89,7 +91,6 @@ public class GameDataSource {
     game.setId(cursor.getLong(0));
     game.setName(cursor.getString(1));
     game.setDateCreated(cursor.getString(2));
-    game.setPlayerId(cursor.getLong(3));
     return game;
   }
 } 

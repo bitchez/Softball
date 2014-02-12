@@ -26,10 +26,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String BEERS_DRANK = "BeersDrank";
 	public static final String PUTOUTS = "PutOuts";
  	public static final String DATABASE_NAME = "SoftballStatsDB.db";
-	private static final int DATABASE_VERSION = 17;
+	private static final int DATABASE_VERSION = 18;
 	
 	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, PlayerName text not null, DateCreated string)";
-	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY autoincrement, GameName TEXT, DateCreated string, PlayerId INTEGER)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY, GameName TEXT, DateCreated string)";
 	public static final String DATABASE_CREATE_STATS = "CREATE TABLE Stats (StatId INTEGER PRIMARY KEY autoincrement, PlayerId INTEGER, PlayerName string, AtBats INTEGER, Hits INTEGER, Singles INTEGER, Doubles INTEGER, Triples INTEGER, Homeruns INTEGER, RBIs INTEGER, PutOuts INTEGER, BeersDrank INTEGER, GameID INTEGER not null, DateCreated string)";   								  
 	
 	public SQLiteHelper(Context context) {
@@ -56,6 +56,5 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMES);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATS);
 	    onCreate(db);
-		}
-
+	}
 }

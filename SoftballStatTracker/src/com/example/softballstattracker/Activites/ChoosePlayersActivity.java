@@ -33,6 +33,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	private String gameName;
 	private String opponentName;
 	EditText gameNameInput;
+	private long currentGameId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +98,10 @@ public class ChoosePlayersActivity extends ListActivity {
 	
 	public void addPlayerStats(View view)
 	{
+		createGamesForSelectedPlayers();
 		selectedPlayers = getChosenPlayers();
-		createGamesForSelectedPlayers(selectedPlayers);
 		Intent intent = new Intent(this, StatsFragmentActivity.class);
+		intent.putExtra("currentGameId", currentGameId);
 		intent.putParcelableArrayListExtra("selectedPlayers", selectedPlayers);
 		startActivity(intent);
 	}
@@ -121,17 +123,12 @@ public class ChoosePlayersActivity extends ListActivity {
 		return chosenPlayers;
 	}
 
-	private void createGamesForSelectedPlayers(List<Player> players) {
-		
-		for (int i = 0; i < players.size(); i++)
-		{
-			Player player = players.get(i);
-			
-			Game newGame = new Game();
-			newGame.setName(gameName);
-			newGame.setDateCreated(gameDate);
-			newGame.setPlayerId(player.getId());
-			gamesDataSource.createGame(newGame);
-		}
+	private void createGamesForSelectedPlayers() 
+	{
+		Game newGame = new Game();
+		newGame.setName(gameName);
+		newGame.setDateCreated(gameDate);
+		gamesDataSource.createGame(newGame);
+		currentGameId = newGame.getId();
 	}
 }

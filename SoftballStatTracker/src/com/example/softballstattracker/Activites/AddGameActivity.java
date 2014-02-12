@@ -41,12 +41,14 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		actionBar.hide();
 	}
 
-	private void setDateDefaults() {
+	private void setDateDefaults() 
+	{
 		calendar = Calendar.getInstance();
 		day = calendar.get(Calendar.DAY_OF_MONTH);
 		month = calendar.get(Calendar.MONTH);
 		year = calendar.get(Calendar.YEAR);
 		gameDateInput = (EditText) findViewById(R.id.gameDateInput);
+		gameDateInput.setText(day + " / " + month + " / " + year);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -71,10 +73,11 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		public void onDateSet(DatePicker view, int selectedYear,
 		int selectedMonth, int selectedDay) 
 		{
-			gameDateInput.setText((selectedMonth + 1) + " / " + selectedDay + " / "
-			+ selectedYear);
+			gameDateInput.setText((month + 1) + " / " + day + " / "
+					+ year);
 		}
 	};
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

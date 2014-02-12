@@ -120,7 +120,7 @@ public class Stat {
 		this.dateCreated = dateCreated;
 	}
 	
-	public void setGameId(int gameId) {
-		this.gameId = gameId;
+	public void setGameId(long currentGameId) {
+		this.gameId = currentGameId;
 	}
 }
