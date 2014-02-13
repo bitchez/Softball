@@ -48,16 +48,19 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	            TextView average = (TextView) row.findViewById(R.id.average);
 	            
 	            if (playerName != null) {
-	            	playerName.setText("Name: "+ stat.getPlayerName());                            
+	            	playerName.setText(stat.getPlayerName());                            
 	            }
 	            if(atBats != null){
-	                atBats.setText("AB: "+ stat.getAtBats());
+	            	stat.getAtBats();
+	                atBats.setText(String.valueOf(stat.getAtBats()));
 	            }
 	            if(hits != null){
-	            	hits.setText("Hits: " + stat.getHits());
+	            	hits.setText(String.valueOf(stat.getHits()));
 	            }
 	            if(average != null){
-	            	hits.setText("AVG: " + stat.getAverage(stat.getHits(), stat.getAtBats()));
+	            	float avg = stat.getAverage(stat.getHits(), stat.getAtBats());
+	            	String stringAvg = Float.toString(avg);
+	            	average.setText(String.valueOf(avg));
 	            }
 	        }
 	        

@@ -21,16 +21,32 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int btn_check_off_normal=0x7f020000;
+        public static final int btn_check_on_normal=0x7f020001;
+        public static final int btn_star_off_normal=0x7f020002;
+        public static final int btn_star_on_normal=0x7f020003;
+        public static final int ic_cheese=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int icon=0x7f020006;
+        public static final int list_item_background_normal=0x7f020007;
+        public static final int list_item_background_special=0x7f020008;
+        public static final int list_item_selector_normal=0x7f020009;
+        public static final int list_item_selector_special=0x7f02000a;
+        public static final int list_selector=0x7f02000b;
+        public static final int list_selector_focused=0x7f02000c;
+        public static final int list_selector_on_top=0x7f02000d;
+        public static final int list_selector_on_top_focused=0x7f02000e;
+        public static final int list_selector_on_top_pressed=0x7f02000f;
+        public static final int list_selector_pressed=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002f;
+        public static final int action_settings=0x7f08002e;
         public static final int addGame=0x7f08000c;
         public static final int addPlayer=0x7f08000b;
         public static final int atBats=0x7f08000f;
         public static final int atBatsInput=0x7f080011;
         public static final int atBatsLabel=0x7f080010;
-        public static final int average=0x7f08002b;
+        public static final int average=0x7f08002a;
         public static final int beersDrank=0x7f080024;
         public static final int beersDrankInput=0x7f080026;
         public static final int beersDrankLabel=0x7f080025;
@@ -41,8 +57,7 @@ public final class R {
         public static final int doublesLabel=0x7f080016;
         public static final int gameDateInput=0x7f080002;
         public static final int gameNameInput=0x7f080005;
-        public static final int games=0x7f080029;
-        public static final int hits=0x7f08002a;
+        public static final int hits=0x7f080029;
         public static final int homeRuns=0x7f08001b;
         public static final int homeRunsInput=0x7f08001d;
         public static final int homeRunsLabel=0x7f08001c;
@@ -51,7 +66,7 @@ public final class R {
         public static final int opponent=0x7f080007;
         public static final int playerName=0x7f080028;
         public static final int playerNameInput=0x7f080008;
-        public static final int players_spinner=0x7f08002c;
+        public static final int players_spinner=0x7f08002b;
         public static final int putOuts=0x7f080021;
         public static final int putOutsInput=0x7f080023;
         public static final int putOutsLabel=0x7f080022;
@@ -63,9 +78,9 @@ public final class R {
         public static final int singles=0x7f080012;
         public static final int singlesInput=0x7f080014;
         public static final int singlesLabel=0x7f080013;
-        public static final int spinner_fragment=0x7f08002d;
+        public static final int spinner_fragment=0x7f08002c;
         public static final int start=0x7f08000e;
-        public static final int stats_fragment=0x7f08002e;
+        public static final int stats_fragment=0x7f08002d;
         public static final int textView1=0x7f080001;
         public static final int textView2=0x7f080004;
         public static final int textView3=0x7f080006;
