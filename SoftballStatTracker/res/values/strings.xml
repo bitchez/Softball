@@ -19,7 +19,6 @@
     <string name="shortDescription">Short description of the game.</string>
     <string name="gameName">Game Name</string>
     <string name="title_activity_players_selected">PlayersSelectedActivity</string>
-    
     <string name="text_label">Fragment Two</string>
     <string name="title_activity_main_fragment">MainFragment</string>
     <string name="at_bats">At Bats</string>
@@ -30,5 +29,7 @@
     <string name="rbis">RBIs</string>
     <string name="put_outs">Put Outs</string>
     <string name="beers_drank">Beers Drank</string>
+    <string name="title_activity_leader_boards">LeaderBoardsActivity</string>
+    <string name="leaderBoards">LeaderBoards</string>
 
 </resources>

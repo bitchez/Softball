@@ -1,5 +1,8 @@
 package com.example.softballstattracker.DataSources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.joda.time.DateTime;
 
 import android.content.ContentValues;
@@ -49,6 +52,31 @@ public class StatDataSource {
 		cursor.close();
 		return newStat;
 	}
+	
+	public ArrayList<Stat> getLeaderBoardStatistics()
+	{
+		List<Stat> leaderboard = new ArrayList<Stat>();
+		String query = "SELECT PlayerName, Count(AtBats), Count(Hits) FROM Stats GROUP By PlayerId";
+		open();
+		Cursor cursor = database.rawQuery(query, null);
+		
+	    // looping through all rows and adding to list
+	    if (cursor.moveToFirst()) {
+	        do {
+		        	Stat stat = new Stat();
+		        	stat.setPlayerName(cursor.getString(0));
+		        	stat.setAtBats(cursor.getInt(1));
+		        	stat.setHits(cursor.getInt(2));
+		        	stat.setAverage(stat.getAtBats(), stat.getHits());
+		        	
+		        	leaderboard.add(stat);
+	            }		 
+	        while (cursor.moveToNext());
+	    }
+	    
+	    // return contact list for leaderboard
+	    return (ArrayList<Stat>) leaderboard;
+	  }
 
 	private ContentValues setupContentValues(Stat stat) {
 		String dateTime = DateTime.now().toString();

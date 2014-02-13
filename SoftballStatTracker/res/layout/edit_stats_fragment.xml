@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-    android:layout_marginTop="20dp" >
+    android:layout_marginTop="20dp"
+    android:gravity="left" >
 
     <LinearLayout
         android:id="@+id/atBats"
@@ -174,6 +175,6 @@
           android:layout_centerHorizontal="true"
           android:layout_marginTop="10dp"
           android:onClick="onSaveStats"
-          android:text="save" />
+          android:text="Save" />
 
 </RelativeLayout>

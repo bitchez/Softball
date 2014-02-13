@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/addGame"
         android:layout_marginTop="107dp"
-        android:onClick="AddPlayer"
+        android:onClick="addPlayer"
         android:text="@string/addPlayer" />
 
     <Button
@@ -39,7 +39,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/addPlayer"
         android:layout_centerHorizontal="true"
-        android:onClick="AddGame"
+        android:onClick="addGame"
         android:text="@string/addGame" />
+    
+    <Button
+        android:id="@+id/leaderBoardButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addGame"
+        android:layout_centerHorizontal="true"
+        android:onClick="onLeaderBoard"
+        android:text="@string/leaderBoards" />
 
 </RelativeLayout>

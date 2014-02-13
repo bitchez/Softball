@@ -29,14 +29,20 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	public void AddPlayer(View view)
+	public void addPlayer(View view)
 	{     
 		startActivityForResult(new Intent(this, AddPlayerActivity.class), request_Code);
 	}
 	
-	public void AddGame(View view)
+	public void addGame(View view)
 	{     
 		Intent intent = new Intent(this, AddGameActivity.class);
+	    startActivity(intent);
+	}
+	
+	public void onLeaderBoard(View view) 
+	{
+		Intent intent = new Intent(this, LeaderBoardsActivity.class);
 	    startActivity(intent);
 	}
 	

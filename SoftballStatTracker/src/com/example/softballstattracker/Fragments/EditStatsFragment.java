@@ -85,6 +85,7 @@ public class EditStatsFragment extends Fragment {
 		BeersDrank = (EditText)view.findViewById(R.id.beersDrankInput);
 		PutOuts = (EditText)view.findViewById(R.id.putOutsInput);
 		
+		
 		statsDataSource = new StatDataSource(getActivity());
 		statsDataSource.open();
 	}

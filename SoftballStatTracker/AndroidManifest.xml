@@ -16,13 +16,13 @@
         <activity
             android:name="com.example.softballstattracker.Activites.MainActivity"
             android:label="@string/app_name" >
-        </activity>
-        <activity android:name="com.example.softballstattracker.Activites.StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.example.softballstattracker.Activites.StartActivity" >
         </activity>
         <activity
             android:name="com.example.softballstattracker.Activites.AddPlayerActivity"
@@ -43,6 +43,10 @@
         <activity
             android:name="com.example.softballstattracker.Activites.StatsFragmentActivity"
             android:label="@string/title_activity_main_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.softballstattracker.Activites.LeaderBoardsActivity"
+            android:label="@string/title_activity_leader_boards" >
         </activity>
     </application>
 

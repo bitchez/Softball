@@ -48,7 +48,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		month = calendar.get(Calendar.MONTH);
 		year = calendar.get(Calendar.YEAR);
 		gameDateInput = (EditText) findViewById(R.id.gameDateInput);
-		gameDateInput.setText(day + " / " + month + " / " + year);
+		gameDateInput.setText(month + " / " + day + " / " + year);
 	}
 	
 	@SuppressWarnings("deprecation")

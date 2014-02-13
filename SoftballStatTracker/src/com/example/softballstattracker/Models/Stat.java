@@ -40,6 +40,11 @@ public class Stat {
 		  return singles;
 		}
 	
+	public float getAverage(int hits, int atBats) {
+		  return hits / atBats;
+		}
+	
+	
 	public int getDoubles() {
 		  return doubles;
 		}
@@ -86,6 +91,9 @@ public class Stat {
 	
 	public void setHits(int hits) {
 		this.hits = hits;
+	}
+	
+	public void setAverage(int atBats, int hits) {
 	}
 	
 	public void setSingles(int singles) {
