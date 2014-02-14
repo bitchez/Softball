@@ -6,6 +6,7 @@ public class Stat {
 	private String playerName;
 	private int atBats;
 	private int hits;
+	private float average;
 	private int singles;
 	private int doubles;
 	private int triples;
@@ -41,9 +42,8 @@ public class Stat {
 		}
 	
 	public float getAverage(int hits, int atBats) {
-		  return hits / atBats;
+		  return hits / (float)atBats;
 		}
-	
 	
 	public int getDoubles() {
 		  return doubles;
@@ -94,6 +94,7 @@ public class Stat {
 	}
 	
 	public void setAverage(int atBats, int hits) {
+		this.average = (hits / (float)atBats);
 	}
 	
 	public void setSingles(int singles) {

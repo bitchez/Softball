@@ -26,7 +26,8 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	    
 	    @Override
 	    public int getCount() {
-			return items.size();
+	    	int size = items.size();
+			return size;
 	    }
 
 	    @Override
@@ -46,21 +47,27 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	            TextView atBats = (TextView) row.findViewById(R.id.atBats);
 	            TextView hits = (TextView) row.findViewById(R.id.hits);
 	            TextView average = (TextView) row.findViewById(R.id.average);
+	            TextView rbis = (TextView) row.findViewById(R.id.rbis);
 	            
 	            if (playerName != null) {
 	            	playerName.setText(stat.getPlayerName());                            
 	            }
 	            if(atBats != null){
 	            	stat.getAtBats();
-	                atBats.setText(String.valueOf(stat.getAtBats()));
+	                atBats.setText("ABs:" + String.valueOf(stat.getAtBats()));
 	            }
 	            if(hits != null){
-	            	hits.setText(String.valueOf(stat.getHits()));
+	            	hits.setText("hits:" + String.valueOf(stat.getHits()));
 	            }
 	            if(average != null){
-	            	float avg = stat.getAverage(stat.getHits(), stat.getAtBats());
-	            	String stringAvg = Float.toString(avg);
-	            	average.setText(String.valueOf(avg));
+	            	int abs = stat.getAtBats();
+	            	int hs = stat.getHits();
+	            	float avg = stat.getAverage(hs, abs);
+	            	String avgString = String.format("%.03f", avg);
+	            	average.setText("avg:" + avgString);
+	            }
+	            if(rbis != null){
+	            	rbis.setText("rbis:" + String.valueOf(stat.getRunsBattedIn()));
 	            }
 	        }
 	        

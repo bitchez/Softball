@@ -56,7 +56,9 @@ public class StatDataSource {
 	public ArrayList<Stat> getLeaderBoardStatistics()
 	{
 		List<Stat> leaderboard = new ArrayList<Stat>();
-		String query = "SELECT PlayerName, Count(AtBats), Count(Hits) FROM Stats GROUP By PlayerId";
+		String query = "SELECT PlayerName, SUM(AtBats), SUM(Singles) + SUM(Doubles) + SUM(Triples) + SUM(Homeruns) as Hits, SUM(RBIs) " +
+						"FROM Stats GROUP By PlayerId";
+		
 		open();
 		Cursor cursor = database.rawQuery(query, null);
 		
@@ -68,6 +70,7 @@ public class StatDataSource {
 		        	stat.setAtBats(cursor.getInt(1));
 		        	stat.setHits(cursor.getInt(2));
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
+		        	stat.setRbis(cursor.getInt(3));
 		        	
 		        	leaderboard.add(stat);
 	            }		 
