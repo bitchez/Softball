@@ -31,5 +31,6 @@
     <string name="beers_drank">Beers Drank</string>
     <string name="title_activity_leader_boards">LeaderBoardsActivity</string>
     <string name="leaderBoards">LeaderBoards</string>
+    <string name="title_activity_game_by_game_stat">GameByGameStatActivity</string>
 
 </resources>

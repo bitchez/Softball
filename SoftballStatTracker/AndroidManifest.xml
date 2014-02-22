@@ -48,6 +48,10 @@
             android:name="com.example.softballstattracker.Activites.LeaderBoardsActivity"
             android:label="@string/title_activity_leader_boards" >
         </activity>
+        <activity
+            android:name="com.example.softballstattracker.Activites.GameByGameStatActivity"
+            android:label="@string/title_activity_game_by_game_stat" >
+        </activity>
     </application>
 
 </manifest>
