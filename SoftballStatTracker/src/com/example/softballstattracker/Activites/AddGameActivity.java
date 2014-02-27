@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -49,7 +48,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		month = calendar.get(Calendar.MONTH);
 		year = calendar.get(Calendar.YEAR);
 		gameDateInput = (EditText) findViewById(R.id.gameDateInput);
-		gameDateInput.setText(month + " / " + day + " / " + year);
+		gameDateInput.setText((month + 1) + " / " + day + " / " + year);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -78,7 +77,6 @@ public class AddGameActivity extends Activity implements OnClickListener {
 					+ year);
 		}
 	};
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

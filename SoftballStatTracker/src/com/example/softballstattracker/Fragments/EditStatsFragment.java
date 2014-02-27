@@ -1,5 +1,6 @@
 package com.example.softballstattracker.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.softballstattracker.R;
+import com.example.softballstattracker.Activites.MainActivity;
 import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Player;
 import com.example.softballstattracker.Models.Stat;
@@ -63,6 +65,9 @@ public class EditStatsFragment extends Fragment {
 		Log.v(TAG, "Saving Statistic");
 		statsDataSource.createStatistic(newStat);
 		Log.v(TAG, "Statistics saved");
+		
+		Intent intent = new Intent(getActivity(), MainActivity.class);
+		getActivity().startActivity(intent);
 	}
 	
 	private void initialize(View view) 
@@ -72,7 +77,6 @@ public class EditStatsFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				saveStats();
-				
 			}
 		});
 		
@@ -84,7 +88,6 @@ public class EditStatsFragment extends Fragment {
 		RBIs = (EditText)view.findViewById(R.id.rbisInput);
 		BeersDrank = (EditText)view.findViewById(R.id.beersDrankInput);
 		PutOuts = (EditText)view.findViewById(R.id.putOutsInput);
-		
 		
 		statsDataSource = new StatDataSource(getActivity());
 		statsDataSource.open();

@@ -3,7 +3,6 @@ package com.example.softballstattracker.Activites;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -15,7 +14,6 @@ import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Stat;
 
 public class LeaderBoardsActivity extends ListActivity {
-	
 
     public ArrayList<Stat> leaderBoardStats = null;
     private StatDataSource statsDataSource;
@@ -42,9 +40,6 @@ public class LeaderBoardsActivity extends ListActivity {
 
 	private void NavigatetoGamebyGameStatActivity(Stat selectedLeaderBoardItem) 
 	{	
-		//Intent gameByGameIntent = new Intent(this, GameByGameStatActivity.class);
-		//gameByGameIntent.putExtra("playerId", selectedLeaderBoardItem.getPlayerId());
-	    //startActivity(gameByGameIntent);
 		
 	}
 
