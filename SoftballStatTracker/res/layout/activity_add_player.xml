@@ -41,6 +41,6 @@
          android:layout_centerHorizontal="true"
          android:layout_marginTop="15dp"
          android:onClick="savePlayer"
-         android:text="Next" />
+         android:text="Save" />
 
 </RelativeLayout>

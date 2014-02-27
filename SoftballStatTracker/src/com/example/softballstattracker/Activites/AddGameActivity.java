@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -87,18 +88,30 @@ public class AddGameActivity extends Activity implements OnClickListener {
 
 	public void choosePlayers(View view)
 	{
-		EditText gameName = (EditText) findViewById(R.id.gameNameInput);
+		EditText gameNameInput = (EditText) findViewById(R.id.gameNameInput);
 		EditText gameDate = (EditText) findViewById(R.id.gameDateInput);
 		EditText opponentName = (EditText) findViewById(R.id.opponent);
 		
-		String gameNameString = gameName.getText().toString();
-		String gameDateString = gameDate.getText().toString();
-		String opponentString = opponentName.getText().toString();
-		
-		Intent intent = new Intent(this, ChoosePlayersActivity.class);
-		intent.putExtra("gameName_input", gameNameString);
-		intent.putExtra("gameDate_input", gameDateString);
-		intent.putExtra("opponentName_input", opponentString);
-	    startActivity(intent);
+		if(DoesGameNameExist(gameNameInput))
+	    {
+			gameNameInput.setError("Game name is required");
+	    }
+		else
+		{
+			String gameNameString = gameNameInput.getText().toString();
+			String gameDateString = gameDate.getText().toString();
+			String opponentString = opponentName.getText().toString();
+			
+			Intent intent = new Intent(this, ChoosePlayersActivity.class);
+			intent.putExtra("gameName_input", gameNameString);
+			intent.putExtra("gameDate_input", gameDateString);
+			intent.putExtra("opponentName_input", opponentString);
+			setResult(RESULT_OK, intent);
+		    startActivity(intent);
+		}
+	}
+	
+	 private boolean DoesGameNameExist(EditText playerName) {
+		return (playerName.getText().toString().trim().equals(""));
 	}
 }
