@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.softballstattracker.R;
-import com.example.softballstattracker.Activites.MainActivity;
+import com.example.softballstattracker.Activites.MainMenuActivity;
 import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Player;
 import com.example.softballstattracker.Models.Stat;
@@ -66,7 +66,7 @@ public class EditStatsFragment extends Fragment {
 		statsDataSource.createStatistic(newStat);
 		Log.v(TAG, "Statistics saved");
 		
-		Intent intent = new Intent(getActivity(), MainActivity.class);
+		Intent intent = new Intent(getActivity(), MainMenuActivity.class);
 		getActivity().startActivity(intent);
 	}
 	

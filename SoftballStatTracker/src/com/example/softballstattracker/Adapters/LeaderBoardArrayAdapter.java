@@ -54,20 +54,20 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	            }
 	            if(atBats != null){
 	            	stat.getAtBats();
-	                atBats.setText("ABs:" + String.valueOf(stat.getAtBats()));
+	                atBats.setText(String.valueOf(stat.getAtBats()));
 	            }
 	            if(hits != null){
-	            	hits.setText("hits:" + String.valueOf(stat.getHits()));
+	            	hits.setText(String.valueOf(stat.getHits()));
 	            }
 	            if(average != null){
 	            	int abs = stat.getAtBats();
 	            	int hs = stat.getHits();
 	            	float avg = stat.getAverage(hs, abs);
 	            	String avgString = String.format("%.03f", avg);
-	            	average.setText("avg:" + avgString);
+	            	average.setText(avgString);
 	            }
 	            if(rbis != null){
-	            	rbis.setText("rbis:" + String.valueOf(stat.getRunsBattedIn()));
+	            	rbis.setText(String.valueOf(stat.getRunsBattedIn()));
 	            }
 	        }
 	        

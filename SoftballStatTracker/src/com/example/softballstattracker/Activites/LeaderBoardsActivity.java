@@ -2,6 +2,7 @@ package com.example.softballstattracker.Activites;
 
 import java.util.ArrayList;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,9 @@ public class LeaderBoardsActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_leader_boards);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	
 		leaderBoardStats = new ArrayList<Stat>();
 		leaderBoardStats = getLeaderBoardStats();

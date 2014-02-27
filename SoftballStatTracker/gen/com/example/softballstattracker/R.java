@@ -25,19 +25,20 @@ public final class R {
         public static final int btn_check_on_normal=0x7f020001;
         public static final int btn_star_off_normal=0x7f020002;
         public static final int btn_star_on_normal=0x7f020003;
-        public static final int ic_cheese=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int icon=0x7f020006;
-        public static final int list_item_background_normal=0x7f020007;
-        public static final int list_item_background_special=0x7f020008;
-        public static final int list_item_selector_normal=0x7f020009;
-        public static final int list_item_selector_special=0x7f02000a;
-        public static final int list_selector=0x7f02000b;
-        public static final int list_selector_focused=0x7f02000c;
-        public static final int list_selector_on_top=0x7f02000d;
-        public static final int list_selector_on_top_focused=0x7f02000e;
-        public static final int list_selector_on_top_pressed=0x7f02000f;
-        public static final int list_selector_pressed=0x7f020010;
+        public static final int customborder=0x7f020004;
+        public static final int ic_cheese=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int list_item_background_normal=0x7f020008;
+        public static final int list_item_background_special=0x7f020009;
+        public static final int list_item_selector_normal=0x7f02000a;
+        public static final int list_item_selector_special=0x7f02000b;
+        public static final int list_selector=0x7f02000c;
+        public static final int list_selector_focused=0x7f02000d;
+        public static final int list_selector_on_top=0x7f02000e;
+        public static final int list_selector_on_top_focused=0x7f02000f;
+        public static final int list_selector_on_top_pressed=0x7f020010;
+        public static final int list_selector_pressed=0x7f020011;
     }
     public static final class id {
         public static final int action_settings=0x7f08002e;

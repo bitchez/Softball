@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.softballstattracker.R;
 
-public class MainActivity extends Activity {
+public class MainMenuActivity extends Activity {
 	
 	int request_Code = 1;
 

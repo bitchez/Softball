@@ -5,6 +5,61 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".LeaderBoardsActivity" >
+    
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/customborder"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	     android:textColor="@android:color/white"
+	    android:layout_marginLeft="35dp"
+	    android:text="ABs"
+	    android:textSize="18sp"
+	    android:textStyle="bold" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	     android:textColor="@android:color/white"
+	    android:layout_marginLeft="35dp"
+	    android:text="Hits"
+	    android:textSize="18sp"
+	    android:textStyle="bold" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	     android:textColor="@android:color/white"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="35dp"
+	    android:text="AVG"
+	    android:textSize="18sp"
+	    android:textStyle="bold"
+	    android:typeface="sans" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	     android:textColor="@android:color/white"
+	    android:layout_marginLeft="35dp"
+	    android:text="RBIs"
+	    android:textSize="18sp"
+	    android:textStyle="bold"
+	    android:typeface="sans" />
+</LinearLayout>
 
 	<ListView
     android:id="@android:id/list"
