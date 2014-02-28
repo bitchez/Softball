@@ -1,29 +1,38 @@
 package com.example.softballstattracker.Activites;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import android.app.ActionBar;
-import android.app.ListActivity;
+import android.app.ExpandableListActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
 import com.example.softballstattracker.R;
-import com.example.softballstattracker.Adapters.GameByGameArrayAdapter;
+import com.example.softballstattracker.Adapters.GameByGameExpandableAdapter;
 import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Stat;
 
-public class GameByGameStatActivity extends ListActivity {
+public class GameByGameStatActivity extends ExpandableListActivity {
 	
 	private long playerId;
 	public ArrayList<Stat> gameByGameStats = null;
 	private StatDataSource statsDataSource;
+	ExpandableListAdapter expandableListAdapter;
+    ExpandableListView expandableListView;
+    HashMap<String, List<Stat>> gameSpecificData = new HashMap<String, List<Stat>>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game_by_game_stat);
+		setContentView(R.layout.activity_game_by_game_stats);
 		
 		initialize();
+		getGameByGameStats();
+		setupExpandableListview();
 	}
 
 	private void initialize() 
@@ -35,16 +44,29 @@ public class GameByGameStatActivity extends ListActivity {
 		if (bundle != null)
 		{
 			playerId = bundle.getLong("playerId");
+		}
+	}
+	
+	private void setupExpandableListview() 
+	{
+		expandableListView = getExpandableListView();
+		expandableListAdapter = new GameByGameExpandableAdapter(this, gameByGameStats, gameSpecificData);
+		expandableListView.setAdapter(expandableListAdapter);
+	}
+	
+	private void getGameByGameStats() 
+	{
+		if(playerId != 0)
+		{
+			gameByGameStats = new ArrayList<Stat>();
+			gameByGameStats = loadGameByGameStatistics(playerId);
 			
-			if(playerId != 0)
+			for (int i = 0; i < gameByGameStats.size(); i++) 
 			{
-				gameByGameStats = new ArrayList<Stat>();
-				gameByGameStats = loadGameByGameStatistics(playerId);
+				Stat currentGameStat = gameByGameStats.get(i);
+				gameSpecificData.put(currentGameStat.getPlayerName(), gameByGameStats);
 			}
 		}
-		
-		GameByGameArrayAdapter gameByGameAdapter = new GameByGameArrayAdapter(this, R.layout.game_by_game_row, gameByGameStats);
-		setListAdapter(gameByGameAdapter);
 	}
 
 	private ArrayList<Stat> loadGameByGameStatistics(long playerId) 
