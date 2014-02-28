@@ -41,11 +41,7 @@ public final class R {
         public static final int list_selector_pressed=0x7f020011;
     }
     public static final class id {
-<<<<<<< Updated upstream
-        public static final int action_settings=0x7f080032;
-=======
-        public static final int action_settings=0x7f080030;
->>>>>>> Stashed changes
+        public static final int action_settings=0x7f080031;
         public static final int addGame=0x7f080025;
         public static final int addPlayer=0x7f080024;
         public static final int atBats=0x7f08000a;
@@ -77,10 +73,6 @@ public final class R {
         public static final int opponent=0x7f080007;
         public static final int playerName=0x7f08002e;
         public static final int playerNameInput=0x7f080008;
-<<<<<<< Updated upstream
-        public static final int players_spinner=0x7f080031;
-=======
->>>>>>> Stashed changes
         public static final int putOuts=0x7f08001c;
         public static final int putOutsInput=0x7f08001e;
         public static final int putOutsLabel=0x7f08001d;
@@ -109,19 +101,11 @@ public final class R {
         public static final int activity_leader_boards=0x7f030005;
         public static final int activity_main=0x7f030006;
         public static final int activity_start=0x7f030007;
-<<<<<<< Updated upstream
-        public static final int edit_stats_fragment=0x7f030008;
-        public static final int game_by_game_child_row=0x7f030009;
-        public static final int game_by_game_row=0x7f03000a;
-        public static final int leader_board_row=0x7f03000b;
-        public static final int players_stats_spinner_fragment=0x7f03000c;
-        public static final int stats_activity_fragment=0x7f03000d;
-=======
         public static final int edit_stats_activity=0x7f030008;
         public static final int edit_stats_fragment=0x7f030009;
-        public static final int game_by_game_row=0x7f03000a;
-        public static final int leader_board_row=0x7f03000b;
->>>>>>> Stashed changes
+        public static final int game_by_game_child_row=0x7f03000a;
+        public static final int game_by_game_row=0x7f03000b;
+        public static final int leader_board_row=0x7f03000c;
     }
     public static final class menu {
         public static final int add_game=0x7f070000;

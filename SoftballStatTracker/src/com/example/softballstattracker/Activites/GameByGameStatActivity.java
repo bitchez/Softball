@@ -12,7 +12,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
 import com.example.softballstattracker.R;
-import com.example.softballstattracker.Adapters.GameByGameExpandableAdapter;
+import com.example.softballstattracker.Adapters.GameListExpandableAdapter;
 import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Stat;
 
@@ -50,7 +50,7 @@ public class GameByGameStatActivity extends ExpandableListActivity {
 	private void setupExpandableListview() 
 	{
 		expandableListView = getExpandableListView();
-		expandableListAdapter = new GameByGameExpandableAdapter(this, gameByGameStats, gameSpecificData);
+		expandableListAdapter = new GameListExpandableAdapter(this, gameByGameStats, gameSpecificData);
 		expandableListView.setAdapter(expandableListAdapter);
 	}
 	

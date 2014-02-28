@@ -15,13 +15,13 @@ import android.widget.TextView;
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.Models.Stat;
 
-public class GameByGameExpandableAdapter extends BaseExpandableListAdapter {
+public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 
 	private Context _context;
     private List<Stat> _games; 
     private HashMap<String, List<Stat>> _gameChildStat;
  
-    public GameByGameExpandableAdapter(Context context, List<Stat> listDataHeader,
+    public GameListExpandableAdapter(Context context, List<Stat> listDataHeader,
             HashMap<String, List<Stat>> listDataChild) {
         this._context = context;
         this._games = listDataHeader;
