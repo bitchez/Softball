@@ -33,7 +33,7 @@ public class AddStatsDialogActivity extends Activity
 	private boolean hasErrors;
 	private long currentPlayerId;
 	private long currentGameId;
-	private String playerName;
+	private String currentPlayerName;
 
 
 	@Override
@@ -48,7 +48,7 @@ public class AddStatsDialogActivity extends Activity
 	public void saveStats() {
 		newStat.setPlayerId(currentPlayerId);
 		newStat.setGameId(currentGameId);
-		newStat.setPlayerName(playerName);
+		newStat.setPlayerName(currentPlayerName);
 		newStat.setDateCreated(DateTime.now().toString());
 		newStat.setAtBats(Integer.parseInt(AtBats.getText().toString()));
 		newStat.setSingles(Integer.parseInt(Singles.getText().toString()));
@@ -75,10 +75,14 @@ public class AddStatsDialogActivity extends Activity
 
 	private void initialize() 
 	{
-		long currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
-		Parcelable selectedPlayer = this.getIntent().getParcelableExtra("selectedPlayer");
-
-		newStat.setGameId(currentGameId);
+		Bundle bundle = getIntent().getExtras();
+		
+		if(bundle != null)
+		{
+			currentGameId = bundle.getLong("currentGameId");
+			currentPlayerId = bundle.getLong("currentPlayerId");
+			currentPlayerName = bundle.getString("currentPlayerName");
+		}
 
 		saveStatsButton = (Button) findViewById(R.id.saveStats);
 

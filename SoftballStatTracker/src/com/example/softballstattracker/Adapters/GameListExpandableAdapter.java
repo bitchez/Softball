@@ -47,22 +47,45 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public View getChildView(int groupPosition, final int childPosition,
-			boolean isLastChild, View convertView, ViewGroup parent) {
+			boolean isLastChild, View childRow, ViewGroup parent) {
 
-		Stat gameChild = getChild(groupPosition, childPosition);
+		Stat gameStatChild = getChild(groupPosition, childPosition);
 
-		if (convertView == null) {
-			LayoutInflater infalInflater = (LayoutInflater) this._context
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = infalInflater.inflate(
-					R.layout.game_by_game_child_row, null);
+		if (childRow == null) {
+			LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			childRow = infalInflater.inflate(R.layout.game_by_game_child_row, null);
 		}
 
-		TextView txtListChild = (TextView) convertView
-				.findViewById(R.id.lblListItem);
+		if (gameStatChild != null) 
+		{
+			TextView gameSingles = (TextView) childRow.findViewById(R.id.gameSingles);
+			TextView gameDoubles = (TextView) childRow.findViewById(R.id.gameDoubles);
+			TextView gameTriples = (TextView) childRow.findViewById(R.id.gameTriples);
+			TextView gameHomeRuns = (TextView) childRow.findViewById(R.id.gameHomeruns);
+			TextView gamePutOuts = (TextView) childRow.findViewById(R.id.gamePutOuts);
+			TextView gameBeersDrank = (TextView) childRow.findViewById(R.id.gameBeersDrank);
 
-		txtListChild.setText(gameChild.getPlayerName());
-		return convertView;
+			if (gameSingles != null) {
+				gameSingles.setText(String.valueOf(gameStatChild.getSingles()));
+			}
+			if (gameDoubles != null) {
+				gameDoubles.setText(String.valueOf(gameStatChild.getDoubles()));
+			}
+			if (gameTriples != null) {
+				gameTriples.setText("today"); // stat.getDa(teCreated());
+			}
+			if (gameHomeRuns != null) {
+				gameHomeRuns.setText(String.valueOf(gameStatChild.getHomeRuns()));
+			}
+			if (gamePutOuts != null) {
+				gamePutOuts.setText(String.valueOf(gameStatChild.getPutOuts()));
+			}
+			if (gameBeersDrank != null) {
+				gameBeersDrank.setText(String.valueOf(gameStatChild.getBeersDrank()));
+			}
+		}
+
+		return childRow;
 	}
 
 	@Override

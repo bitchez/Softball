@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="55dip"
-    android:orientation="vertical" >
- 
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_marginLeft="25dp"
+    android:gravity="left"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+
     <TextView
-        android:id="@+id/lblListItem"
-        android:layout_width="fill_parent"
+        android:id="@+id/gameSingles"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
- 
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/gameDoubles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameSingles"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/gameTriples"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameDoubles"
+        android:textSize="16sp"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/gameHomeruns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameTriples"
+        android:textSize="16sp"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/gameRBIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameHomeruns"
+        android:textSize="16sp"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/gamePutOuts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameRBIs"
+        android:textSize="16sp"
+        android:typeface="sans" />
+    
+      <TextView
+        android:id="@+id/gameBeersDrank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gamePutOuts"
+        android:textSize="16sp"
+        android:typeface="sans" />
+    
 </RelativeLayout>
