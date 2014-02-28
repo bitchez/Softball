@@ -24,6 +24,8 @@
             android:id="@+id/atBatsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
 
@@ -44,6 +46,8 @@
             android:id="@+id/singlesInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
 
@@ -64,6 +68,8 @@
             android:id="@+id/doublesInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
 
@@ -84,6 +90,8 @@
             android:id="@+id/triplesInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
 
@@ -104,6 +112,8 @@
             android:id="@+id/homeRunsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
     
@@ -124,6 +134,8 @@
             android:id="@+id/rbisInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
     
@@ -144,6 +156,8 @@
             android:id="@+id/putOutsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
     
@@ -164,6 +178,8 @@
             android:id="@+id/beersDrankInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
 

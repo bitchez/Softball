@@ -100,7 +100,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	{
 		createGamesForSelectedPlayers();
 		selectedPlayers = getChosenPlayers();
-		Intent intent = new Intent(this, StatsFragmentActivity.class);
+		Intent intent = new Intent(this, EditStatsActivity.class);
 		intent.putExtra("currentGameId", currentGameId);
 		intent.putParcelableArrayListExtra("selectedPlayers", selectedPlayers);
 		startActivity(intent);
