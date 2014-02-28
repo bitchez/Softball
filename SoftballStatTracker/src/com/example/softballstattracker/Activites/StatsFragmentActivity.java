@@ -1,25 +1,57 @@
 package com.example.softballstattracker.Activites;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.ActionBar;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.softballstattracker.R;
-import com.example.softballstattracker.Fragments.EditStatsFragment;
-import com.example.softballstattracker.Interfaces.OnPlayerSelectedListener;
 import com.example.softballstattracker.Models.Player;
 
-public class StatsFragmentActivity extends FragmentActivity implements OnPlayerSelectedListener {
+public class StatsFragmentActivity extends ListActivity implements OnItemClickListener 
+{
 
 	private static final String TAG = "StatsActivityFragment";
+	private ArrayList<Player> selectedPlayers = new ArrayList<Player>();
+	private ListView playerListView;
+	private long currentGameId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		selectedPlayers = this.getIntent().getParcelableArrayListExtra("selectedPlayers");
+		currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
 		initialize();
+		setupListView();
+	}
+	
+	private void setupListView() 
+	{
+		playerListView = getListView();
+		playerListView.setChoiceMode(playerListView.CHOICE_MODE_NONE);
+		ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_checked, selectedPlayers);
+		setListAdapter(adapter);
+	}
+	
+	public void onListItemClick(ListView parent, View view, int position, long id)
+	{
+	    super.onListItemClick(parent, view, position, id); 
+		Player selectedPlayer = selectedPlayers.get(position);
+		Intent intent = new Intent(getApplicationContext(), AddStatsDialogActivity.class);
+		intent.putExtra("currentGameId", currentGameId);
+		intent.putExtra("selectedPlayer", selectedPlayer);
+		startActivity(intent);
 	}
 
 	private void initialize() {
@@ -38,14 +70,9 @@ public class StatsFragmentActivity extends FragmentActivity implements OnPlayerS
 	}
 
 	@Override
-	public void onPlayerSelected(Player selectedPlayer) 
-	{
-		EditStatsFragment statFrag = (EditStatsFragment)
-                getSupportFragmentManager().findFragmentById(R.id.stats_fragment);
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
 		
-		if(statFrag != null)
-		{
-			statFrag.updateStatsView(selectedPlayer);
-		} 
 	}
+
 }

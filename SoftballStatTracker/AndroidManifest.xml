@@ -18,6 +18,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,6 +49,11 @@
         <activity
             android:name="com.example.softballstattracker.Activites.GameByGameStatActivity"
             android:label="@string/title_activity_game_by_game_stat" >
+        </activity>
+        <activity
+            android:name="com.example.softballstattracker.Activites.AddStatsDialogActivity"
+            android:label="@string/title_activity_add_stats_dialog"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 

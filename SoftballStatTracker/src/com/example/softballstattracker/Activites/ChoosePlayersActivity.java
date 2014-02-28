@@ -75,7 +75,7 @@ public class ChoosePlayersActivity extends ListActivity {
 	private void setupListView() {
 		
 		playerListView = getListView();
-		playerListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+		playerListView.setChoiceMode(playerListView.CHOICE_MODE_MULTIPLE);
 		ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_checked, players);
 		setListAdapter(adapter);
 	}
