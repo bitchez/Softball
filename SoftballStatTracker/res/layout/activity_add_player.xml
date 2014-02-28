@@ -18,28 +18,44 @@
          android:textStyle="bold"
          android:text="Player Name?"
          android:textSize="25sp" />
-
+"
      <EditText
          android:id="@+id/playerNameInput"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         android:layout_alignRight="@+id/textView1"
          android:layout_below="@+id/textView1"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="14dp"
+         android:layout_marginTop="25dp"
          android:ems="10"
          android:hint="enter name"
-         android:inputType="text|textCapWords|textImeMultiLine"
-         android:imeOptions="actionDone" >
+         android:imeOptions="actionDone"
+         android:inputType="text|textCapWords|textImeMultiLine" >
          <requestFocus />
      </EditText>
 
-     <Button
+     <ImageButton
+         android:id="@+id/playerImageButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/playerNameInput"
+         android:layout_toRightOf="@+id/playerNameInput"
+         android:onClick="onSelectImage"
+         android:src="@android:drawable/ic_menu_gallery" />
+     
+     <ImageView
+         android:id="@+id/playerImage"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/savePlayerButton"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="20dp" />
+     
+    <Button
          android:id="@+id/savePlayerButton"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_below="@+id/playerNameInput"
+         android:layout_alignParentBottom="true"
          android:layout_centerHorizontal="true"
-         android:layout_marginTop="15dp"
          android:onClick="savePlayer"
          android:text="Save" />
 

@@ -1,26 +1,36 @@
 package com.example.softballstattracker.Activites;
  
-import com.example.softballstattracker.R;
-import com.example.softballstattracker.DataSources.PlayerDataSource;
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
-import android.net.Uri;
-
 import android.widget.EditText;
+import android.widget.ImageView;
+
+import com.example.softballstattracker.R;
+import com.example.softballstattracker.DataSources.PlayerDataSource;
 
 public class AddPlayerActivity extends Activity {
 	
+	private static final int SELECT_PHOTO = 100;
+	ImageView playerImageView;
 	private PlayerDataSource playerDataSource;
 	EditText playerNameInput;
+	private Bitmap playerImage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_player);
+		
+		playerImageView = (ImageView) findViewById(R.id.playerImage);
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
@@ -28,11 +38,37 @@ public class AddPlayerActivity extends Activity {
 		playerDataSource = new PlayerDataSource(this);
 		playerDataSource.open();
 	}
-
+	
+	public void onSelectImage(View view) 
+	{
+		Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+		photoPickerIntent.setType("image/*");
+		startActivityForResult(photoPickerIntent, SELECT_PHOTO);    
+	}
+	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.add_player, menu);
-		return true;
+	protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) { 
+	    super.onActivityResult(requestCode, resultCode, imageReturnedIntent); 
+
+	    switch(requestCode) { 
+	    case SELECT_PHOTO:
+	        if(resultCode == RESULT_OK) 
+	        {  
+	            Uri selectedImage = imageReturnedIntent.getData();
+	            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+	            Cursor cursor = getContentResolver().query(
+	                               selectedImage, filePathColumn, null, null, null);
+	            cursor.moveToFirst();
+
+	            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+	            String filePath = cursor.getString(columnIndex);
+	            cursor.close();
+
+	            playerImage = BitmapFactory.decodeFile(filePath);
+	            playerImageView.setImageBitmap(playerImage);
+	        }
+	    }
 	}
 	
 	public void savePlayer(View view) {
@@ -62,5 +98,11 @@ public class AddPlayerActivity extends Activity {
 	 private boolean DoesPlayerNameExist(EditText playerName) {
 		return (playerName.getText().toString().trim().equals(""));
 		
+	}
+	 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.add_player, menu);
+		return true;
 	}
 }
