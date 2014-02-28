@@ -20,7 +20,6 @@ import com.example.softballstattracker.Models.Player;
 
 public class EditStatsActivity extends ListActivity implements OnItemClickListener 
 {
-
 	private static final String TAG = "EditStatsActivity";
 	private ArrayList<Player> selectedPlayers = new ArrayList<Player>();
 	private ListView playerListView;
@@ -32,6 +31,7 @@ public class EditStatsActivity extends ListActivity implements OnItemClickListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		selectedPlayers = this.getIntent().getParcelableArrayListExtra("selectedPlayers");
 		currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
 		initialize();
@@ -93,15 +93,11 @@ public class EditStatsActivity extends ListActivity implements OnItemClickListen
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-		
 	}
-
 }

@@ -67,9 +67,10 @@ public class AddStatsDialogActivity extends Activity
 		}
 	}
 
-	private void initialize() {
+	private void initialize() 
+	{
 		long currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
-		Parcelable test = this.getIntent().getParcelableExtra("selectedPlayer");
+		Parcelable selectedPlayer = this.getIntent().getParcelableExtra("selectedPlayer");
 
 		newStat.setGameId(currentGameId);
 

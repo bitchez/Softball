@@ -51,8 +51,7 @@ public class Player implements Parcelable {
 	   		return 0;
 	   	}
 	   	
-	   	public static final Parcelable.Creator<Player> CREATOR 
-	   	= new Parcelable.Creator<Player>() {
+	   	public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>() {
 	   		
 	   		@Override
 	   		public Player createFromParcel(Parcel in) {
@@ -69,7 +68,6 @@ public class Player implements Parcelable {
 	   		    return new Player[size];
 	   		}
 	   	};
-	   	
 		   
 	   	@Override
 	   	public void writeToParcel(Parcel out, int flags) {
