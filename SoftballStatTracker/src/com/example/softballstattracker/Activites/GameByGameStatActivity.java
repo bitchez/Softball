@@ -1,17 +1,23 @@
 package com.example.softballstattracker.Activites;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 
 import com.example.softballstattracker.R;
+import com.example.softballstattracker.Adapters.GameByGameArrayAdapter;
+import com.example.softballstattracker.DataSources.StatDataSource;
+import com.example.softballstattracker.Models.Stat;
 
 public class GameByGameStatActivity extends ListActivity {
 	
-	float PlayerId;
+	private long playerId;
+	public ArrayList<Stat> gameByGameStats = null;
+	private StatDataSource statsDataSource;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,19 +28,29 @@ public class GameByGameStatActivity extends ListActivity {
 
 	private void initialize() 
 	{
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();	
+		
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null)
 		{
-			PlayerId = bundle.getFloat("playerId");
+			playerId = bundle.getLong("playerId");
 			
-			if(PlayerId != 0)
+			if(playerId != 0)
 			{
-				
+				gameByGameStats = new ArrayList<Stat>();
+				gameByGameStats = loadGameByGameStatistics(playerId);
 			}
 		}
 		
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();	
+		GameByGameArrayAdapter gameByGameAdapter = new GameByGameArrayAdapter(this, R.layout.game_by_game_row, gameByGameStats);
+		setListAdapter(gameByGameAdapter);
+	}
+
+	private ArrayList<Stat> loadGameByGameStatistics(long playerId) 
+	{
+		statsDataSource = new StatDataSource(this);
+		return statsDataSource.getGameByGameStatistics(playerId);
 	}
 
 	@Override

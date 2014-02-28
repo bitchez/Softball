@@ -21,3 +21,8 @@
  
  SELECT PlayerName, SUM(AtBats), SUM(Singles) + SUM(Doubles) + SUM(Triples) + SUM(Homeruns) as Hits, SUM(RBIs) FROM Stats
 GROUP By PlayerId
+
+SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, s.RBIs, s.BeersDrank, s.PutOuts
+FROM Stats s JOIN Games g 
+ON s.GameId = g.GameId AND PlayerID = playerId
+ORDER BY g.DateCreated desc

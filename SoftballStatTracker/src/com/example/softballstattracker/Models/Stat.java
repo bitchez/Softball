@@ -93,6 +93,10 @@ public class Stat {
 		this.hits = hits;
 	}
 	
+	public void setHits(int singles, int doubles, int triples, int homeRuns) {
+		this.hits = (singles + doubles + triples + homeRuns);
+	}
+	
 	public void setAverage(int atBats, int hits) {
 		this.average = (hits / (float)atBats);
 	}

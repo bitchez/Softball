@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal" 
+    android:gravity="center"
+    android:layout_height="?android:attr/listPreferredItemHeight" 
+    android:padding="10dip">
+    
+    <TextView
+	        android:id="@+id/gameName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:textSize="16sp"
+	        android:textStyle="bold" />
+
+	<TextView 
+    		android:id="@+id/gameDateCreated"
+			android:textSize="14sp" 
+        	android:layout_toRightOf="@+id/gameName" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"/>
+	<TextView 
+    		android:id="@+id/gameHits" 
+			android:typeface="sans"
+			android:textSize="14sp" 
+        	android:layout_toRightOf="@+id/gameDateCreated" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+	<TextView
+		    android:id="@+id/gameAverage"
+			android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+        	android:layout_toRightOf="@+id/gameHits" 
+		    android:textSize="14sp"
+		    android:typeface="sans" />
+	<TextView 
+    		android:id="@+id/gameRBIs" 
+			android:layout_width="wrap_content"
+			android:layout_toRightOf="@+id/gameAverage" 
+			android:typeface="sans"
+			android:textSize="14sp"
+			android:layout_height="wrap_content"/>
+</RelativeLayout>
