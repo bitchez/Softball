@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -34,6 +37,9 @@ public class ChoosePlayersActivity extends ListActivity {
 	private String opponentName;
 	EditText gameNameInput;
 	private long currentGameId;
+	private boolean isPlayerSelected;
+	final Context context = this;
+	private Player selectedPlayer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,19 +92,41 @@ public class ChoosePlayersActivity extends ListActivity {
 	public void onListItemClick(ListView parent, View view, int position,
 			long id) {
 		super.onListItemClick(parent, view, position, id);
-		Player selectedPlayer = players.get(position);
+		selectedPlayer = players.get(position);
 		Toast.makeText(this, "You have selected player: " + selectedPlayer,
 				Toast.LENGTH_SHORT).show();
 	}
 
 	public void addPlayerStats(View view) {
-		createGamesForSelectedPlayers();
-		selectedPlayers = getChosenPlayers();
-		Intent intent = new Intent(this, EditStatsActivity.class);
-		intent.putExtra("currentGameId", currentGameId);
-		intent.putParcelableArrayListExtra("selectedPlayers", selectedPlayers);
-		startActivity(intent);
-	}
+		validatePlayerSelection();
+		if (isPlayerSelected == true)
+			{
+			createGamesForSelectedPlayers();
+			selectedPlayers = getChosenPlayers();
+			Intent intent = new Intent(this, EditStatsActivity.class);
+			intent.putExtra("currentGameId", currentGameId);
+			intent.putParcelableArrayListExtra("selectedPlayers", selectedPlayers);
+			startActivity(intent);
+		}
+		else {
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+				alertDialogBuilder.setTitle("ERROR BITCH!!");
+				alertDialogBuilder
+					.setMessage("Please have one or more player(s) selected.")
+					.setCancelable(false)
+					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.cancel();
+						}
+					});
+				
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+								
+			}
+		}
 
 	private ArrayList<Player> getChosenPlayers() {
 		int length = playerListView.getCount();
@@ -113,6 +141,14 @@ public class ChoosePlayersActivity extends ListActivity {
 			}
 
 		return chosenPlayers;
+	}
+	
+	private void validatePlayerSelection() {
+		isPlayerSelected = false;
+		if (selectedPlayer != null) {
+			isPlayerSelected = true;
+		}
+		
 	}
 
 	private void createGamesForSelectedPlayers() {
