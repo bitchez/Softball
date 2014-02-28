@@ -52,7 +52,8 @@ public class EditStatsActivity extends ListActivity implements OnItemClickListen
 		selectedPlayer = selectedPlayers.get(position);
 		Intent intent = new Intent(getApplicationContext(), AddStatsDialogActivity.class);
 		intent.putExtra("currentGameId", currentGameId);
-		intent.putExtra("selectedPlayer", selectedPlayer);
+		intent.putExtra("currentPlayerId", selectedPlayer.getId());
+		intent.putExtra("currentPlayerName", selectedPlayer.getname());
 		startActivityForResult(intent, request_Code);
 	}
 

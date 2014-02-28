@@ -31,12 +31,14 @@ public class AddStatsDialogActivity extends Activity
 	Button saveStatsButton;
 	private StatDataSource statsDataSource;
 	private boolean hasErrors;
+	private long currentPlayerId;
+	private long currentGameId;
+	private String playerName;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// View view = inflater.inflate(R.layout.edit_stats_fragment, container,
-		// false);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_add_stats_dialog);
 
@@ -44,6 +46,10 @@ public class AddStatsDialogActivity extends Activity
 	}
 
 	public void saveStats() {
+		newStat.setPlayerId(currentPlayerId);
+		newStat.setGameId(currentGameId);
+		newStat.setPlayerName(playerName);
+		newStat.setDateCreated(DateTime.now().toString());
 		newStat.setAtBats(Integer.parseInt(AtBats.getText().toString()));
 		newStat.setSingles(Integer.parseInt(Singles.getText().toString()));
 		newStat.setDoubles(Integer.parseInt(Doubles.getText().toString()));
