@@ -31,19 +31,24 @@ public class AddStatsDialogActivity extends Activity
 	Button saveStatsButton;
 	private StatDataSource statsDataSource;
 	private boolean hasErrors;
+	private long currentPlayerId;
+	private long currentGameId;
+	private String playerName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// View view = inflater.inflate(R.layout.edit_stats_fragment, container,
-		// false);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.activity_add_stats_dialog);
 
 		initialize();
 	}
 
 	public void saveStats() {
+		newStat.setPlayerId(currentPlayerId);
+		newStat.setGameId(currentGameId);
+		newStat.setPlayerName(playerName);
 		newStat.setAtBats(Integer.parseInt(AtBats.getText().toString()));
 		newStat.setSingles(Integer.parseInt(Singles.getText().toString()));
 		newStat.setDoubles(Integer.parseInt(Doubles.getText().toString()));
@@ -52,6 +57,7 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
 		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
 		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
+		newStat.setDateCreated(DateTime.now().toString());
 
 		validateNewStat(newStat);
 
@@ -69,13 +75,15 @@ public class AddStatsDialogActivity extends Activity
 
 	private void initialize() 
 	{
-		long currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
-		Parcelable selectedPlayer = this.getIntent().getParcelableExtra("selectedPlayer");
-
-		newStat.setGameId(currentGameId);
-
+		Bundle bundle = getIntent().getExtras();
+		if (bundle != null) 
+		{
+			currentGameId = bundle.getLong("currentGameId", 0);
+			currentPlayerId = bundle.getLong("currentPlayerId");
+			playerName = bundle.getString("currentPlayerName");
+		}
+		
 		saveStatsButton = (Button) findViewById(R.id.saveStats);
-
 		saveStatsButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
