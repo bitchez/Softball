@@ -61,12 +61,12 @@ public class AddStatsDialogActivity extends Activity
 
 		validateNewStat(newStat);
 
-		Log.v(TAG, "Saving Statistic");
-		statsDataSource.createStatistic(newStat);
-		Log.v(TAG, "Statistics saved");
-
 		if (hasErrors == false) 
 		{
+			Log.v(TAG, "Saving Statistic");
+			statsDataSource.createStatistic(newStat);
+			Log.v(TAG, "Statistics saved");
+			
 			Intent intent = new Intent();
 			setResult(RESULT_OK, intent);
 			finish();

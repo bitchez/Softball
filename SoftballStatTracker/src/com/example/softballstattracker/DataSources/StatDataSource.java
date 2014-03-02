@@ -106,8 +106,8 @@ public class StatDataSource {
 		        	stat.setTriples(cursor.getInt(5));
 		        	stat.setHomeRuns(cursor.getInt(6));
 		        	stat.setRbis(cursor.getInt(7));
-		        	stat.setBeerDrank(8);
-		        	stat.setPutOuts(9);
+		        	stat.setBeerDrank(cursor.getInt(8));
+		        	stat.setPutOuts(cursor.getInt(9));
 		        	stat.setHits(stat.getSingles(), stat.getDoubles(), stat.getTriples(), stat.getHomeRuns());
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
 		        	
