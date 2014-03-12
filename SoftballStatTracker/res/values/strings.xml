@@ -27,6 +27,7 @@
     <string name="triples">Triples</string>
     <string name="homeruns">Homeruns</string>
     <string name="rbis">RBIs</string>
+    <string name="walks">Walks</string>
     <string name="put_outs">Put Outs</string>
     <string name="beers_drank">Beers Drank</string>
     <string name="title_activity_leader_boards">LeaderBoardsActivity</string>

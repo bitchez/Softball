@@ -11,6 +11,7 @@ public class Stat {
 	private int doubles;
 	private int triples;
 	private int homeRuns;
+	private int walks;
 	private int rbis;
 	private int putOuts;
 	private int beersDrank;
@@ -55,6 +56,10 @@ public class Stat {
 	
 	public int getHomeRuns() {
 		  return homeRuns;
+		}
+
+	public int getWalks() {
+		  return walks;
 		}
 	
 	public int getRunsBattedIn() {
@@ -119,6 +124,10 @@ public class Stat {
 	
 	public void setRbis(int rbis) {
 		this.rbis = rbis;
+	}
+	
+	public void setWalks(int walks) {
+		this.walks = walks;
 	}
 	
 	public void setPutOuts(int putOuts) {

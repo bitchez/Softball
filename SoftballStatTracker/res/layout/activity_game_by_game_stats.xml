@@ -1,14 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
+<RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#f4f4f4" >
+    
+   <RelativeLayout
+    android:id="@+id/gameStatsHeader"
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/customborder"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+    
+    <TextView
+        android:id="@+id/gameNameStatsHeader"
+        android:text="Name"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_width="100dp" 
+        android:textSize="14sp"
+        android:textStyle="bold"  />
+
+	<TextView
+	    android:id="@+id/gameDateStatsHeader"
+	    android:textColor="@android:color/white"
+	    android:text="Date"
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameNameStatsHeader"
+        android:textSize="14sp"  />
+
+	<TextView
+	    android:id="@+id/gameHitsStatsHeader"
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/gameDateStatsHeader"
+        android:textSize="14sp"
+        android:typeface="sans" 
+	    android:text="Hits"/>
+
+	<TextView
+	    android:id="@+id/gameAvgStatsHeader"
+	    android:textColor="@android:color/white"
+	    android:text="AVG"
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/gameRBIsStatsHeader"
+        android:textSize="14sp"
+        android:typeface="sans"  />
+
+	<TextView
+	     android:id="@+id/gameRBIsStatsHeader"
+	    android:textColor="@android:color/white"
+	    android:text="RBIs"
+	    android:layout_width="40dp" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:textSize="14sp"
+        android:typeface="sans" />
+</RelativeLayout>
  
      <ExpandableListView
          android:id="@android:id/list"
          android:layout_height="match_parent"
-         android:layout_width="match_parent"/>   
+         android:layout_width="match_parent"
+         android:layout_below="@+id/gameStatsHeader"/>   
  
-</LinearLayout>
+</RelativeLayout>

@@ -64,6 +64,7 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			TextView gameHomeRuns = (TextView) childRow.findViewById(R.id.gameHomeruns);
 			TextView gamePutOuts = (TextView) childRow.findViewById(R.id.gamePutOuts);
 			TextView gameBeersDrank = (TextView) childRow.findViewById(R.id.gameBeersDrank);
+			TextView gameWalks = (TextView) childRow.findViewById(R.id.gameWalks);
 
 			if (gameSingles != null) {
 				gameSingles.setText("singles:" + String.valueOf(gameStatChild.getSingles()));
@@ -75,13 +76,16 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 				gameTriples.setText("triples:" + String.valueOf(gameStatChild.getTriples()));
 			}
 			if (gameHomeRuns != null) {
-				gameHomeRuns.setText("HR:" + String.valueOf(gameStatChild.getHomeRuns()));
+				gameHomeRuns.setText("homeruns:" + String.valueOf(gameStatChild.getHomeRuns()));
+			}
+			if (gameWalks != null) {
+				gameWalks.setText("walks:" + String.valueOf(gameStatChild.getWalks()));
 			}
 			if (gamePutOuts != null) {
-				gamePutOuts.setText("putouts" + String.valueOf(gameStatChild.getPutOuts()));
+				gamePutOuts.setText("putouts:" + String.valueOf(gameStatChild.getPutOuts()));
 			}
 			if (gameBeersDrank != null) {
-				gameBeersDrank.setText("beers" + String.valueOf(gameStatChild.getBeersDrank()));
+				gameBeersDrank.setText("beers:" + String.valueOf(gameStatChild.getBeersDrank()));
 			}
 		}
 
@@ -129,6 +133,8 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			TextView gameName = (TextView) row.findViewById(R.id.gameName);
 			TextView gameDateCreated = (TextView) row
 					.findViewById(R.id.gameDateCreated);
+			TextView gameRBIs = (TextView) row
+					.findViewById(R.id.gameRBIs);
 			TextView gameHits = (TextView) row.findViewById(R.id.gameHits);
 			TextView gameAvg = (TextView) row.findViewById(R.id.gameAverage);
 
@@ -144,7 +150,10 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 				String year = dateString.substring(2, 4);
 				String month = dateString.substring(5, 7);
 				String day = dateString.substring(8, 10);
-				gameDateCreated.setText(month + "/" + day + "/" + year);
+				gameDateCreated.setText(month + "/" + day);
+			}
+			if (gameRBIs != null) {
+				gameRBIs.setText(String.valueOf(gameStats.getRunsBattedIn()));
 			}
 			if (gameAvg != null) {
 				int abs = gameStats.getAtBats();

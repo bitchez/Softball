@@ -86,7 +86,7 @@ public class StatDataSource {
 	{
 		List<Stat> gameByGameStats = new ArrayList<Stat>();
 		String query = "SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, "
-				+ "s.RBIs, s.BeersDrank, s.PutOuts "
+				+ "s.RBIs, s.Walks, s.BeersDrank, s.PutOuts "
 				+ "FROM Stats s JOIN Games g ON s.GameId = g.GameId AND PlayerID ="
 				+ playerId
 				+ "  ORDER BY g.DateCreated desc";
@@ -106,8 +106,9 @@ public class StatDataSource {
 		        	stat.setTriples(cursor.getInt(5));
 		        	stat.setHomeRuns(cursor.getInt(6));
 		        	stat.setRbis(cursor.getInt(7));
-		        	stat.setBeerDrank(cursor.getInt(8));
-		        	stat.setPutOuts(cursor.getInt(9));
+		        	stat.setWalks(cursor.getInt(8));
+		        	stat.setBeerDrank(cursor.getInt(9));
+		        	stat.setPutOuts(cursor.getInt(10));
 		        	stat.setHits(stat.getSingles(), stat.getDoubles(), stat.getTriples(), stat.getHomeRuns());
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
 		        	
@@ -129,10 +130,11 @@ public class StatDataSource {
 		values.put(SQLiteHelper.AT_BATS, stat.getAtBats());
 		values.put(SQLiteHelper.HITS, stat.getHits());
 		values.put(SQLiteHelper.SINGLES, stat.getSingles());
-		values.put(SQLiteHelper.DOUBLES, stat.getPlayerId());
+		values.put(SQLiteHelper.DOUBLES, stat.getDoubles());
 		values.put(SQLiteHelper.TRIPLES, stat.getTriples());
 		values.put(SQLiteHelper.HOMERUNS, stat.getHomeRuns());
 		values.put(SQLiteHelper.RUNS_BATTED_IN, stat.getRunsBattedIn());
+		values.put(SQLiteHelper.WALKS, stat.getWalks());
 		values.put(SQLiteHelper.PUTOUTS, stat.getPutOuts());
 		values.put(SQLiteHelper.BEERS_DRANK, stat.getBeersDrank());
 		values.put(SQLiteHelper.GAME_ID, stat.getGameId());
@@ -151,6 +153,7 @@ public class StatDataSource {
 		stat.setTriples(cursor.getInt(6));
 		stat.setHomeRuns(cursor.getInt(7));
 		stat.setRbis(cursor.getInt(9));
+		stat.setWalks(cursor.getInt(10));
 		stat.setPutOuts(cursor.getInt(10));
 		stat.setBeerDrank(cursor.getInt(11));
 		stat.setGameId(cursor.getInt(12));

@@ -27,6 +27,7 @@ public class AddStatsDialogActivity extends Activity
 	EditText RBIs;
 	EditText PutOuts;
 	EditText BeersDrank;
+	EditText Walks;
 	private Stat newStat = new Stat();
 	Button saveStatsButton;
 	private StatDataSource statsDataSource;
@@ -56,6 +57,7 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setTriples(Integer.parseInt(Triples.getText().toString()));
 		newStat.setHomeRuns(Integer.parseInt(Homeruns.getText().toString()));
 		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
+		newStat.setWalks(Integer.parseInt(Walks.getText().toString()));
 		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
 		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
 
@@ -100,6 +102,7 @@ public class AddStatsDialogActivity extends Activity
 		Triples = (EditText) findViewById(R.id.triplesInput);
 		Homeruns = (EditText) findViewById(R.id.homeRunsInput);
 		RBIs = (EditText) findViewById(R.id.rbisInput);
+		Walks = (EditText) findViewById(R.id.walksInput);
 		BeersDrank = (EditText) findViewById(R.id.beersDrankInput);
 		PutOuts = (EditText) findViewById(R.id.putOutsInput);
 
@@ -116,11 +119,6 @@ public class AddStatsDialogActivity extends Activity
 		if (newStat.getHits() > newStat.getAtBats()) {
 			hasErrors = true;
 			AtBats.setError("You have too many hits mother fucker.");
-		}
-
-		if (newStat.getBeersDrank() == 0) {
-			hasErrors = true;
-			BeersDrank.setError("You need to drink ONE beer.");
 		}
 	}
 

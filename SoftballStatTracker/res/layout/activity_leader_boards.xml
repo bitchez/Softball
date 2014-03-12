@@ -1,4 +1,4 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -6,7 +6,8 @@
     android:layout_height="fill_parent"
     tools:context=".LeaderBoardsActivity" >
     
-<LinearLayout
+   <RelativeLayout
+    android:id="@+id/gameStatsHeader"
     android:layout_width="fill_parent"
     android:layout_height="45dp"
     android:background="@drawable/customborder"
@@ -15,55 +16,69 @@
     android:padding="10dip" >
     
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/gameNameStatsHeader"
         android:text="Name"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_width="100dp" 
+        android:textSize="14sp"
+        android:textStyle="bold"  />
 
 	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	     android:textColor="@android:color/white"
-	    android:layout_marginLeft="35dp"
+	    android:id="@+id/gameDateStatsHeader"
+	    android:textColor="@android:color/white"
 	    android:text="ABs"
-	    android:textSize="18sp"
-	    android:textStyle="bold" />
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/gameNameStatsHeader"
+        android:textSize="14sp"  />
 
 	<TextView
+	    android:id="@+id/gameHitsStatsHeader"
 	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	     android:textColor="@android:color/white"
-	    android:layout_marginLeft="35dp"
-	    android:text="Hits"
-	    android:textSize="18sp"
-	    android:textStyle="bold" />
+        android:layout_height="wrap_content"
+         android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/gameDateStatsHeader"
+        android:textSize="14sp"
+        android:typeface="sans" 
+	    android:text="Hits"/>
 
 	<TextView
-	    android:layout_width="wrap_content"
-	     android:textColor="@android:color/white"
-	    android:layout_height="wrap_content"
-	    android:layout_marginLeft="35dp"
+	    android:id="@+id/gameAvgStatsHeader"
+	    android:textColor="@android:color/white"
 	    android:text="AVG"
-	    android:textSize="18sp"
-	    android:textStyle="bold"
-	    android:typeface="sans" />
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/gameRBIsStatsHeader"
+        android:textSize="14sp"
+        android:typeface="sans"  />
 
 	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	     android:textColor="@android:color/white"
-	    android:layout_marginLeft="35dp"
+	     android:id="@+id/gameRBIsStatsHeader"
+	    android:textColor="@android:color/white"
 	    android:text="RBIs"
-	    android:textSize="18sp"
-	    android:textStyle="bold"
-	    android:typeface="sans" />
-</LinearLayout>
+	    android:layout_width="40dp" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:textSize="14sp"
+        android:typeface="sans" />
+</RelativeLayout>
 
 	<ListView
     android:id="@android:id/list"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"/>
+    android:layout_height="fill_parent"
+    android:layout_below="@+id/gameStatsHeader"/>
 	
-</LinearLayout>
+</RelativeLayout>
