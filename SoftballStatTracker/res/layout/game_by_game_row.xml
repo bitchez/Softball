@@ -4,6 +4,7 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:layout_marginLeft="25dp"
     android:gravity="left"
+    android:background="@drawable/list_selector"
     android:orientation="horizontal"
     android:padding="10dip" >
 
@@ -53,6 +54,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
+        android:gravity="right"
         android:textAlignment="textEnd"
         android:textSize="14sp"
         android:typeface="sans" />

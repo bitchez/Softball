@@ -8,18 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.Models.Stat;
 
-public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
+public class LeaderBoardArrayAdapter extends BaseAdapter {
 		
 	    private ArrayList<Stat> items;
 	    private Context context;
 
-	    public LeaderBoardArrayAdapter(Context context, int textViewResourceId, ArrayList<Stat> stats) {
-	            super(context, textViewResourceId, stats);
+	    public LeaderBoardArrayAdapter(Context context, ArrayList<Stat> stats) {
+	            super();
 	            this.items = stats;
 	            this.context = context;
 	    }
@@ -28,6 +29,16 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	    public int getCount() {
 	    	int size = items.size();
 			return size;
+	    }
+	 
+	    @Override
+	    public Object getItem(int position) {
+	        return items.get(position);
+	    }
+	 
+	    @Override
+	    public long getItemId(int position) {
+	        return position;
 	    }
 
 	    @Override
@@ -73,5 +84,4 @@ public class LeaderBoardArrayAdapter extends ArrayAdapter<Stat> {
 	        
 	        return row;
 	    }
-	    
 	}

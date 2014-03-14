@@ -78,6 +78,8 @@ public class StatDataSource {
 	        while (cursor.moveToNext());
 	    }
 	    
+	    cursor.close();
+	    close();
 	    // return list for leaderboard
 	    return (ArrayList<Stat>) leaderboard;
 	  }

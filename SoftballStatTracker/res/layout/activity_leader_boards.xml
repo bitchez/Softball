@@ -17,7 +17,7 @@
     
     <TextView
         android:id="@+id/gameNameStatsHeader"
-        android:text="Name"
+        android:text="Players"
         android:textColor="@android:color/white"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -76,9 +76,12 @@
 </RelativeLayout>
 
 	<ListView
-    android:id="@android:id/list"
+    android:id="@+id/leaderBoardListView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_below="@+id/gameStatsHeader"/>
+    android:layout_below="@+id/gameStatsHeader"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
 	
 </RelativeLayout>

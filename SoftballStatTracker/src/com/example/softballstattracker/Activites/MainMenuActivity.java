@@ -24,9 +24,9 @@ public class MainMenuActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
-		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
-		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
-		txt.setTypeface(font);
+//		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
+//		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+//		txt.setTypeface(font);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {

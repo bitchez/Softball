@@ -3,10 +3,13 @@ package com.example.softballstattracker.Activites;
 import java.util.ArrayList;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,7 +18,7 @@ import com.example.softballstattracker.Adapters.LeaderBoardArrayAdapter;
 import com.example.softballstattracker.DataSources.StatDataSource;
 import com.example.softballstattracker.Models.Stat;
 
-public class LeaderBoardsActivity extends ListActivity {
+public class LeaderBoardsActivity extends Activity {
 
     public ArrayList<Stat> leaderBoardStats = null;
     private StatDataSource statsDataSource;
@@ -29,19 +32,24 @@ public class LeaderBoardsActivity extends ListActivity {
 	
 		leaderBoardStats = new ArrayList<Stat>();
 		leaderBoardStats = getLeaderBoardStats();
-		LeaderBoardArrayAdapter leaderBoardAdapter = new LeaderBoardArrayAdapter(this, R.layout.leader_board_row, leaderBoardStats);
-		setListAdapter(leaderBoardAdapter);
+		
+		final ListView leadboardListView = (ListView) findViewById(R.id.leaderBoardListView);
+		LeaderBoardArrayAdapter leaderBoardAdapter = new LeaderBoardArrayAdapter(this, leaderBoardStats);
+		leadboardListView.setAdapter(leaderBoardAdapter);
+		leadboardListView.setOnItemClickListener(new OnItemClickListener() {
+			 
+	            @Override
+	            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+	                Object o = leadboardListView.getItemAtPosition(position);
+	                Stat selectedLeaderBoardItem = (Stat)o;
+	                //Toast.makeText(this, "Selected :" + " " + selectedLeaderBoardItem.getPlayerName(), Toast.LENGTH_LONG).show();
+	        	    NavigatetoGamebyGameStatActivity(selectedLeaderBoardItem);
+	            }
+	 
+	        });
     }
 	
-	  @Override
-	  protected void onListItemClick(ListView l, View v, int position, long id) 
-	  {
-	    Stat selectedLeaderBoardItem = (Stat) getListAdapter().getItem(position);
-	    Toast.makeText(this, selectedLeaderBoardItem.getPlayerName() + " selected", Toast.LENGTH_LONG).show();
-	    NavigatetoGamebyGameStatActivity(selectedLeaderBoardItem);
-	  }
-
-	private void NavigatetoGamebyGameStatActivity(Stat selectedLeaderBoardItem) 
+	  private void NavigatetoGamebyGameStatActivity(Stat selectedLeaderBoardItem) 
 	{	
 		Intent gameByGameIntent = new Intent(this, GameByGameStatActivity.class);
 		gameByGameIntent.putExtra("playerId", selectedLeaderBoardItem.getPlayerId());
