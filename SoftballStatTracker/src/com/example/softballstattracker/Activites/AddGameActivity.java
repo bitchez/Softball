@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 
@@ -32,7 +34,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		
 		setContentView(R.layout.activity_add_game);
 		
-		editDateButton = (ImageButton) findViewById(R.id.imageButton1);
+		editDateButton = (ImageButton) findViewById(R.id.calendarButton);
 		editDateButton.setOnClickListener(this);
 		
 		setDateDefaults();
@@ -49,6 +51,10 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		year = calendar.get(Calendar.YEAR);
 		gameDateInput = (EditText) findViewById(R.id.gameDateInput);
 		gameDateInput.setText((month + 1) + " / " + day + " / " + year);
+		
+		TextView txt = (TextView) findViewById(R.id.gameInfoHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -88,7 +94,6 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	{
 		EditText gameNameInput = (EditText) findViewById(R.id.gameNameInput);
 		EditText gameDate = (EditText) findViewById(R.id.gameDateInput);
-		EditText opponentName = (EditText) findViewById(R.id.opponent);
 		
 		if(DoesGameNameExist(gameNameInput))
 	    {
@@ -98,12 +103,10 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		{
 			String gameNameString = gameNameInput.getText().toString();
 			String gameDateString = gameDate.getText().toString();
-			String opponentString = opponentName.getText().toString();
 			
 			Intent intent = new Intent(this, ChoosePlayersActivity.class);
 			intent.putExtra("gameName_input", gameNameString);
 			intent.putExtra("gameDate_input", gameDateString);
-			intent.putExtra("opponentName_input", opponentString);
 			setResult(RESULT_OK, intent);
 		    startActivity(intent);
 		}

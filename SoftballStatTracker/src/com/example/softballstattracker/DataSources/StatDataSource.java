@@ -78,7 +78,6 @@ public class StatDataSource {
 	        while (cursor.moveToNext());
 	    }
 	    
-	    cursor.close();
 	    close();
 	    // return list for leaderboard
 	    return (ArrayList<Stat>) leaderboard;
@@ -119,6 +118,7 @@ public class StatDataSource {
 	        while (cursor.moveToNext());
 	    }
 	    
+	    close();
 	    // return list of game stats
 	    return (ArrayList<Stat>) gameByGameStats;
 	  }

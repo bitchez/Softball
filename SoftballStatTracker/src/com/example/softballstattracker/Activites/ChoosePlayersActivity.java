@@ -62,13 +62,9 @@ public class ChoosePlayersActivity extends ListActivity {
 		if (bundle != null) {
 			gameName = bundle.getString("gameName_input");
 			gameDate = bundle.getString("gameDate_input");
-			opponentName = bundle.getString("opponentName_input");
 
 			if (gameDate != null && !gameDate.isEmpty()) {
 				gameDateText.append(" on date: " + gameDate);
-			}
-			if (opponentName != null && !opponentName.isEmpty()) {
-				addStats.append(" to game against: " + opponentName);
 			}
 		}
 	}
@@ -148,7 +144,6 @@ public class ChoosePlayersActivity extends ListActivity {
 		if (selectedPlayer != null) {
 			isPlayerSelected = true;
 		}
-		
 	}
 
 	private void createGamesForSelectedPlayers() {

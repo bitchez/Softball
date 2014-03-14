@@ -23,14 +23,9 @@ public class MainMenuActivity extends Activity {
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
-		
-//		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
-//		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
-//		txt.setTypeface(font);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -58,7 +53,7 @@ public class MainMenuActivity extends Activity {
 		{
 			if (resultCode == RESULT_OK) 
 			{
-				Toast.makeText(this, data.getData().toString() + " added to player list.", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, data.getData().toString() + " has been saved", Toast.LENGTH_LONG).show();
 			}
 		}
 		

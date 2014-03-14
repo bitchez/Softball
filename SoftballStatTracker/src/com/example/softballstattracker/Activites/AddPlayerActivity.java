@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
@@ -31,6 +33,10 @@ public class AddPlayerActivity extends Activity {
 		setContentView(R.layout.activity_add_player);
 		
 		playerImageView = (ImageView) findViewById(R.id.playerImage);
+		
+		TextView txt = (TextView) findViewById(R.id.playerInfoHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
