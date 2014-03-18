@@ -40,12 +40,10 @@ public class LeaderBoardsActivity extends Activity {
 			 
 	            @Override
 	            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-	                Object o = leadboardListView.getItemAtPosition(position);
-	                Stat selectedLeaderBoardItem = (Stat)o;
-	                //Toast.makeText(this, "Selected :" + " " + selectedLeaderBoardItem.getPlayerName(), Toast.LENGTH_LONG).show();
+	                Object obj = leadboardListView.getItemAtPosition(position);
+	                Stat selectedLeaderBoardItem = (Stat)obj;
 	        	    NavigatetoGamebyGameStatActivity(selectedLeaderBoardItem);
 	            }
-	 
 	        });
     }
 	

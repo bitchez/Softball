@@ -62,7 +62,7 @@ public class ChoosePlayersActivity extends ListActivity {
 		if (bundle != null) {
 			gameName = bundle.getString("gameName_input");
 			gameDate = bundle.getString("gameDate_input");
-
+			opponentName = bundle.getString("gameOpponent_input");
 			if (gameDate != null && !gameDate.isEmpty()) {
 				gameDateText.append(" on date: " + gameDate);
 			}
@@ -150,6 +150,7 @@ public class ChoosePlayersActivity extends ListActivity {
 		Game newGame = new Game();
 		newGame.setName(gameName);
 		newGame.setDateCreated(gameDate);
+		newGame.setOpponent(opponentName);
 		gamesDataSource.createGame(newGame);
 		currentGameId = newGame.getId();
 	}

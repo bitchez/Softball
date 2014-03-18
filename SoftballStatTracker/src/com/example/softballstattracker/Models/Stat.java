@@ -14,8 +14,10 @@ public class Stat {
 	private int walks;
 	private int rbis;
 	private int putOuts;
+	private String opponent;
 	private int beersDrank;
 	private long gameId;
+	private String playerImage;
 	private String dateCreated;
 	
 	public long getStatId() {
@@ -27,6 +29,10 @@ public class Stat {
 	}
 	
 	public String getPlayerName() {
+		  return playerName;
+		}
+	
+	public String getPlayerImage() {
 		  return playerName;
 		}
 	
@@ -78,6 +84,10 @@ public class Stat {
 		  return gameId;
 		}
 	
+	public String getOpponent() {
+		return opponent;
+	}
+	
 	public String getDateCreated() {
 		return dateCreated;
 	}
@@ -85,7 +95,6 @@ public class Stat {
 	public void setPlayerId(long playerId) {
 		this.playerId = playerId;
 	}
-	
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
@@ -106,6 +115,11 @@ public class Stat {
 		this.average = (hits / (float)atBats);
 	}
 	
+	public void setOpponent(String opponent)
+	{
+		this.opponent = opponent;
+	}
+	
 	public void setSingles(int singles) {
 		this.singles = singles;
 	}
@@ -124,6 +138,10 @@ public class Stat {
 	
 	public void setRbis(int rbis) {
 		this.rbis = rbis;
+	}
+	
+	public void setPlayerImage(String image) {
+		this.playerImage = image;
 	}
 	
 	public void setWalks(int walks) {

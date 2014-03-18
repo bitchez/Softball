@@ -27,6 +27,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	 private int month;
 	 private int year;
 	 private EditText gameDateInput;
+	 private EditText opponentInput;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,11 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		day = calendar.get(Calendar.DAY_OF_MONTH);
 		month = calendar.get(Calendar.MONTH);
 		year = calendar.get(Calendar.YEAR);
+		
 		gameDateInput = (EditText) findViewById(R.id.gameDateInput);
 		gameDateInput.setText((month + 1) + " / " + day + " / " + year);
+		
+		opponentInput = (EditText) findViewById(R.id.opponentInput);
 		
 		TextView txt = (TextView) findViewById(R.id.gameInfoHeader);
 		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
@@ -103,10 +107,12 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		{
 			String gameNameString = gameNameInput.getText().toString();
 			String gameDateString = gameDate.getText().toString();
+			String gameOpponentString = opponentInput.getText().toString();
 			
 			Intent intent = new Intent(this, ChoosePlayersActivity.class);
 			intent.putExtra("gameName_input", gameNameString);
 			intent.putExtra("gameDate_input", gameDateString);
+			intent.putExtra("gameOpponent_input",  gameOpponentString);
 			setResult(RESULT_OK, intent);
 		    startActivity(intent);
 		}

@@ -7,26 +7,35 @@
     android:background="@drawable/gamebygamegradient"
     android:orientation="horizontal"
     android:padding="10dip" >
+    
+    <TextView
+        android:id="@+id/gameOpponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="false"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/gameSingles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        android:layout_below="@+id/gameOpponent"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/gameDoubles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameSingles"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/gameTriples"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameDoubles"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:typeface="sans" />
 
     <TextView
@@ -34,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameTriples"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:typeface="sans" />
 
     <TextView
@@ -42,7 +51,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textSize="16sp"
+        android:layout_below="@+id/gameOpponent"
+        android:layout_centerInParent="true"
+        android:textSize="14sp"
         android:typeface="sans" />
 
     <TextView
@@ -51,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/gameWalks"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:typeface="sans" />
     
       <TextView
@@ -60,7 +71,7 @@
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
           android:layout_below="@+id/gamePutOuts"
-          android:textSize="16sp"
+          android:textSize="14sp"
           android:typeface="sans" />
     
 </RelativeLayout>

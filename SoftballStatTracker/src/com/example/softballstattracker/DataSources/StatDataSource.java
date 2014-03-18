@@ -56,8 +56,11 @@ public class StatDataSource {
 	public ArrayList<Stat> getLeaderBoardStatistics()
 	{
 		List<Stat> leaderboard = new ArrayList<Stat>();
-		String query = "SELECT PlayerId, PlayerName, SUM(AtBats), SUM(Singles) + SUM(Doubles) + SUM(Triples) + SUM(Homeruns) as Hits, SUM(RBIs) " +
-						"FROM Stats GROUP By PlayerId";
+		String query = "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), p.PlayerImage " +
+				"FROM Stats s " +
+				"JOIN Players p " +
+				"ON s.PlayerId = s.PlayerId " +
+				"Group by s.PlayerId";
 		
 		open();
 		Cursor cursor = database.rawQuery(query, null);
@@ -72,6 +75,7 @@ public class StatDataSource {
 		        	stat.setHits(cursor.getInt(3));
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
 		        	stat.setRbis(cursor.getInt(4));
+		        	//stat.setPlayerImaage(Cursor.getString(5));
 		        	
 		        	leaderboard.add(stat);
 	            }		 
@@ -87,7 +91,7 @@ public class StatDataSource {
 	{
 		List<Stat> gameByGameStats = new ArrayList<Stat>();
 		String query = "SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, "
-				+ "s.RBIs, s.Walks, s.BeersDrank, s.PutOuts "
+				+ "s.RBIs, s.Walks, s.BeersDrank, s.PutOuts, g.Opponent "
 				+ "FROM Stats s JOIN Games g ON s.GameId = g.GameId AND PlayerID ="
 				+ playerId
 				+ "  ORDER BY g.DateCreated desc";
@@ -112,6 +116,7 @@ public class StatDataSource {
 		        	stat.setPutOuts(cursor.getInt(10));
 		        	stat.setHits(stat.getSingles(), stat.getDoubles(), stat.getTriples(), stat.getHomeRuns());
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
+		        	stat.setOpponent(cursor.getString(11));
 		        	
 		        	gameByGameStats.add(stat);
 	            }		 

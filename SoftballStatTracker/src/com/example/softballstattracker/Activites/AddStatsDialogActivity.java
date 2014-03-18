@@ -46,7 +46,8 @@ public class AddStatsDialogActivity extends Activity
 		initialize();
 	}
 
-	public void saveStats() {
+	public void saveStats() 
+	{
 		newStat.setPlayerId(currentPlayerId);
 		newStat.setGameId(currentGameId);
 		newStat.setPlayerName(currentPlayerName);
@@ -116,6 +117,21 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setHits(newStat.getSingles(), newStat.getDoubles(),
 				newStat.getTriples(), newStat.getHomeRuns());
 
+		if (newStat.getAtBats() <= 0)
+		{
+			hasErrors = true;
+			AtBats.setError("You need at least one at bat mother fucker");
+		}
+		else
+		{
+			int placeAppearances = newStat.getHits() + newStat.getWalks();
+			if(placeAppearances * 4 < newStat.getHits())
+			{
+				hasErrors = true;
+				RBIs.setError("You can't have more RBIs than plate appearances mother fucker");
+			}
+		}
+		
 		if (newStat.getHits() > newStat.getAtBats()) {
 			hasErrors = true;
 			AtBats.setError("You have too many hits mother fucker.");

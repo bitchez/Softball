@@ -46,7 +46,7 @@
             android:layout_below="@+id/gameNameInput"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
-            android:text="@string/datePlayed"
+            android:text="Date played"
             android:textSize="20sp" />
 
         <EditText
@@ -80,5 +80,27 @@
          android:contentDescription="selectdate"
          android:cropToPadding="true"
          android:src="@android:drawable/ic_menu_my_calendar" />
+     
+     <TextView
+         android:id="@+id/gameOpponentLabel"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/gameDateInput"
+         android:layout_marginLeft="5dp"
+         android:layout_marginTop="20dp"
+         android:text="Opponent"
+         android:textSize="20sp" />
+    
+    <EditText
+        android:id="@+id/opponentInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameOpponentLabel"
+        android:ems="10"
+        android:hint="the shittys"
+        android:inputType="text|textCapWords|textImeMultiLine"
+        android:imeOptions="actionDone" />"
+        <requestFocus />
+    
 
 </RelativeLayout>

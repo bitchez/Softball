@@ -1,5 +1,8 @@
 package com.example.softballstattracker.DataSources;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -34,14 +37,20 @@ public class PlayerDataSource {
     dbHelper.close();
   }
 
-  public Player createPlayer(String playerName) 
+  public Player createPlayer(Player player, String selectedImagePath) throws IOException 
   {  
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
-    values.put(SQLiteHelper.PLAYER_NAME, playerName);
+    values.put(SQLiteHelper.PLAYER_NAME, player.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
-
+    
+    if(selectedImagePath != null)
+    {
+    	byte[] img = preparePlayerImage(selectedImagePath);
+        values.put(SQLiteHelper.PLAYER_IMAGE, img);
+    }
+    
     long insertId = database.insert(SQLiteHelper.TABLE_PLAYERS, null, values);
     
     Cursor cursor = database.query(SQLiteHelper.TABLE_PLAYERS,
@@ -54,7 +63,18 @@ public class PlayerDataSource {
     cursor.close();
     return newPlayer;
   }
-
+  
+  public byte[] preparePlayerImage(String selectedImagePath) throws IOException 
+  {
+	  byte[] bytePlayerImage = null;
+      FileInputStream instream = new FileInputStream(selectedImagePath);
+      BufferedInputStream bif = new BufferedInputStream(instream);
+      bytePlayerImage = new byte[bif.available()];
+      bif.read(bytePlayerImage);
+      bif.close();
+      return bytePlayerImage;
+ }
+  
   public void deletePlayer(Player player) {
     long id = player.getId();
     System.out.println("Player deleted with id: " + id);

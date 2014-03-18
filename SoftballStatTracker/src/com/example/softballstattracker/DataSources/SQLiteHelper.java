@@ -13,6 +13,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String GAME_NAME = "GameName";
 	public static final String PLAYER_NAME = "PlayerName";
 	public static final String DATE_CREATED = "DateCreated";
+	public static final String OPPONENT = "Opponent";
 	public static final String STAT_ID = "StatId";
 	public static final String PLAYER_ID = "PlayerId";
 	public static final String GAME_ID = "GameId";
@@ -28,10 +29,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String PUTOUTS = "PutOuts";
 	public static final String PLAYER_IMAGE = "PlayerImage";
  	public static final String DATABASE_NAME = "SoftballStatsDB.db";
-	private static final int DATABASE_VERSION = 24;
+	private static final int DATABASE_VERSION = 26;
 	
 	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, PlayerName text not null, DateCreated string, PlayerImage BLOB)";
-	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY, GameName TEXT, DateCreated string)";
+	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY, GameName TEXT, DateCreated string, Opponent string)";
 	public static final String DATABASE_CREATE_STATS = "CREATE TABLE Stats (StatId INTEGER PRIMARY KEY autoincrement, PlayerId INTEGER, PlayerName string, AtBats INTEGER, Hits INTEGER, Singles INTEGER, Doubles INTEGER, Triples INTEGER, Homeruns INTEGER, RBIs INTEGER, Walks INTEGER, PutOuts INTEGER, BeersDrank INTEGER, GameID INTEGER not null, DateCreated string)";   								  
 	
 	public SQLiteHelper(Context context) {

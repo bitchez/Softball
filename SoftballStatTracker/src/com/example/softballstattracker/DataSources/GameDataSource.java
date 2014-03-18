@@ -17,7 +17,8 @@ public class GameDataSource {
   private SQLiteHelper dbHelper;
   private String[] allColumns = { SQLiteHelper.GAME_ID,
 		  						  SQLiteHelper.GAME_NAME,
-		  						  SQLiteHelper.DATE_CREATED,}; 
+		  						  SQLiteHelper.DATE_CREATED,
+		  						  SQLiteHelper.OPPONENT}; 
 
   public GameDataSource(Context context) 
   {
@@ -43,6 +44,7 @@ public class GameDataSource {
     values.put(SQLiteHelper.GAME_ID, nextGameId);
     values.put(SQLiteHelper.GAME_NAME, game.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
+    values.put(SQLiteHelper.OPPONENT, game.getOpponent());
 
     database.insert(SQLiteHelper.TABLE_GAMES, null, values);
     
@@ -91,6 +93,7 @@ public class GameDataSource {
     game.setId(cursor.getLong(0));
     game.setName(cursor.getString(1));
     game.setDateCreated(cursor.getString(2));
+    game.setOpponent(cursor.getString(3));
     return game;
   }
 } 

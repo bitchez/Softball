@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.softballstattracker.R;
@@ -53,13 +54,17 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	        
 	        Stat stat = items.get(position);
 	        if (stat != null) 
-	        {
+	        {	
+	        	ImageView playerImage = (ImageView) row.findViewById(R.id.playerImage);
 	            TextView playerName = (TextView) row.findViewById(R.id.playerName);
 	            TextView atBats = (TextView) row.findViewById(R.id.atBats);
 	            TextView hits = (TextView) row.findViewById(R.id.hits);
 	            TextView average = (TextView) row.findViewById(R.id.average);
 	            TextView rbis = (TextView) row.findViewById(R.id.rbis);
 	            
+	            if(playerImage != null) {
+	            	//playerImage.setImageURI(stat.getPlayerImage().);
+	            }
 	            if (playerName != null) {
 	            	playerName.setText(stat.getPlayerName());                            
 	            }

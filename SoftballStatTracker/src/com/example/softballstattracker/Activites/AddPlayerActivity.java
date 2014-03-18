@@ -1,5 +1,7 @@
 package com.example.softballstattracker.Activites;
  
+import java.io.IOException;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.PlayerDataSource;
+import com.example.softballstattracker.Models.Player;
 
 public class AddPlayerActivity extends Activity {
 	
@@ -25,6 +28,7 @@ public class AddPlayerActivity extends Activity {
 	ImageView playerImageView;
 	private PlayerDataSource playerDataSource;
 	EditText playerNameInput;
+	private String selectedImagePath; 
 	private Bitmap playerImage;
 
 	@Override
@@ -60,11 +64,12 @@ public class AddPlayerActivity extends Activity {
 	    case SELECT_PHOTO:
 	        if(resultCode == RESULT_OK) 
 	        {  
-	            Uri selectedImage = imageReturnedIntent.getData();
+	            Uri selectedImageUri = imageReturnedIntent.getData();
+	            selectedImagePath = selectedImageUri.getPath();
 	            String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
 	            Cursor cursor = getContentResolver().query(
-	                               selectedImage, filePathColumn, null, null, null);
+	            		selectedImageUri, filePathColumn, null, null, null);
 	            cursor.moveToFirst();
 
 	            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -77,7 +82,17 @@ public class AddPlayerActivity extends Activity {
 	    }
 	}
 	
-	public void savePlayer(View view) {
+//	 @SuppressWarnings("deprecation")
+//	    public String getPath(Uri uri) {
+//	        String[] projection = { MediaStore.Images.Media.DATA };
+//	        Cursor cursor = managedQuery(uri, projection, null, null, null);
+//	        int column_index = cursor
+//	                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//	        cursor.moveToFirst();
+//	        return cursor.getString(column_index);
+//	    }
+	
+	public void savePlayer(View view) throws IOException {
 		 
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
@@ -87,11 +102,13 @@ public class AddPlayerActivity extends Activity {
 	    }
 		else
 		{
-		
+			
 		String playerName = playerNameInput.getText().toString();
 		
-		//save new player to DB
-		playerDataSource.createPlayer(playerName);
+		Player newPlayer = new Player();
+		newPlayer.setName(playerName);
+		
+		playerDataSource.createPlayer(newPlayer, selectedImagePath);
 		
 		Intent intent = new Intent();
 		intent.setData(Uri.parse(playerName)); 
@@ -100,8 +117,8 @@ public class AddPlayerActivity extends Activity {
 	    
 		}
 	}
-	
-	 private boolean DoesPlayerNameExist(EditText playerName) {
+
+	private boolean DoesPlayerNameExist(EditText playerName) {
 		return (playerName.getText().toString().trim().equals(""));
 		
 	}

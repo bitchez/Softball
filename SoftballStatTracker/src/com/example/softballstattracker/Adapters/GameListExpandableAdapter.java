@@ -65,7 +65,11 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			TextView gamePutOuts = (TextView) childRow.findViewById(R.id.gamePutOuts);
 			TextView gameBeersDrank = (TextView) childRow.findViewById(R.id.gameBeersDrank);
 			TextView gameWalks = (TextView) childRow.findViewById(R.id.gameWalks);
-
+			TextView gameOpponent = (TextView) childRow.findViewById(R.id.gameOpponent);
+			
+			if (gameOpponent != null) {
+				gameOpponent.setText("vs. " + String.valueOf(gameStatChild.getOpponent()));
+			}
 			if (gameSingles != null) {
 				gameSingles.setText("singles:" + String.valueOf(gameStatChild.getSingles()));
 			}
