@@ -6,11 +6,27 @@
     android:layout_height="fill_parent"
     tools:context=".LeaderBoardsActivity" >
     
+ <TextView
+     android:id="@+id/leaderBoardHeader"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentBottom="false"
+     android:layout_alignParentTop="true"
+     android:layout_alignWithParentIfMissing="false"
+     android:layout_centerHorizontal="false"
+     android:layout_centerInParent="false"
+     android:layout_centerVertical="false"
+     android:background="#000000"
+     android:gravity="center"
+     android:text="the leaderboard"
+     android:textSize="18sp" />
+    
    <RelativeLayout
     android:id="@+id/gameStatsHeader"
     android:layout_width="fill_parent"
     android:layout_height="45dp"
     android:background="@drawable/customborder"
+    android:layout_below="@+id/leaderBoardHeader"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="10dip" >
@@ -23,8 +39,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_width="100dp" 
-        android:textSize="14sp"
-        android:textStyle="bold"  />
+        android:textSize="14sp" />
 
 	<TextView
 	    android:id="@+id/gameDateStatsHeader"

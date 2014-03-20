@@ -6,10 +6,26 @@
     android:orientation="vertical"
     android:background="#f4f4f4" >
     
+<TextView
+     android:id="@+id/gameByGameHeader"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentBottom="false"
+     android:layout_alignParentTop="true"
+     android:layout_alignWithParentIfMissing="false"
+     android:layout_centerHorizontal="false"
+     android:layout_centerInParent="false"
+     android:layout_centerVertical="false"
+     android:background="#000000"
+     android:gravity="center"
+     android:text="game by game stats"
+     android:textSize="18sp" />
+    
    <RelativeLayout
     android:id="@+id/gameStatsHeader"
     android:layout_width="fill_parent"
     android:layout_height="45dp"
+    android:layout_below="@+id/gameByGameHeader"
     android:background="@drawable/customborder"
     android:gravity="center_vertical"
     android:orientation="horizontal"
@@ -23,8 +39,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_width="100dp" 
-        android:textSize="14sp"
-        android:textStyle="bold"  />
+        android:textSize="14sp" />
 
 	<TextView
 	    android:id="@+id/gameDateStatsHeader"

@@ -3,6 +3,7 @@ package com.example.softballstattracker.Activites;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +24,11 @@ public class MainMenuActivity extends Activity {
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
+		
+		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "thelineup.ttf");
+		txt.setTypeface(font);
+		txt.setTextColor(Color.WHITE);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {

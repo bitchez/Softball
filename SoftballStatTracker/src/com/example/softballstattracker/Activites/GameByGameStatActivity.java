@@ -6,10 +6,13 @@ import java.util.List;
 
 import android.app.ActionBar;
 import android.app.ExpandableListActivity;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.Adapters.GameListExpandableAdapter;
@@ -39,6 +42,11 @@ public class GameByGameStatActivity extends ExpandableListActivity {
 	{
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();	
+		
+		TextView txt = (TextView) findViewById(R.id.gameByGameHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
+		txt.setTextColor(Color.WHITE);
 		
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null)

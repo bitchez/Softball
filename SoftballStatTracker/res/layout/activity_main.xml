@@ -2,55 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/mainmenubackground">
-        
-    <ImageView
+    android:background="@drawable/mainmenubackground"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="80dp"
+        android:gravity="bottom|center"
+        android:orientation="vertical" >
+
+         <Button
+            android:id="@+id/addPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:onClick="addPlayer"
+            android:text="@string/addPlayer"
+            android:width="200dp" />
+                
+        <Button
+            android:id="@+id/addGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addPlayer"
+            android:onClick="addGame"
+            android:text="@string/addGame"
+            android:width="200dp" />
+        <Button
+            android:id="@+id/leaderBoardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addGame"
+            android:onClick="onLeaderBoard"
+            android:text="@string/leaderBoards"
+            android:width="200dp" />
+
+    </LinearLayout>
+
+    <TextView
         android:id="@+id/mainMenuHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/chalkitup"
-        android:text="@string/mainMenu"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textIsSelectable="true"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/addGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addPlayer"
-        android:layout_centerHorizontal="true"
-        android:onClick="addGame"
-        android:text="@string/addGame"
-        android:width="200dp" />
-    
-    <Button
-        android:id="@+id/leaderBoardButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addGame"
-        android:layout_centerHorizontal="true"
-        android:onClick="onLeaderBoard"
-        android:text="@string/leaderBoards"
-        android:width="200dp" />
-
-    <Button
-        android:id="@+id/addPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_below="@+id/mainMenuHeader"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="false"
-        android:layout_marginTop="150dp"
-        android:onClick="addPlayer"
-        android:text="@string/addPlayer"
-        android:width="200dp" />
+        android:layout_marginTop="110dp"
+        android:text="Chalk it Up"
+        android:textSize="45sp" />
 
 </RelativeLayout>
