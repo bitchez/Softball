@@ -19,7 +19,7 @@
      android:background="#000000"
      android:gravity="center"
      android:text="the leaderboard"
-     android:textSize="18sp" />
+     android:textSize="24sp" />
     
    <RelativeLayout
     android:id="@+id/gameStatsHeader"
@@ -62,12 +62,12 @@
         android:layout_toRightOf="@+id/gameDateStatsHeader"
         android:textSize="14sp"
         android:typeface="sans" 
-	    android:text="Hits"/>
+	    android:text="AVG"/>
 
 	<TextView
 	    android:id="@+id/gameAvgStatsHeader"
 	    android:textColor="@android:color/white"
-	    android:text="AVG"
+	    android:text="Hits"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

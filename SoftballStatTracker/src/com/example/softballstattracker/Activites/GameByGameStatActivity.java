@@ -7,7 +7,10 @@ import java.util.List;
 import android.app.ActionBar;
 import android.app.ExpandableListActivity;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.graphics.Typeface;
+import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ExpandableListAdapter;
@@ -43,16 +46,26 @@ public class GameByGameStatActivity extends ExpandableListActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();	
 		
-		TextView txt = (TextView) findViewById(R.id.gameByGameHeader);
-		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
-		txt.setTypeface(font);
-		txt.setTextColor(Color.WHITE);
+		setupHeader();
 		
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null)
 		{
 			playerId = bundle.getLong("playerId");
 		}
+	}
+
+	private void setupHeader() {
+		TextView txt = (TextView) findViewById(R.id.gameByGameHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
+
+		int[] color = { Color.WHITE, Color.RED };
+		float[] position = {0, 1};
+		TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+		LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
+		Shader shader_gradient = lin_grad;
+		txt.getPaint().setShader(shader_gradient);
 	}
 	
 	private void setupExpandableListview() 

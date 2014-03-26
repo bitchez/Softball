@@ -35,15 +35,13 @@ public class GameDataSource {
 
   public Game createGame(Game game) 
   {  
-	String dateTime = DateTime.now().toString();
-	
 	int nextGameId = getMaxGameId() + 1;
     game.setId(nextGameId);
     
     ContentValues values = new ContentValues();
     values.put(SQLiteHelper.GAME_ID, nextGameId);
     values.put(SQLiteHelper.GAME_NAME, game.getname());
-    values.put(SQLiteHelper.DATE_CREATED, dateTime);
+    values.put(SQLiteHelper.DATE_CREATED, game.getDateCreated());
     values.put(SQLiteHelper.OPPONENT, game.getOpponent());
 
     database.insert(SQLiteHelper.TABLE_GAMES, null, values);

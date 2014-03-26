@@ -19,7 +19,7 @@
      android:background="#000000"
      android:gravity="center"
      android:text="game by game stats"
-     android:textSize="18sp" />
+     android:textSize="24sp" />
     
    <RelativeLayout
     android:id="@+id/gameStatsHeader"
