@@ -40,6 +40,11 @@ public class Stat {
 		  return atBats;
 		}
 	
+	public float getOnBasePercentage(int bases, int plateAppearances)
+	{
+		return bases / (float)plateAppearances;
+	}
+	
 	public int getHits() {
 		  return hits;
 		}

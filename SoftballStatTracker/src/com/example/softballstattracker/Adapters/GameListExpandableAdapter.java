@@ -151,10 +151,10 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			}
 			if (gameDateCreated != null) {
 				String dateString = gameStats.getDateCreated();
-				String year = dateString.substring(2, 4);
-				String month = dateString.substring(5, 7);
-				String day = dateString.substring(8, 10);
-				gameDateCreated.setText(month + "/" + day);
+				String year = dateString.substring(7, 9);
+				String month = dateString.substring(0, 1);
+				String day = dateString.substring(2, 4);
+				gameDateCreated.setText(month + "/" + day + "/" + year);
 			}
 			if (gameRBIs != null) {
 				gameRBIs.setText(String.valueOf(gameStats.getRunsBattedIn()));

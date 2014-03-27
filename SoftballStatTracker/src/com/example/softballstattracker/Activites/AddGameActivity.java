@@ -7,7 +7,11 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.graphics.Typeface;
+import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -108,14 +112,24 @@ public class AddGameActivity extends Activity implements OnClickListener {
 	 
 			}
 		};
+		
+		private void setupHeader() {
+			TextView txt = (TextView) findViewById(R.id.addGameHeader);
+			Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+			txt.setTypeface(font);
+		
+			int[] color = { Color.WHITE, Color.RED };
+			float[] position = {0, 1};
+			TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+			LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
+			Shader shader_gradient = lin_grad;
+			txt.getPaint().setShader(shader_gradient);
+		}
 
 		private void setDefaults() 
 		{
 			opponentInput = (EditText) findViewById(R.id.opponentInput);
-			
-			TextView txt = (TextView) findViewById(R.id.gameInfoHeader);
-			Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
-			txt.setTypeface(font);
+			setupHeader();
 		}
 		
 		@SuppressWarnings("deprecation")

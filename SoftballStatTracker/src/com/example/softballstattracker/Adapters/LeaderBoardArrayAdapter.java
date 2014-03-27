@@ -60,7 +60,10 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            TextView atBats = (TextView) row.findViewById(R.id.atBats);
 	            TextView hits = (TextView) row.findViewById(R.id.hits);
 	            TextView average = (TextView) row.findViewById(R.id.average);
+	            TextView obp = (TextView) row.findViewById(R.id.obp);
 	            TextView rbis = (TextView) row.findViewById(R.id.rbis);
+	            TextView runs = (TextView) row.findViewById(R.id.runs);
+	            TextView slug = (TextView) row.findViewById(R.id.slug);
 	            
 	            if(playerImage != null) {
 	            	//playerImage.setImageURI(stat.getPlayerImage().);
@@ -72,6 +75,9 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            	stat.getAtBats();
 	                atBats.setText(String.valueOf(stat.getAtBats()));
 	            }
+	            if(runs != null){
+	            	runs.setText(String.valueOf("runs"));
+	            }
 	            if(hits != null){
 	            	hits.setText(String.valueOf(stat.getHits()));
 	            }
@@ -82,7 +88,22 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            	String avgString = String.format("%.03f", avg);
 	            	average.setText(avgString);
 	            }
-	            if(rbis != null){
+	            //(Hits + Walks + Hit by Pitch) / (At Bats + Walks + Hit by Pitch + Sacrifice Flies)
+	            if(obp != null){
+	            	int bases = stat.getHits() + stat.getWalks();
+	            	int plateAppearances = stat.getAtBats() + stat.getWalks(); //+stat.SacFlies
+	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
+	            	String obpString = String.format("%.03f", bases / onBasePercentage);
+	            	obp.setText(obpString);
+	            }
+	            if(slug != null){
+	            	int bases = stat.getHits() + stat.getWalks();
+	            	int plateAppearances = stat.getAtBats() + stat.getWalks(); //+stat.SacFlies
+	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
+	            	String obpString = String.format("%.03f", bases / onBasePercentage);
+	            	slug.setText("slug");
+	            }
+                if(rbis != null){
 	            	rbis.setText(String.valueOf(stat.getRunsBattedIn()));
 	            }
 	        }

@@ -29,7 +29,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public static final String PUTOUTS = "PutOuts";
 	public static final String PLAYER_IMAGE = "PlayerImage";
  	public static final String DATABASE_NAME = "SoftballStatsDB.db";
-	private static final int DATABASE_VERSION = 26;
+	private static final int DATABASE_VERSION = 27;
 	
 	public static final String DATABASE_CREATE_PLAYERS = "CREATE TABLE Players (PlayerId INTEGER PRIMARY KEY autoincrement, PlayerName text not null, DateCreated string, PlayerImage BLOB)";
 	public static final String DATABASE_CREATE_GAMES = "CREATE TABLE Games (GameId INTEGER PRIMARY KEY, GameName TEXT, DateCreated string, Opponent string)";

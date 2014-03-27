@@ -21,7 +21,7 @@
      android:text="the leaderboard"
      android:textSize="24sp" />
     
-   <RelativeLayout
+ <LinearLayout
     android:id="@+id/gameStatsHeader"
     android:layout_width="fill_parent"
     android:layout_height="45dp"
@@ -32,63 +32,77 @@
     android:padding="10dip" >
     
     <TextView
-        android:id="@+id/gameNameStatsHeader"
-        android:text="Players"
+        android:id="@+id/playerNameHeader"
+        android:text="Player"
         android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_width="100dp" 
+        android:layout_width="80dp" 
         android:textSize="14sp" />
-
-	<TextView
-	    android:id="@+id/gameDateStatsHeader"
+    
+    <TextView
+	    android:id="@+id/abHeader"
 	    android:textColor="@android:color/white"
 	    android:text="ABs"
-	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/gameNameStatsHeader"
+        android:layout_width="40dp" 
         android:textSize="14sp"  />
-
-	<TextView
-	    android:id="@+id/gameHitsStatsHeader"
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:textColor="@android:color/white"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/gameDateStatsHeader"
-        android:textSize="14sp"
-        android:typeface="sans" 
-	    android:text="AVG"/>
-
-	<TextView
-	    android:id="@+id/gameAvgStatsHeader"
+    
+    <TextView
+	    android:id="@+id/runsHeader"
 	    android:textColor="@android:color/white"
-	    android:text="Hits"
-	    android:layout_width="wrap_content"
+	    android:text="R"
+	     android:layout_width="40dp" 
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/gameRBIsStatsHeader"
         android:textSize="14sp"
         android:typeface="sans"  />
-
+    
+    <TextView
+	    android:id="@+id/hitsHeader"
+	     android:layout_width="40dp" 
+        android:layout_height="wrap_content"
+         android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:typeface="sans" 
+	    android:text="Hits"/>
+	
 	<TextView
-	     android:id="@+id/gameRBIsStatsHeader"
+	     android:id="@+id/rbisHeader"
 	    android:textColor="@android:color/white"
 	    android:text="RBIs"
 	    android:layout_width="40dp" 
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
         android:textSize="14sp"
         android:typeface="sans" />
-</RelativeLayout>
+
+	<TextView
+	    android:id="@+id/avgHeader"
+	    android:textColor="@android:color/white"
+	    android:text="AVG"
+	     android:layout_width="50dp" 
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:typeface="sans"  />
+	
+	<TextView
+	    android:id="@+id/obpHeader"
+	    android:textColor="@android:color/white"
+	    android:text="OBP"
+	     android:layout_width="50dp" 
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:typeface="sans"  />
+	
+	<TextView
+	    android:id="@+id/slgHeader"
+	    android:textColor="@android:color/white"
+	    android:text="SLG"
+	     android:layout_width="50dp" 
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:typeface="sans"  />
+
+
+</LinearLayout>
 
 	<ListView
     android:id="@+id/leaderBoardListView"

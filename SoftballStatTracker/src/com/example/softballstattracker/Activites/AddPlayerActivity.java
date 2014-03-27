@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.graphics.Typeface;
+import android.graphics.Shader.TileMode;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,9 +42,7 @@ public class AddPlayerActivity extends Activity {
 		
 		playerImageView = (ImageView) findViewById(R.id.playerImage);
 		
-		TextView txt = (TextView) findViewById(R.id.playerInfoHeader);
-		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
-		txt.setTypeface(font);
+		setupHeader();
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
@@ -54,6 +56,19 @@ public class AddPlayerActivity extends Activity {
 		Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
 		photoPickerIntent.setType("image/*");
 		startActivityForResult(photoPickerIntent, SELECT_PHOTO);    
+	}
+	
+	private void setupHeader() {
+		TextView txt = (TextView) findViewById(R.id.playerInfoHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
+	
+		int[] color = { Color.WHITE, Color.RED };
+		float[] position = {0, 1};
+		TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+		LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
+		Shader shader_gradient = lin_grad;
+		txt.getPaint().setShader(shader_gradient);
 	}
 	
 	@Override
