@@ -21,7 +21,9 @@ public class StatDataSource {
 	private String[] allColumns = { SQLiteHelper.STAT_ID, SQLiteHelper.PLAYER_ID,
 			SQLiteHelper.PLAYER_NAME, SQLiteHelper.AT_BATS, SQLiteHelper.HITS,
 			SQLiteHelper.SINGLES, SQLiteHelper.DOUBLES, SQLiteHelper.TRIPLES,
-			SQLiteHelper.HOMERUNS, SQLiteHelper.RUNS_BATTED_IN, SQLiteHelper.PUTOUTS,
+			SQLiteHelper.HOMERUNS, SQLiteHelper.RUNS_BATTED_IN, 
+			SQLiteHelper.WALKS, SQLiteHelper.RUNS, 
+			SQLiteHelper.PUTOUTS, SQLiteHelper.SACFLYS,
 			SQLiteHelper.BEERS_DRANK, SQLiteHelper.GAME_ID,
 			SQLiteHelper.DATE_CREATED };
 
@@ -56,6 +58,7 @@ public class StatDataSource {
 	public ArrayList<Stat> getLeaderBoardStatistics()
 	{
 		List<Stat> leaderboard = new ArrayList<Stat>();
+		//todo: fix fucking query
 		String query = "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), p.PlayerImage " +
 				"FROM Stats s " +
 				"JOIN Players p " +
@@ -91,7 +94,7 @@ public class StatDataSource {
 	{
 		List<Stat> gameByGameStats = new ArrayList<Stat>();
 		String query = "SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, "
-				+ "s.RBIs, s.Walks, s.BeersDrank, s.PutOuts, g.Opponent "
+				+ "s.RBIs, s.Walks, s.Runs, s.BeersDrank, s.PutOuts, g.Opponent, s.SacFlys "
 				+ "FROM Stats s JOIN Games g ON s.GameId = g.GameId AND PlayerID ="
 				+ playerId
 				+ "  ORDER BY g.DateCreated desc";
@@ -112,11 +115,13 @@ public class StatDataSource {
 		        	stat.setHomeRuns(cursor.getInt(6));
 		        	stat.setRbis(cursor.getInt(7));
 		        	stat.setWalks(cursor.getInt(8));
-		        	stat.setBeerDrank(cursor.getInt(9));
-		        	stat.setPutOuts(cursor.getInt(10));
+		        	stat.setRuns(cursor.getInt(9));
+		        	stat.setBeerDrank(cursor.getInt(10));
+		        	stat.setPutOuts(cursor.getInt(11));
 		        	stat.setHits(stat.getSingles(), stat.getDoubles(), stat.getTriples(), stat.getHomeRuns());
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
-		        	stat.setOpponent(cursor.getString(11));
+		        	stat.setOpponent(cursor.getString(12));
+		        	stat.setSacFlys(cursor.getInt(13));
 		        	
 		        	gameByGameStats.add(stat);
 	            }		 
@@ -142,7 +147,9 @@ public class StatDataSource {
 		values.put(SQLiteHelper.HOMERUNS, stat.getHomeRuns());
 		values.put(SQLiteHelper.RUNS_BATTED_IN, stat.getRunsBattedIn());
 		values.put(SQLiteHelper.WALKS, stat.getWalks());
+		values.put(SQLiteHelper.RUNS, stat.getWalks());
 		values.put(SQLiteHelper.PUTOUTS, stat.getPutOuts());
+		values.put(SQLiteHelper.SACFLYS, stat.getSacFlys());
 		values.put(SQLiteHelper.BEERS_DRANK, stat.getBeersDrank());
 		values.put(SQLiteHelper.GAME_ID, stat.getGameId());
 		values.put(SQLiteHelper.DATE_CREATED, dateTime);
@@ -161,10 +168,12 @@ public class StatDataSource {
 		stat.setHomeRuns(cursor.getInt(7));
 		stat.setRbis(cursor.getInt(9));
 		stat.setWalks(cursor.getInt(10));
-		stat.setPutOuts(cursor.getInt(10));
-		stat.setBeerDrank(cursor.getInt(11));
-		stat.setGameId(cursor.getInt(12));
-		stat.setDateCreated(cursor.getString(13));
+		stat.setRuns(cursor.getInt(11));
+		stat.setPutOuts(cursor.getInt(12));
+		stat.setSacFlys(cursor.getInt(13));
+		stat.setBeerDrank(cursor.getInt(14));
+		stat.setGameId(cursor.getInt(15));
+		stat.setDateCreated(cursor.getString(16));
 		return stat;
 	}
 

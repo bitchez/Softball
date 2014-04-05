@@ -91,14 +91,14 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            //(Hits + Walks + Hit by Pitch) / (At Bats + Walks + Hit by Pitch + Sacrifice Flies)
 	            if(obp != null){
 	            	int bases = stat.getHits() + stat.getWalks();
-	            	int plateAppearances = stat.getAtBats() + stat.getWalks(); //+stat.SacFlies
+	            	int plateAppearances = stat.getAtBats() + stat.getWalks() + stat.getSacFlys(); //+stat.SacFlies
 	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
 	            	String obpString = String.format("%.03f", bases / onBasePercentage);
 	            	obp.setText(obpString);
 	            }
 	            if(slug != null){
 	            	int bases = stat.getHits() + stat.getWalks();
-	            	int plateAppearances = stat.getAtBats() + stat.getWalks(); //+stat.SacFlies
+	            	int plateAppearances = stat.getAtBats() + stat.getWalks() + stat.getSacFlys(); 
 	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
 	            	String obpString = String.format("%.03f", bases / onBasePercentage);
 	            	slug.setText("slug");

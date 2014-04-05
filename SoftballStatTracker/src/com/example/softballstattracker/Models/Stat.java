@@ -12,8 +12,10 @@ public class Stat {
 	private int triples;
 	private int homeRuns;
 	private int walks;
+	private int runs;
 	private int rbis;
 	private int putOuts;
+	private int sacFlys;
 	private String opponent;
 	private int beersDrank;
 	private long gameId;
@@ -73,12 +75,20 @@ public class Stat {
 		  return walks;
 		}
 	
+	public int getRuns() {
+		  return runs;
+		}
+	
 	public int getRunsBattedIn() {
 		  return rbis;
 		}
 	
 	public int getPutOuts() {
 		  return putOuts;
+		}
+	
+	public int getSacFlys() {
+		  return sacFlys;
 		}
 	
 	public int getBeersDrank() {
@@ -153,9 +163,18 @@ public class Stat {
 		this.walks = walks;
 	}
 	
+	public void setRuns(int runs) {
+		this.runs = runs;
+	}
+	
 	public void setPutOuts(int putOuts) {
 		this.putOuts = putOuts;
 	}
+	
+	public void setSacFlys(int sacFlys) {
+		this.sacFlys = sacFlys;
+	}
+	
 	
 	public void setBeerDrank(int beersDrank) {
 		this.beersDrank = beersDrank;

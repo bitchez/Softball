@@ -63,6 +63,7 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			TextView gameTriples = (TextView) childRow.findViewById(R.id.gameTriples);
 			TextView gameHomeRuns = (TextView) childRow.findViewById(R.id.gameHomeruns);
 			TextView gamePutOuts = (TextView) childRow.findViewById(R.id.gamePutOuts);
+			TextView gameSacFlys = (TextView) childRow.findViewById(R.id.gameSacFlys);
 			TextView gameBeersDrank = (TextView) childRow.findViewById(R.id.gameBeersDrank);
 			TextView gameWalks = (TextView) childRow.findViewById(R.id.gameWalks);
 			TextView gameOpponent = (TextView) childRow.findViewById(R.id.gameOpponent);
@@ -87,6 +88,9 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 			}
 			if (gamePutOuts != null) {
 				gamePutOuts.setText("putouts:" + String.valueOf(gameStatChild.getPutOuts()));
+			}
+			if (gameSacFlys != null) {
+				gamePutOuts.setText("sacFlys:" + String.valueOf(gameStatChild.getSacFlys()));
 			}
 			if (gameBeersDrank != null) {
 				gameBeersDrank.setText("beers:" + String.valueOf(gameStatChild.getBeersDrank()));

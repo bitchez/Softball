@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
+import android.graphics.Typeface;
+import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.softballstattracker.R;
@@ -36,6 +42,7 @@ public class EditStatsActivity extends ListActivity implements
 				"selectedPlayers");
 		currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
 		initialize();
+		setupHeader();
 		setupListView();
 	}
 
@@ -104,5 +111,18 @@ public class EditStatsActivity extends ListActivity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	}
+	
+	private void setupHeader() {
+		TextView txt = (TextView) findViewById(R.id.addStatHeader);
+		Typeface font = Typeface.createFromAsset(getAssets(), "marcsc.ttf");
+		txt.setTypeface(font);
+	
+		int[] color = { Color.WHITE, Color.RED };
+		float[] position = {0, 1};
+		TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+		LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
+		Shader shader_gradient = lin_grad;
+		txt.getPaint().setShader(shader_gradient);
 	}
 }

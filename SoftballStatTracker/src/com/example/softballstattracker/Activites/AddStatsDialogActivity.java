@@ -4,6 +4,11 @@ import org.joda.time.DateTime;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
+import android.graphics.Typeface;
+import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -11,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.softballstattracker.R;
 import com.example.softballstattracker.DataSources.StatDataSource;
@@ -26,6 +32,7 @@ public class AddStatsDialogActivity extends Activity
 	EditText Homeruns;
 	EditText RBIs;
 	EditText PutOuts;
+	EditText SacFlys;
 	EditText BeersDrank;
 	EditText Walks;
 	private Stat newStat = new Stat();
@@ -42,7 +49,6 @@ public class AddStatsDialogActivity extends Activity
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_add_stats_dialog);
-
 		initialize();
 	}
 
@@ -60,6 +66,7 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
 		newStat.setWalks(Integer.parseInt(Walks.getText().toString()));
 		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
+		newStat.setSacFlys(Integer.parseInt(SacFlys.getText().toString()));
 		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
 
 		validateNewStat(newStat);
@@ -105,6 +112,7 @@ public class AddStatsDialogActivity extends Activity
 		RBIs = (EditText) findViewById(R.id.rbisInput);
 		Walks = (EditText) findViewById(R.id.walksInput);
 		BeersDrank = (EditText) findViewById(R.id.beersDrankInput);
+		SacFlys = (EditText) findViewById(R.id.sacFlysInput);
 		PutOuts = (EditText) findViewById(R.id.putOutsInput);
 
 		statsDataSource = new StatDataSource(this);
@@ -137,5 +145,4 @@ public class AddStatsDialogActivity extends Activity
 			AtBats.setError("You have too many hits mother fucker.");
 		}
 	}
-
 }

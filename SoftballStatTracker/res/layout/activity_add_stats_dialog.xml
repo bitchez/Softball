@@ -183,11 +183,33 @@
             android:inputType="number" />
     </LinearLayout>
     
+        <LinearLayout
+        android:id="@+id/sacFlys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/putOuts" >
+
+        <TextView
+            android:id="@+id/sacFlysLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Sac Flys" />
+
+        <EditText
+            android:id="@+id/sacFlysInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:selectAllOnFocus="true"
+            android:inputType="number" />
+    </LinearLayout>
+    
       <LinearLayout
         android:id="@+id/beersDrank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/putOuts" >
+        android:layout_below="@id/sacFlys" >
 
         <TextView
             android:id="@+id/beersDrankLabel"
