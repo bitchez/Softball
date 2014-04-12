@@ -42,6 +42,7 @@ public class PlayerDataSource {
 	String dateTime = DateTime.now().toString();
 	
     ContentValues values = new ContentValues();
+    values.put(SQLiteHelper.PLAYER_ID, player.getId());
     values.put(SQLiteHelper.PLAYER_NAME, player.getname());
     values.put(SQLiteHelper.DATE_CREATED, dateTime);
     

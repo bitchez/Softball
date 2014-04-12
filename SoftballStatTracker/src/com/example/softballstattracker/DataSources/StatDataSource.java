@@ -58,12 +58,7 @@ public class StatDataSource {
 	public ArrayList<Stat> getLeaderBoardStatistics()
 	{
 		List<Stat> leaderboard = new ArrayList<Stat>();
-		//todo: fix fucking query
-		String query = "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), p.PlayerImage " +
-				"FROM Stats s " +
-				"JOIN Players p " +
-				"ON s.PlayerId = s.PlayerId " +
-				"Group by s.PlayerId";
+		String query =  "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), p.PlayerImage FROM Stats s JOIN Players p ON s.PlayerId = p.PlayerId Group by s.PlayerId";
 		
 		open();
 		Cursor cursor = database.rawQuery(query, null);

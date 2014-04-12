@@ -32,6 +32,7 @@ public class AddPlayerActivity extends Activity {
 	ImageView playerImageView;
 	private PlayerDataSource playerDataSource;
 	EditText playerNameInput;
+	EditText playerNumberInput;
 	private String selectedImagePath; 
 	private Bitmap playerImage;
 
@@ -98,34 +99,36 @@ public class AddPlayerActivity extends Activity {
 	}
 	
 	public void savePlayer(View view) throws IOException {
-		 
+		
+		playerNumberInput = (EditText)findViewById(R.id.playerNumberInput);
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
-		if(DoesPlayerNameExist(playerNameInput))
+		if(DoesPlayerNameExist(playerNameInput, playerNumberInput))
 	    {
-			playerNameInput.setError("Player name is required");
+			playerNameInput.setError("cmon man, a player name is required, duh");
+			playerNameInput.setError("Yo a player number is required");
 	    }
 		else
 		{
+			String playerName = playerNameInput.getText().toString();
+			String playerNumber = playerNumberInput.getText().toString();
 			
-		String playerName = playerNameInput.getText().toString();
-		
-		Player newPlayer = new Player();
-		newPlayer.setName(playerName);
-		
-		playerDataSource.createPlayer(newPlayer, selectedImagePath);
-		
-		Intent intent = new Intent();
-		intent.setData(Uri.parse(playerName)); 
-		setResult(RESULT_OK, intent);
-	    finish();
-	    
+			Player newPlayer = new Player();
+			newPlayer.setName(playerName);
+			newPlayer.setId(Integer.parseInt(playerNumber));
+			
+			playerDataSource.createPlayer(newPlayer, selectedImagePath);
+			
+			Intent intent = new Intent();
+			intent.setData(Uri.parse(playerName)); 
+			setResult(RESULT_OK, intent);
+		    finish();
 		}
 	}
 
-	private boolean DoesPlayerNameExist(EditText playerName) {
-		return (playerName.getText().toString().trim().equals(""));
-		
+	private boolean DoesPlayerNameExist(EditText playerName, EditText playerNumber) {
+		return (playerName.getText().toString().trim().equals("") || 
+				playerNumber.getText().toString().trim().equals(""));
 	}
 	 
 	@Override

@@ -19,9 +19,14 @@
 --Get Max ID from Games table
  database.rawQuery("SELECT MAX(ID) FROM Games", null);
  
- SELECT PlayerName, SUM(AtBats), SUM(Singles) + SUM(Doubles) + SUM(Triples) + SUM(Homeruns) as Hits, SUM(RBIs) FROM Stats
-GROUP By PlayerId
+ --Get leaderboards
+SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits,
+SUM(s.RBIs), p.PlayerImage
+FROM Stats s JOIN Players p
+ON s.PlayerId = p.PlayerId
+Group by s.PlayerId
 
+--Get game by game stats
 SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, s.RBIs, s.BeersDrank, s.PutOuts
 FROM Stats s JOIN Games g 
 ON s.GameId = g.GameId AND PlayerID = playerId

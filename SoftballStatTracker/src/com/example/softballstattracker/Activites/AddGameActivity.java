@@ -25,18 +25,13 @@ import com.example.softballstattracker.R;
 
 public class AddGameActivity extends Activity implements OnClickListener {
 	
-	 private ImageButton editDateButton;
-	 private Calendar calendar;
-	 private EditText gameDateInput;
-	 private EditText opponentInput;
-	 
-	 private TextView displayDate;
- 
+	private ImageButton editDateButton;
+	private EditText gameDateInput;
+	private EditText opponentInput;
 	private int year;
 	private int month;
 	private int day;
-	 
-		static final int DATE_DIALOG_ID = 999;
+	static final int DATE_DIALOG_ID = 999;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +48,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		actionBar.hide();
 	}
 	
-	// display current date
+		// display current date
 		public void setCurrentDateOnView() {
 	 
 			gameDateInput = (EditText) findViewById(R.id.gameDateInput);

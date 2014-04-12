@@ -20,28 +20,64 @@
      android:text="add new player"
      android:textSize="24sp" />
      
+     <TextView
+         android:id="@+id/playerNumberLabel"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/playerInfoHeader"
+         android:layout_marginLeft="20dp"
+         android:layout_marginTop="50dp"
+         android:text="Player Number"
+         android:textSize="20sp" />
+     
+     <EditText
+         android:id="@+id/playerNumberInput"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/playerNumberLabel"
+         android:layout_marginLeft="15dp"
+         android:layout_marginTop="10dp"
+         android:ems="10"
+         android:hint="44"
+         android:imeOptions="actionDone"
+         android:inputType="text|textCapWords|textImeMultiLine|number" >
+
+         <requestFocus />
+     </EditText>
+     
+     <TextView
+         android:id="@+id/playerNameLabel"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/playerNumberInput"
+         android:layout_marginLeft="20dp"
+         android:layout_marginTop="30dp"
+         android:text="Player Name"
+         android:textSize="20sp" />
+     
      <EditText
          android:id="@+id/playerNameInput"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_below="@+id/playerInfoHeader"
-         android:layout_marginTop="25dp"
+         android:layout_below="@+id/playerNameLabel"
+         android:layout_marginLeft="15dp"
+         android:layout_marginTop="10dp"
          android:ems="10"
-         android:hint="enter name"
+         android:hint="Kenny Powers"
          android:imeOptions="actionDone"
          android:inputType="text|textCapWords|textImeMultiLine" >
 
          <requestFocus />
      </EditText>
 
-     <ImageButton
+     <!-- <ImageButton
          android:id="@+id/playerImageButton"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignTop="@+id/playerNameInput"
          android:layout_toRightOf="@+id/playerNameInput"
          android:onClick="onSelectImage"
-         android:src="@android:drawable/ic_menu_gallery" />
+         android:src="@android:drawable/ic_menu_gallery" />-->
      
      <ImageView
          android:id="@+id/playerImage"
@@ -52,12 +88,12 @@
          android:layout_marginBottom="20dp" />
      
     <Button
-         android:id="@+id/savePlayerButton"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-         android:onClick="savePlayer"
-         android:text="Save" />
+        android:id="@+id/savePlayerButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="savePlayer"
+        android:text="Save Player" />
 
 </RelativeLayout>

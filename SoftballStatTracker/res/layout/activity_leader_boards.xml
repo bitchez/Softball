@@ -1,9 +1,9 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000"
+    android:orientation="vertical"
     tools:context=".LeaderBoardsActivity" >
     
  <TextView
@@ -100,17 +100,29 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:typeface="sans"  />
-
-
 </LinearLayout>
 
+ <ImageView
+     android:id="@+id/leaderboadBackground"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:layout_alignParentBottom="false"
+     android:layout_centerInParent="true"
+     android:adjustViewBounds="true"
+     android:scaleType="fitCenter"
+     android:src="@drawable/tightbackground" >
+
+"
+     
+ </ImageView>
+
 	<ListView
-    android:id="@+id/leaderBoardListView"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_below="@+id/gameStatsHeader"
-    android:divider="#b5b5b5"
-    android:dividerHeight="1dp"
-    android:listSelector="@drawable/list_selector" />
+	    android:id="@+id/leaderBoardListView"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/gameStatsHeader"
+	    android:divider="#b5b5b5"
+	    android:dividerHeight="1dp"
+	    android:listSelector="@drawable/list_selector" />
 	
 </RelativeLayout>
