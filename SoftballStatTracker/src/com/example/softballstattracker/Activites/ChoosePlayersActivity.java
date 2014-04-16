@@ -60,18 +60,19 @@ public class ChoosePlayersActivity extends ListActivity {
 		setupHeader();
 	}
 
-	private void getAddGameInformation() {
-		TextView gameDateText = (TextView) findViewById(R.id.textView1);
-		Button addStats = (Button) findViewById(R.id.button1);
+	@SuppressWarnings("static-access")
+	private void getAddGameInformation() 
+	{
+		TextView gameInfoText = (TextView) findViewById(R.id.gameInfoText);
 
 		Bundle bundle = getIntent().getExtras();
-		if (bundle != null) {
+		if (bundle != null) 
+		{
 			gameName = bundle.getString("gameName_input");
 			gameDate = bundle.getString("gameDate_input");
 			opponentName = bundle.getString("gameOpponent_input");
-			if (gameDate != null && !gameDate.isEmpty()) {
-				gameDateText.append(" on date: " + gameDate);
-			}
+			
+			gameInfoText.setText(String.format("Choose players you want to add for %s played on: %s", gameName, gameDate));
 		}
 	}
 

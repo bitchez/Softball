@@ -73,6 +73,7 @@ public final class R {
         public static final int gameHitsStatsHeader=0x7f080037;
         public static final int gameHomeruns=0x7f080051;
         public static final int gameInfoHeader=0x7f080005;
+        public static final int gameInfoText=0x7f080031;
         public static final int gameName=0x7f080056;
         public static final int gameNameInput=0x7f080002;
         public static final int gameNameLabel=0x7f080001;
@@ -129,7 +130,6 @@ public final class R {
         public static final int slgHeader=0x7f080042;
         public static final int slug=0x7f080060;
         public static final int start=0x7f08004a;
-        public static final int textView1=0x7f080031;
         public static final int triples=0x7f08001a;
         public static final int triplesInput=0x7f08001c;
         public static final int triplesLabel=0x7f08001b;

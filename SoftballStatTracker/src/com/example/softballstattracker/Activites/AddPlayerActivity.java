@@ -6,6 +6,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -16,6 +18,7 @@ import android.graphics.Shader.TileMode;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -106,7 +109,7 @@ public class AddPlayerActivity extends Activity {
 		if(DoesPlayerNameExist(playerNameInput, playerNumberInput))
 	    {
 			playerNameInput.setError("cmon man, a player name is required, duh");
-			playerNameInput.setError("Yo a player number is required");
+			playerNameInput.setError("Yo, a player number is required fool");
 	    }
 		else
 		{
@@ -117,13 +120,30 @@ public class AddPlayerActivity extends Activity {
 			newPlayer.setName(playerName);
 			newPlayer.setId(Integer.parseInt(playerNumber));
 			
-			playerDataSource.createPlayer(newPlayer, selectedImagePath);
-			
-			Intent intent = new Intent();
-			intent.setData(Uri.parse(playerName)); 
-			setResult(RESULT_OK, intent);
-		    finish();
+			if(IsPlayerNumberUnique(newPlayer.getId()))
+			{
+				try {
+					playerDataSource.createPlayer(newPlayer, selectedImagePath);
+				}
+				catch (SQLiteConstraintException e)  {
+					Log.e("TaG", "SQLiteException:" + e.getMessage());
+				}	
+				
+				Intent intent = new Intent();
+				intent.setData(Uri.parse(playerName)); 
+				setResult(RESULT_OK, intent);
+			    finish();
+			}
+			else
+			{
+				playerNumberInput.setError("this player number has already been taken");
+			}
 		}
+	}
+
+	private boolean IsPlayerNumberUnique(long id) {
+		boolean isUnique = playerDataSource.isPlayerNumberUnique(id);
+		return isUnique;
 	}
 
 	private boolean DoesPlayerNameExist(EditText playerName, EditText playerNumber) {

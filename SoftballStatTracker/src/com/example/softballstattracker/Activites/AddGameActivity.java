@@ -115,7 +115,7 @@ public class AddGameActivity extends Activity implements OnClickListener {
 		
 			int[] color = { Color.WHITE, Color.RED };
 			float[] position = {0, 1};
-			TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+			TileMode tile_mode = TileMode.MIRROR; 
 			LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
 			Shader shader_gradient = lin_grad;
 			txt.getPaint().setShader(shader_gradient);

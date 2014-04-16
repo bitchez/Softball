@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
+
+import android.R.bool;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -101,6 +103,18 @@ public class PlayerDataSource {
     return players;
   }
 
+  public boolean isPlayerNumberUnique(float playerId) 
+  {
+    Cursor cursor = database.rawQuery("select count(1) from Players where PlayerId =" + playerId, null);
+    cursor.moveToFirst();
+    
+    int numberCount = cursor.getInt(0);
+    
+    boolean isUnique = numberCount == 0;
+    cursor.close();
+    return isUnique;
+ }
+  
   private Player cursorToPlayer(Cursor cursor) 
   {
     Player player = new Player();

@@ -19,17 +19,28 @@
      android:gravity="center"
      android:text="choose players"
      android:textSize="24sp" />
+ 
+     <TextView
+         android:id="@+id/gameInfoText"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@android:id/list"
+         android:layout_below="@+id/choosePlayerHeader"
+         android:layout_marginLeft="10dp"
+         android:layout_marginTop="5dp"
+         android:textSize="15sp" />
      
-         <TextView
-             android:id="@+id/textView1"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_alignLeft="@android:id/list"
-             android:layout_below="@+id/choosePlayerHeader"
-             android:layout_marginLeft="10dp"
-             android:layout_marginTop="5dp"
-             android:text="Choose players you would like to add stats for to &quot;the new game&quot;"
-             android:textSize="15sp" />
+     <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameInfoText"
+        android:layout_centerHorizontal="true"
+        android:onClick="addPlayerStats"
+        android:text="@string/addStats"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
      
     <ListView
         android:id="@android:id/list"
@@ -39,18 +50,5 @@
         android:background="@drawable/gradient_bg"
         android:text="@string/addPlayer"
         android:layout_marginTop="10dp" />
-
-    <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:onClick="addPlayerStats"
-        android:text="@string/addStats"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp" />
-
 
 </RelativeLayout>
