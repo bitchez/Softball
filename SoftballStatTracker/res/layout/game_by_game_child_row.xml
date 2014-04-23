@@ -45,6 +45,14 @@
         android:layout_below="@+id/gameTriples"
         android:textSize="14sp"
         android:typeface="sans" />
+    
+    <TextView
+        android:id="@+id/gameRuns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameHomeruns"
+        android:textSize="14sp"
+        android:typeface="sans" />
 
     <TextView
         android:id="@+id/gameWalks"
@@ -55,13 +63,23 @@
         android:layout_centerInParent="true"
         android:textSize="14sp"
         android:typeface="sans" />
+    
+    <TextView
+        android:id="@+id/gameErrors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/gameWalks"
+        android:layout_centerInParent="true"
+        android:textSize="14sp"
+        android:typeface="sans" />
 
     <TextView
         android:id="@+id/gamePutOuts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/gameWalks"
+        android:layout_below="@+id/gameErrors"
         android:textSize="14sp"
         android:typeface="sans" />
     

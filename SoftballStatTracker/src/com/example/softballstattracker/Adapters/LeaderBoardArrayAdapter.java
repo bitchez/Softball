@@ -76,7 +76,7 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	                atBats.setText(String.valueOf(stat.getAtBats()));
 	            }
 	            if(runs != null){
-	            	runs.setText(String.valueOf("runs"));
+	            	runs.setText(String.valueOf(stat.getRuns()));
 	            }
 	            if(hits != null){
 	            	hits.setText(String.valueOf(stat.getHits()));

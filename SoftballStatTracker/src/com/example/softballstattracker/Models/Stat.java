@@ -21,6 +21,7 @@ public class Stat {
 	private long gameId;
 	private String playerImage;
 	private String dateCreated;
+	private int errors;
 	
 	public long getStatId() {
 		return statId;
@@ -89,6 +90,10 @@ public class Stat {
 	
 	public int getSacFlys() {
 		  return sacFlys;
+		}
+	
+	public int getErrors() {
+		  return errors;
 		}
 	
 	public int getBeersDrank() {
@@ -175,6 +180,9 @@ public class Stat {
 		this.sacFlys = sacFlys;
 	}
 	
+	public void setErrors(int errors) {
+		this.errors = errors;
+	}
 	
 	public void setBeerDrank(int beersDrank) {
 		this.beersDrank = beersDrank;

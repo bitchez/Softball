@@ -31,10 +31,12 @@ public class AddStatsDialogActivity extends Activity
 	EditText Triples;
 	EditText Homeruns;
 	EditText RBIs;
+	EditText Runs;
 	EditText PutOuts;
 	EditText SacFlys;
 	EditText BeersDrank;
 	EditText Walks;
+	EditText Errors;
 	private Stat newStat = new Stat();
 	Button saveStatsButton;
 	private StatDataSource statsDataSource;
@@ -65,9 +67,11 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setHomeRuns(Integer.parseInt(Homeruns.getText().toString()));
 		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
 		newStat.setWalks(Integer.parseInt(Walks.getText().toString()));
+		newStat.setRuns(Integer.parseInt(Runs.getText().toString()));
 		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
 		newStat.setSacFlys(Integer.parseInt(SacFlys.getText().toString()));
 		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
+		newStat.setErrors(Integer.parseInt(Errors.getText().toString()));
 
 		validateNewStat(newStat);
 
@@ -110,10 +114,12 @@ public class AddStatsDialogActivity extends Activity
 		Triples = (EditText) findViewById(R.id.triplesInput);
 		Homeruns = (EditText) findViewById(R.id.homeRunsInput);
 		RBIs = (EditText) findViewById(R.id.rbisInput);
+		Runs = (EditText) findViewById(R.id.runsInput);
 		Walks = (EditText) findViewById(R.id.walksInput);
 		BeersDrank = (EditText) findViewById(R.id.beersDrankInput);
 		SacFlys = (EditText) findViewById(R.id.sacFlysInput);
 		PutOuts = (EditText) findViewById(R.id.putOutsInput);
+		Errors = (EditText) findViewById(R.id.errorsInput);
 
 		statsDataSource = new StatDataSource(this);
 		statsDataSource.open();

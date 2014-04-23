@@ -179,13 +179,38 @@
             android:selectAllOnFocus="true"
             android:inputType="number" />
     </LinearLayout>
+    
+       <LinearLayout
+        android:id="@+id/errors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/putOuts" 
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/errorsLabel"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_height="wrap_content"
+            android:text="Errors" />
+
+        <EditText
+            android:id="@+id/errorsInput"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:layout_width="50dp"
+            android:text="0"
+            android:selectAllOnFocus="true"
+            android:inputType="number" />
+    </LinearLayout>
 
      <LinearLayout
         android:id="@+id/beersDrank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_below="@id/putOuts" 
+        android:layout_below="@id/errors" 
         android:gravity="right">
 
         <TextView
@@ -246,6 +271,31 @@
 
         <EditText
             android:id="@+id/rbisInput"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:text="0"
+            android:selectAllOnFocus="true"
+            android:inputType="number" />
+    </LinearLayout>
+    
+  <LinearLayout
+      android:id="@+id/runs"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/rbis"
+      android:layout_marginTop="15dp"
+      android:gravity="left" >
+
+        <TextView
+            android:id="@+id/runsLabel"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Runs" />
+
+        <EditText
+            android:id="@+id/runsInput"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_width="50dp"
