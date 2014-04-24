@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><LinearLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:orientation="horizontal" 
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_gravity="center_vertical"
     android:background="@drawable/list_selector"
-    android:layout_height="?android:attr/listPreferredItemHeight" 
-    android:padding="10dip">
+    android:orientation="horizontal"
+    android:padding="10dip" >
     
     <TextView
         android:id="@+id/playerName"
-        android:layout_width="80dp"
+        android:layout_width="75dp"
+    		android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:textSize="16sp"
@@ -16,28 +17,32 @@
     
 	<TextView 
     		android:id="@+id/atBats"
+    		android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:layout_width="40dp" 
+        android:layout_width="35dp" 
         android:textSize="14sp"/>
 	
 	<TextView 
 	    android:id="@+id/runs"
         android:layout_height="wrap_content"
-        android:layout_width="40dp" 
+        android:layout_gravity="center_vertical"
+        android:layout_width="30dp" 
         android:textSize="14sp"
         android:typeface="sans" />
 	
 	<TextView 
 	    android:id="@+id/hits"
         android:layout_height="wrap_content"
-        android:layout_width="40dp" 
+        android:layout_gravity="center_vertical"
+        android:layout_width="30dp" 
         android:textSize="14sp"
         android:typeface="sans" />
 	
 		<TextView 
     		android:id="@+id/rbis" 
-    	 android:layout_width="40dp" 
+    	 android:layout_width="35dp" 
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:textSize="14sp"
         android:typeface="sans" />
 	
@@ -45,18 +50,21 @@
 	    	android:id="@+id/average"
         android:layout_height="wrap_content"
          android:layout_width="50dp" 
+         android:layout_gravity="center_vertical"
         android:textSize="14sp"
         android:typeface="sans"/>
 	
 		<TextView
 	    	android:id="@+id/obp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
          android:layout_width="50dp" 
         android:textSize="14sp"
         android:typeface="sans"/>
 		
 		<TextView
 	    	android:id="@+id/slug"
+	    	android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
          android:layout_width="50dp" 
         android:textSize="14sp"

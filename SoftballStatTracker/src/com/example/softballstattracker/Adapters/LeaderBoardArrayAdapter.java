@@ -88,20 +88,23 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            	String avgString = String.format("%.03f", avg);
 	            	average.setText(avgString);
 	            }
-	            //(Hits + Walks + Hit by Pitch) / (At Bats + Walks + Hit by Pitch + Sacrifice Flies)
 	            if(obp != null){
 	            	int bases = stat.getHits() + stat.getWalks();
-	            	int plateAppearances = stat.getAtBats() + stat.getWalks() + stat.getSacFlys(); //+stat.SacFlies
-	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
-	            	String obpString = String.format("%.03f", bases / onBasePercentage);
+	            	float plateAppearances = stat.getAtBats() + stat.getWalks() + stat.getSacFlys();
+	            	float onBasePercentage = (bases / plateAppearances);
+	            	String obpString = String.format("%.03f", onBasePercentage);
 	            	obp.setText(obpString);
 	            }
 	            if(slug != null){
-	            	int bases = stat.getHits() + stat.getWalks();
-	            	int plateAppearances = stat.getAtBats() + stat.getWalks() + stat.getSacFlys(); 
-	            	float onBasePercentage = stat.getOnBasePercentage(bases, plateAppearances);
-	            	String obpString = String.format("%.03f", bases / onBasePercentage);
-	            	slug.setText("slug");
+	            	//(Total hits - 2b -3b - HR) + (2b x 2) + (3b x 3) + (HR x 4)
+	            	float singles = stat.getSingles();
+	            	float doubles = stat.getDoubles() * 2;
+	            	float triples = stat.getTriples() * 3;
+	            	float homeruns = stat.getHomeRuns() * 4;
+	            	float totalBases = singles + doubles + triples + homeruns; 
+	            	float slugginPercentage = (totalBases / stat.getAtBats());
+	            	String slugging = String.format("%.03f", slugginPercentage);
+	            	slug.setText(slugging);
 	            }
                 if(rbis != null){
 	            	rbis.setText(String.valueOf(stat.getRunsBattedIn()));

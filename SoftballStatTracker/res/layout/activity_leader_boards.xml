@@ -36,13 +36,13 @@
         android:text="Player"
         android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:layout_width="80dp" 
+        android:layout_width="75dp" 
         android:textSize="14sp" />
     
     <TextView
 	    android:id="@+id/abHeader"
 	    android:textColor="@android:color/white"
-	    android:text="ABs"
+	    android:text="AB"
         android:layout_height="wrap_content"
         android:layout_width="40dp" 
         android:textSize="14sp"  />
@@ -50,25 +50,25 @@
     <TextView
 	    android:id="@+id/runsHeader"
 	    android:textColor="@android:color/white"
-	    android:text="Runs"
-	     android:layout_width="40dp" 
+	    android:text="R"
+	     android:layout_width="30dp" 
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:typeface="sans"  />
     
     <TextView
 	    android:id="@+id/hitsHeader"
-	     android:layout_width="40dp" 
+	     android:layout_width="30dp" 
         android:layout_height="wrap_content"
          android:textColor="@android:color/white"
         android:textSize="14sp"
         android:typeface="sans" 
-	    android:text="Hits"/>
+	    android:text="H"/>
 	
 	<TextView
 	     android:id="@+id/rbisHeader"
 	    android:textColor="@android:color/white"
-	    android:text="RBIs"
+	    android:text="RBI"
 	    android:layout_width="40dp" 
         android:layout_height="wrap_content"
         android:textSize="14sp"

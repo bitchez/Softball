@@ -56,7 +56,7 @@ public class StatDataSource {
 	public ArrayList<Stat> getLeaderBoardStatistics()
 	{
 		List<Stat> leaderboard = new ArrayList<Stat>();
-		String query =  "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), SUM(s.Runs), p.PlayerImage FROM Stats s JOIN Players p ON s.PlayerId = p.PlayerId Group by s.PlayerId";
+		String query =  "SELECT s.PlayerId, s.PlayerName, SUM(s.AtBats), SUM(s.Singles) + SUM(s.Doubles) + SUM(s.Triples) + SUM(s.Homeruns) as Hits, SUM(s.RBIs), SUM(s.Runs), SUM(s.Walks), SUM(s.Singles), SUM(s.Doubles), SUM(s.Triples), SUM(s.Homeruns), p.PlayerImage FROM Stats s JOIN Players p ON s.PlayerId = p.PlayerId Group by s.PlayerId";
 		
 		open();
 		Cursor cursor = database.rawQuery(query, null);
@@ -72,6 +72,11 @@ public class StatDataSource {
 		        	stat.setAverage(stat.getAtBats(), stat.getHits());
 		        	stat.setRbis(cursor.getInt(4));
 		        	stat.setRuns(cursor.getInt(5));
+		        	stat.setWalks(cursor.getInt(6));
+		        	stat.setSingles(cursor.getInt(7));
+		        	stat.setDoubles(cursor.getInt(8));
+		        	stat.setTriples(cursor.getInt(9));
+		        	stat.setHomeRuns(cursor.getInt(10));
 		        	//stat.setPlayerImaage(Cursor.getString(5));
 		        	
 		        	leaderboard.add(stat);
