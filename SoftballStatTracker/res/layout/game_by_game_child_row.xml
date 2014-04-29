@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="false"
+        android:textColor="@android:color/black"
         android:textSize="14sp" />
 
     <TextView
@@ -21,13 +22,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameOpponent"
-        android:textSize="14sp"/>
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/gameDoubles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameSingles"
+        android:textColor="@android:color/black"
         android:textSize="14sp" />
 
     <TextView
@@ -35,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameDoubles"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
 
@@ -43,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameTriples"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
     
@@ -51,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameHomeruns"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
 
@@ -61,6 +68,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/gameOpponent"
         android:layout_centerInParent="true"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
     
@@ -70,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/gameWalks"
-        android:layout_centerInParent="true"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
 
@@ -80,25 +88,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/gameErrors"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="sans" />
-    
-      <TextView
-          android:id="@+id/gameBeersDrank"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_below="@+id/gamePutOuts"
-          android:textSize="14sp"
-          android:typeface="sans" />
       
-      <TextView
-          android:id="@+id/gameSacFlys"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_below="@+id/gameBeersDrank"
-          android:textSize="14sp"
-          android:typeface="sans" />
+     <TextView
+         android:id="@+id/gameSacFlys"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/gamePutOuts"
+         android:textColor="@android:color/black"
+         android:textSize="14sp"
+         android:typeface="sans" />
+      
+       <TextView
+           android:id="@+id/gameBeersDrank"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_below="@+id/gameSacFlys"
+           android:textColor="@android:color/black"
+           android:textSize="14sp"
+           android:typeface="sans" />
     
 </RelativeLayout>

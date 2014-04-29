@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#f4f4f4" >
+    android:background="#000000"
+    android:orientation="vertical" >
     
 <TextView
      android:id="@+id/gameByGameHeader"
@@ -38,28 +37,37 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:layout_width="100dp" 
+        android:layout_width="70dp" 
         android:textSize="14sp" />
 
 	<TextView
 	    android:id="@+id/gameDateStatsHeader"
 	    android:textColor="@android:color/white"
 	    android:text="Date"
-	    android:layout_width="wrap_content"
+	    android:layout_width="80dp" 
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/gameNameStatsHeader"
         android:textSize="14sp"  />
 
 	<TextView
-	    android:id="@+id/gameHitsStatsHeader"
-	    android:layout_width="wrap_content"
+	    android:id="@+id/gameABsStatsHeader"
+	    android:layout_width="40dp"
         android:layout_height="wrap_content"
          android:textColor="@android:color/white"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="25dp"
         android:layout_toRightOf="@+id/gameDateStatsHeader"
+        android:textSize="14sp"
+        android:typeface="sans" 
+	    android:text="ABs"/>
+	
+	<TextView
+	    android:id="@+id/gameHitsStatsHeader"
+	   android:layout_width="50dp"
+        android:layout_height="wrap_content"
+         android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/gameABsStatsHeader"
         android:textSize="14sp"
         android:typeface="sans" 
 	    android:text="Hits"/>
@@ -68,12 +76,10 @@
 	    android:id="@+id/gameAvgStatsHeader"
 	    android:textColor="@android:color/white"
 	    android:text="AVG"
-	    android:layout_width="wrap_content"
+	    android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/gameRBIsStatsHeader"
+          android:layout_toRightOf="@+id/gameHitsStatsHeader"
         android:textSize="14sp"
         android:typeface="sans"  />
 
@@ -81,14 +87,24 @@
 	     android:id="@+id/gameRBIsStatsHeader"
 	    android:textColor="@android:color/white"
 	    android:text="RBIs"
-	    android:layout_width="40dp" 
+	    android:layout_width="30dp" 
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+       android:layout_toRightOf="@+id/gameAvgStatsHeader"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
         android:textSize="14sp"
         android:typeface="sans" />
 </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/gameBygameBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="false"
+        android:adjustViewBounds="false"
+        android:scaleType="fitEnd"
+        android:src="@drawable/leaderboardbackground" >
+     
+ </ImageView>
  
      <ExpandableListView
          android:id="@android:id/list"

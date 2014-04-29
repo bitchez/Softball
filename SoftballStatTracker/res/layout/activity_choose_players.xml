@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/chooseplayersbackground"
     tools:context=".ChoosePlayersActivity" >
-    
     
      <TextView
      android:id="@+id/choosePlayerHeader"
@@ -28,27 +28,28 @@
          android:layout_below="@+id/choosePlayerHeader"
          android:layout_marginLeft="10dp"
          android:layout_marginTop="5dp"
+         android:textColor="#000000"
          android:textSize="15sp" />
      
      <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gameInfoText"
-        android:layout_centerHorizontal="true"
-        android:onClick="addPlayerStats"
-        android:text="@string/addStats"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp" />
-     
-    <ListView
+         android:id="@+id/addstatsbutton"
+         style="?android:attr/buttonStyleSmall"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/gameInfoText"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:onClick="addPlayerStats"
+         android:text="@string/addStats"
+         android:textColor="#000000"
+         android:textSize="15sp" />
+         
+  <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/addstatsbutton"
         android:background="@drawable/gradient_bg"
         android:text="@string/addPlayer"
         android:layout_marginTop="10dp" />
-
 </RelativeLayout>

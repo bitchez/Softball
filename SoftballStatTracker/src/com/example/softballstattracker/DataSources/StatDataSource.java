@@ -93,7 +93,7 @@ public class StatDataSource {
 	{
 		List<Stat> gameByGameStats = new ArrayList<Stat>();
 		String query = "SELECT g.GameName, g.DateCreated, s.AtBats, s.Singles, s.Doubles, s.Triples, s.Homeruns, "
-				+ "s.RBIs, s.Walks, s.Runs, s.BeersDrank, s.PutOuts, g.Opponent, s.SacFlys, s.Errors "
+				+ "s.RBIs, s.Walks, s.Runs, s.BeersDrank, s.PutOuts, g.Opponent, s.SacFlys, s.Errors, s.AtBats "
 				+ "FROM Stats s JOIN Games g ON s.GameId = g.GameId AND PlayerID ="
 				+ playerId
 				+ "  ORDER BY g.DateCreated desc";
@@ -122,7 +122,6 @@ public class StatDataSource {
 		        	stat.setOpponent(cursor.getString(12));
 		        	stat.setSacFlys(cursor.getInt(13));
 		        	stat.setErrors(cursor.getInt(14));
-		        	
 		        	gameByGameStats.add(stat);
 	            }		 
 	        while (cursor.moveToNext());

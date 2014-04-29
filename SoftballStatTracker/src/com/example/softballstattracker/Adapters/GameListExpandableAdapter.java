@@ -1,5 +1,8 @@
 package com.example.softballstattracker.Adapters;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -58,53 +61,50 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 
 		if (gameStatChild != null) 
 		{
+			TextView gameOpponent = (TextView) childRow.findViewById(R.id.gameOpponent);
 			TextView gameSingles = (TextView) childRow.findViewById(R.id.gameSingles);
 			TextView gameDoubles = (TextView) childRow.findViewById(R.id.gameDoubles);
 			TextView gameTriples = (TextView) childRow.findViewById(R.id.gameTriples);
 			TextView gameHomeRuns = (TextView) childRow.findViewById(R.id.gameHomeruns);
+			TextView gameRuns = (TextView) childRow.findViewById(R.id.gameRuns);
+			TextView gameWalks = (TextView) childRow.findViewById(R.id.gameWalks);
 			TextView gamePutOuts = (TextView) childRow.findViewById(R.id.gamePutOuts);
+			TextView gameErrors = (TextView) childRow.findViewById(R.id.gameErrors);
 			TextView gameSacFlys = (TextView) childRow.findViewById(R.id.gameSacFlys);
 			TextView gameBeersDrank = (TextView) childRow.findViewById(R.id.gameBeersDrank);
-			TextView gameWalks = (TextView) childRow.findViewById(R.id.gameWalks);
-			TextView gameRuns = (TextView) childRow.findViewById(R.id.gameRuns);
-			TextView gameOpponent = (TextView) childRow.findViewById(R.id.gameOpponent);
-			TextView gameErrors = (TextView) childRow.findViewById(R.id.gameErrors);
 			
 			if (gameOpponent != null) {
 				gameOpponent.setText("vs. " + String.valueOf(gameStatChild.getOpponent()));
 			}
 			if (gameSingles != null) {
-				gameSingles.setText("singles:" + String.valueOf(gameStatChild.getSingles()));
+				gameSingles.setText("singles: " + String.valueOf(gameStatChild.getSingles()));
 			}
 			if (gameDoubles != null) {
-				gameDoubles.setText("doubles:" + String.valueOf(gameStatChild.getDoubles()));
+				gameDoubles.setText("doubles: " + String.valueOf(gameStatChild.getDoubles()));
 			}
 			if (gameTriples != null) {
-				gameTriples.setText("triples:" + String.valueOf(gameStatChild.getTriples()));
+				gameTriples.setText("triples: " + String.valueOf(gameStatChild.getTriples()));
 			}
 			if (gameHomeRuns != null) {
-				gameHomeRuns.setText("homeruns:" + String.valueOf(gameStatChild.getHomeRuns()));
-			}
-			if (gameWalks != null) {
-				gameWalks.setText("walks:" + String.valueOf(gameStatChild.getWalks()));
-			}
-			if (gameWalks != null) {
-				gameWalks.setText("walks:" + String.valueOf(gameStatChild.getWalks()));
-			}
-			if (gamePutOuts != null) {
-				gamePutOuts.setText("putouts:" + String.valueOf(gameStatChild.getPutOuts()));
-			}
-			if (gameSacFlys != null) {
-				gamePutOuts.setText("sacFlys:" + String.valueOf(gameStatChild.getSacFlys()));
-			}
-			if (gameBeersDrank != null) {
-				gameBeersDrank.setText("beers:" + String.valueOf(gameStatChild.getBeersDrank()));
+				gameHomeRuns.setText("homeruns: " + String.valueOf(gameStatChild.getHomeRuns()));
 			}
 			if (gameRuns != null) {
-				gameRuns.setText("runs:" + String.valueOf(gameStatChild.getRuns()));
+				gameRuns.setText("runs: " + String.valueOf(gameStatChild.getRuns()));
+			}
+			if (gameWalks != null) {
+				gameWalks.setText("walks: " + String.valueOf(gameStatChild.getWalks()));
 			}
 			if (gameErrors != null) {
-				gameErrors.setText("errors:" + String.valueOf(gameStatChild.getErrors()));
+				gameErrors.setText("errors: " + String.valueOf(gameStatChild.getErrors()));
+			}
+			if (gamePutOuts != null) {
+				gamePutOuts.setText("putouts: " + String.valueOf(gameStatChild.getPutOuts()));
+			}
+			if (gameSacFlys != null) {
+				gameSacFlys.setText("sacFlys: " + String.valueOf(gameStatChild.getSacFlys()));
+			}
+			if (gameBeersDrank != null) {
+				gameBeersDrank.setText("beers: " + String.valueOf(gameStatChild.getBeersDrank()));
 			}
 		}
 
@@ -156,20 +156,20 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 					.findViewById(R.id.gameRBIs);
 			TextView gameHits = (TextView) row.findViewById(R.id.gameHits);
 			TextView gameAvg = (TextView) row.findViewById(R.id.gameAverage);
+			TextView gameABs = (TextView) row.findViewById(R.id.gameABs);
 
 			if (gameHits != null) {
 				gameHits.setText(String.valueOf(gameStats.getHits()));
+			}
+			if (gameABs != null) {
+				gameABs.setText(String.valueOf(gameStats.getAtBats()));
 			}
 			if (gameName != null) {
 				gameName.setText(gameStats.getPlayerName());
 				gameName.setTypeface(null, Typeface.BOLD);
 			}
 			if (gameDateCreated != null) {
-				String dateString = gameStats.getDateCreated();
-				String year = dateString.substring(7, 9);
-				String month = dateString.substring(0, 1);
-				String day = dateString.substring(2, 4);
-				gameDateCreated.setText(month + "/" + day + "/" + year);
+				gameDateCreated.setText(gameStats.getDateCreated());
 			}
 			if (gameRBIs != null) {
 				gameRBIs.setText(String.valueOf(gameStats.getRunsBattedIn()));

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#151014"
     tools:context=".EditStatsActivity" >
     
          <TextView
@@ -21,20 +22,42 @@
 	
     <TextView
         android:id="@+id/addStatMemo"
-        android:layout_below="@+id/addStatHeader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/addStatHeader"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="Select each player to add stats for" />
-
+        android:text="Individually select a player to add new stats for."
+        android:textColor="#a8a8a8" />
+    
+    <TextView
+        android:id="@+id/addStatMemo1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addStatMemo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="If you need to remove or add players, please go back and make your damn adjustments"
+        android:textColor="#a8a8a8" />
+    
+     <ImageView
+     android:id="@+id/addstatsbackground"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:layout_centerInParent="false"
+     android:adjustViewBounds="true"
+     android:scaleType="fitEnd"
+     android:src="@drawable/addstatsbackground" >
+ </ImageView>
+    
+    
 	<ListView
 	    android:id="@android:id/list"
 	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
+	     android:layout_height="wrap_content"
 	    android:layout_marginTop="10dp"
-	    android:background="@drawable/list_selector"
-	    android:layout_below="@+id/addStatMemo"
+	    android:background="@drawable/gradient_trans"
+	    android:layout_below="@+id/addStatMemo1"
 	    android:text="@string/addPlayer" />
 	
 </RelativeLayout>
