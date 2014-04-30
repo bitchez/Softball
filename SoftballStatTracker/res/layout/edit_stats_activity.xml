@@ -27,7 +27,7 @@
         android:layout_below="@+id/addStatHeader"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="Individually select a player to add new stats for."
+        android:text="-Individually select a player you want to add new stats for"
         android:textColor="#a8a8a8" />
     
     <TextView
@@ -37,10 +37,19 @@
         android:layout_below="@+id/addStatMemo"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="If you need to remove or add players, please go back and make your damn adjustments"
+        android:text="...if you need to remove or add players, please go back and make your damn adjustments"
         android:textColor="#a8a8a8" />
     
- 
+    	<ImageView
+	     android:id="@+id/addstatsbackground"
+	     android:layout_width="fill_parent"
+	     android:layout_height="fill_parent"
+	     android:layout_centerInParent="false"
+	     android:adjustViewBounds="true"
+	     android:scaleType="fitEnd"
+	    android:src="@drawable/addstatsbackground" >
+ </ImageView>
+    
     
 	<ListView
 	    android:id="@android:id/list"

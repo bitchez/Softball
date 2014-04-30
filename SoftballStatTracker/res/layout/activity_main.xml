@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainmenubackground"
+    android:background="@drawable/upbackground"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -32,18 +32,33 @@
             android:onClick="addGame"
             android:text="@string/addGame"
             android:width="200dp" />
+
         <Button
             android:id="@+id/leaderBoardButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/addGame"
+            android:layout_marginBottom="20dp"
             android:onClick="onLeaderBoard"
             android:text="@string/leaderBoards"
             android:width="200dp" />
 
     </LinearLayout>
+    
+     <ImageView
+         android:id="@+id/leaderboadBackground"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_centerInParent="false"
+         android:adjustViewBounds="true"
+         android:padding="50dp"
+         android:scaleType="fitStart"
+         android:src="@drawable/chalkitupmenu" >
 
-    <TextView
+ </ImageView>
+
+
+<!--     <TextView
         android:id="@+id/mainMenuHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +67,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="110dp"
         android:text="Chalk it Up"
-        android:textSize="45sp" />
+        android:textSize="45sp" />-->
 
 </RelativeLayout>

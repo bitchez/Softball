@@ -12,8 +12,11 @@
            android:layout_height="fill_parent"
            android:layout_centerInParent="false"
            android:adjustViewBounds="true"
+           android:paddingLeft="50dp"
+           android:paddingRight="50dp"
+           android:paddingTop="50dp"
            android:scaleType="fitEnd"
-           android:src="@drawable/budlightbackground" >
+           android:src="@drawable/burkad" >
 
  </ImageView>
       
@@ -99,13 +102,15 @@
          android:layout_above="@+id/savePlayerButton"
          android:layout_centerHorizontal="true"
          android:layout_marginBottom="20dp" />
-     
+
     <Button
         android:id="@+id/savePlayerButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/addplayerbackground"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="55dp"
         android:onClick="savePlayer"
-        android:text=" Save        Player" />
+        android:text=" Save Player" />
+
 </RelativeLayout>

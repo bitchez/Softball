@@ -25,10 +25,10 @@ public class MainMenuActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
-		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
-		Typeface font = Typeface.createFromAsset(getAssets(), "thelineup.ttf");
-		txt.setTypeface(font);
-		txt.setTextColor(Color.WHITE);
+//		TextView txt = (TextView) findViewById(R.id.mainMenuHeader);
+//		Typeface font = Typeface.createFromAsset(getAssets(), "thelineup.ttf");
+//		txt.setTypeface(font);
+//		txt.setTextColor(Color.WHITE);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
