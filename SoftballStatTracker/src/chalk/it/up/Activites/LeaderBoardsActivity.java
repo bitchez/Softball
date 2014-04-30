@@ -11,6 +11,7 @@ import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -55,7 +56,9 @@ public class LeaderBoardsActivity extends Activity {
 	{
 		setupLeaderboardHeader();
 		
-		Toast.makeText(this, "To view game by game stats, select a player", Toast.LENGTH_LONG).show();
+		Toast toast = Toast.makeText(LeaderBoardsActivity.this,"To view game by game stats, select a player", Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.show();
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();

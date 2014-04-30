@@ -70,7 +70,7 @@ public class ChoosePlayersActivity extends ListActivity {
 			gameDate = bundle.getString("gameDate_input");
 			opponentName = bundle.getString("gameOpponent_input");
 			
-			gameInfoText.setText(String.format("From the list of players below, select those you like to add stats for %s played on: %s", gameName, gameDate));
+			gameInfoText.setText(String.format("These are all the players you've ever created. Select the ones you want to add stats for %s played on: %s", gameName, gameDate));
 		}
 	}
 

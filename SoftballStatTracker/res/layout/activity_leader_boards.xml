@@ -36,7 +36,7 @@
         android:text="Player"
         android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:layout_width="75dp" 
+        android:layout_width="95dp" 
         android:textSize="14sp" />
     
     <TextView
@@ -44,21 +44,21 @@
 	    android:textColor="@android:color/white"
 	    android:text="AB"
         android:layout_height="wrap_content"
-        android:layout_width="40dp" 
+        android:layout_width="35dp" 
         android:textSize="14sp"  />
     
     <TextView
 	    android:id="@+id/runsHeader"
 	    android:textColor="@android:color/white"
 	    android:text="R"
-	     android:layout_width="30dp" 
+	     android:layout_width="25dp" 
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:typeface="sans"  />
     
     <TextView
 	    android:id="@+id/hitsHeader"
-	     android:layout_width="30dp" 
+	     android:layout_width="20dp" 
         android:layout_height="wrap_content"
          android:textColor="@android:color/white"
         android:textSize="14sp"
@@ -69,7 +69,7 @@
 	     android:id="@+id/rbisHeader"
 	    android:textColor="@android:color/white"
 	    android:text="RBI"
-	    android:layout_width="40dp" 
+	    android:layout_width="35dp" 
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:typeface="sans" />

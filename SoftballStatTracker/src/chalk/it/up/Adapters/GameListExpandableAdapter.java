@@ -165,7 +165,10 @@ public class GameListExpandableAdapter extends BaseExpandableListAdapter {
 				gameName.setTypeface(null, Typeface.BOLD);
 			}
 			if (gameDateCreated != null) {
-				gameDateCreated.setText(gameStats.getDateCreated());
+				String date = gameStats.getDateCreated();
+				String newDate = date.substring(0, date.length()-5);
+				
+				gameDateCreated.setText(newDate);
 			}
 			if (gameRBIs != null) {
 				gameRBIs.setText(String.valueOf(gameStats.getRunsBattedIn()));

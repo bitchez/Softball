@@ -63,7 +63,7 @@ public class GameByGameStatActivity extends ExpandableListActivity {
 
 		int[] color = { Color.WHITE, Color.RED };
 		float[] position = {0, 1};
-		TileMode tile_mode = TileMode.MIRROR; // or TileMode.REPEAT;
+		TileMode tile_mode = TileMode.MIRROR;
 		LinearGradient lin_grad = new LinearGradient(0, 0, 0, 75,color,position, tile_mode);
 		Shader shader_gradient = lin_grad;
 		txt.getPaint().setShader(shader_gradient);
@@ -72,6 +72,7 @@ public class GameByGameStatActivity extends ExpandableListActivity {
 	private void setupExpandableListview() 
 	{
 		expandableListView = getExpandableListView();
+		expandableListView.setDivider(null);
 		expandableListAdapter = new GameListExpandableAdapter(this, gameByGameStats, gameSpecificData);
 		expandableListView.setAdapter(expandableListAdapter);
 	}

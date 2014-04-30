@@ -40,23 +40,14 @@
         android:text="If you need to remove or add players, please go back and make your damn adjustments"
         android:textColor="#a8a8a8" />
     
-     <ImageView
-     android:id="@+id/addstatsbackground"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent"
-     android:layout_centerInParent="false"
-     android:adjustViewBounds="true"
-     android:scaleType="fitEnd"
-     android:src="@drawable/addstatsbackground" >
- </ImageView>
-    
+ 
     
 	<ListView
 	    android:id="@android:id/list"
 	    android:layout_width="fill_parent"
-	     android:layout_height="wrap_content"
+	    android:layout_height="?android:attr/listPreferredItemHeight"
 	    android:layout_marginTop="10dp"
-	    android:background="@drawable/gradient_trans"
+	    android:background="@drawable/gradient_bg"
 	    android:layout_below="@+id/addStatMemo1"
 	    android:text="@string/addPlayer" />
 	

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import chalk.it.up.R;
 import chalk.it.up.DataSources.StatDataSource;
 import chalk.it.up.Models.Stat;
@@ -30,6 +31,7 @@ public class AddStatsDialogActivity extends Activity
 	EditText BeersDrank;
 	EditText Walks;
 	EditText Errors;
+	private TextView playerInfoHeader;
 	private Stat newStat = new Stat();
 	Button saveStatsButton;
 	private StatDataSource statsDataSource;
@@ -90,9 +92,11 @@ public class AddStatsDialogActivity extends Activity
 			currentPlayerId = bundle.getLong("currentPlayerId");
 			currentPlayerName = bundle.getString("currentPlayerName");
 		}
+		 
+		playerInfoHeader = (TextView) findViewById(R.id.playerCardInfo);
+		playerInfoHeader.setText(String.format("#%s -  %s", currentPlayerId, currentPlayerName));
 
 		saveStatsButton = (Button) findViewById(R.id.saveStats);
-
 		saveStatsButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override

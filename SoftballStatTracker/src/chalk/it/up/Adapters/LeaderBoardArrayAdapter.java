@@ -56,6 +56,7 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	        if (stat != null) 
 	        {	
 	        	ImageView playerImage = (ImageView) row.findViewById(R.id.playerImage);
+	        	TextView playerNumber = (TextView) row.findViewById(R.id.playerNumber);
 	            TextView playerName = (TextView) row.findViewById(R.id.playerName);
 	            TextView atBats = (TextView) row.findViewById(R.id.atBats);
 	            TextView hits = (TextView) row.findViewById(R.id.hits);
@@ -67,6 +68,9 @@ public class LeaderBoardArrayAdapter extends BaseAdapter {
 	            
 	            if(playerImage != null) {
 	            	//playerImage.setImageURI(stat.getPlayerImage().);
+	            }
+	            if (playerNumber != null) {
+	            	playerNumber.setText("#" + String.valueOf(stat.getPlayerId()) + " ");
 	            }
 	            if (playerName != null) {
 	            	playerName.setText(stat.getPlayerName());                            

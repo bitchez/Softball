@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ public class EditStatsActivity extends ListActivity implements
 		selectedPlayers = this.getIntent().getParcelableArrayListExtra(
 				"selectedPlayers");
 		currentGameId = this.getIntent().getLongExtra("currentGameId", 0);
+		
 		initialize();
 		setupHeader();
 		setupListView();
@@ -52,6 +54,7 @@ public class EditStatsActivity extends ListActivity implements
 		playerAdapter = new ArrayAdapter<Player>(this,
 				android.R.layout.simple_selectable_list_item, selectedPlayers);
 		setListAdapter(playerAdapter);
+
 	}
 
 	public void onListItemClick(ListView parent, View view, int position,

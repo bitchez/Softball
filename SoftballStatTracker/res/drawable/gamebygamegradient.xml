@@ -3,7 +3,11 @@
 	android:type="linear"
 	android:centerX="50%" 
 	android:centerY="50%" 
-	android:startColor="#FFFFFFFF" 
+	android:startColor="#CFCFCF" 
 	android:endColor="#7FD42A2A" 
 	android:angle="270"/>
+<corners
+        android:topLeftRadius="0dp" android:topRightRadius="0dp"
+         android:bottomLeftRadius="10dp" android:bottomRightRadius="10dp"  >
+    </corners>
 </shape>

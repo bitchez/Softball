@@ -4,7 +4,20 @@
     android:layout_gravity="center_vertical"
     android:background="@drawable/list_selector"
     android:orientation="horizontal"
-    android:padding="10dip" >
+    android:paddingTop="10dip"
+    android:paddingLeft="10dip"
+    android:paddingRight="0dip"
+    android:paddingBottom="10dip">
+    
+        
+    <TextView
+        android:id="@+id/playerNumber"
+        android:layout_width="wrap_content"
+    	android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="12sp"
+        android:textStyle="bold" />
     
     <TextView
         android:id="@+id/playerName"
@@ -26,7 +39,7 @@
 	    android:id="@+id/runs"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_width="30dp" 
+        android:layout_width="25dp" 
         android:textSize="14sp"
         android:typeface="sans" />
 	
@@ -34,13 +47,13 @@
 	    android:id="@+id/hits"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_width="30dp" 
+        android:layout_width="25dp" 
         android:textSize="14sp"
         android:typeface="sans" />
 	
 		<TextView 
     		android:id="@+id/rbis" 
-    	 android:layout_width="35dp" 
+    	 android:layout_width="25dp" 
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:textSize="14sp"

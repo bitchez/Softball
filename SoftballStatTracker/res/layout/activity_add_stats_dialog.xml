@@ -6,10 +6,18 @@
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp">
 
+     <TextView
+         android:id="@+id/playerCardInfo"
+         android:layout_width="fill_parent"
+         android:layout_height="40dp"
+         android:textColor="@android:color/holo_red_dark"
+         android:textSize="14sp" />
+    
     <LinearLayout
         android:id="@+id/atBats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/playerCardInfo"
         android:gravity="left"
         android:orientation="horizontal" >
 
@@ -18,25 +26,29 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="@string/at_bats" />
-        
-         <EditText
-             android:id="@+id/atBatsInput"
-             android:layout_width="50dp"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="5dp"
-             android:gravity="center_vertical|fill_vertical|center_horizontal"
-             android:inputType="number"
-             android:selectAllOnFocus="true"
-             android:text="0" />
+
+        <EditText
+            android:id="@+id/atBatsInput"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:text="0" >
+
+            <requestFocus />
+        </EditText>
 
     </LinearLayout>
     
    <LinearLayout
-        android:id="@+id/walks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-          android:gravity="right"
-        android:layout_toRightOf="@id/atBats" >
+       android:id="@+id/walks"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/playerCardInfo"
+       android:layout_toRightOf="@id/atBats"
+       android:gravity="right" >
 
         <TextView
             android:id="@+id/walksLabel"
@@ -47,12 +59,13 @@
 
         <EditText
             android:id="@+id/walksInput"
-        	android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
   <LinearLayout
@@ -71,13 +84,14 @@
 
         <EditText
             android:id="@+id/singlesInput"
-            android:layout_width="50dp"
-            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
    <LinearLayout
@@ -96,13 +110,14 @@
 
         <EditText
             android:id="@+id/doublesInput"
-            android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
     <LinearLayout
@@ -122,12 +137,13 @@
 
         <EditText
             android:id="@+id/sacFlysInput"
-             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
     <LinearLayout
@@ -146,13 +162,14 @@
 
         <EditText
             android:id="@+id/triplesInput"
-            android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
      <LinearLayout
@@ -172,12 +189,13 @@
 
         <EditText
             android:id="@+id/putOutsInput"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
-            android:text="0"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
        <LinearLayout
@@ -197,12 +215,13 @@
 
         <EditText
             android:id="@+id/errorsInput"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
-            android:text="0"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
 
      <LinearLayout
@@ -218,16 +237,17 @@
             android:layout_width="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_height="wrap_content"
-            android:text="@string/beers_drank" />
+            android:text="Beers" />
 
         <EditText
             android:id="@+id/beersDrankInput"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:layout_width="50dp"
-            android:text="0"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
      <LinearLayout
@@ -246,13 +266,14 @@
 
         <EditText
             android:id="@+id/homeRunsInput"
-            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_width="50dp"
             android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|fill_vertical|center_horizontal"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
   <LinearLayout
@@ -271,48 +292,52 @@
 
         <EditText
             android:id="@+id/rbisInput"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_width="50dp"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:text="0"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
     
   <LinearLayout
       android:id="@+id/runs"
-      android:layout_width="wrap_content"
+      android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@id/rbis"
+      android:layout_below="@id/beersDrank"
       android:layout_marginTop="15dp"
-      android:gravity="left" >
+      android:gravity="right" >
 
         <TextView
             android:id="@+id/runsLabel"
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="Runs" />
 
         <EditText
             android:id="@+id/runsInput"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_width="50dp"
             android:gravity="center_vertical|fill_vertical|center_horizontal"
-            android:text="0"
+            android:inputType="number"
             android:selectAllOnFocus="true"
-            android:inputType="number" />
+            android:text="0" />
+
     </LinearLayout>
+    
+  
     
     <Button
         android:id="@+id/saveStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/rbis"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:onClick="onSaveStats"
-        android:text="Save" />
+        android:text="save stats" />
 
 </RelativeLayout>
