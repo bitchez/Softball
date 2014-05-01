@@ -4,7 +4,7 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:layout_marginLeft="25dp"
     android:gravity="left"
-    android:background="@drawable/list_selector"
+    android:background="@drawable/gamebygamelistselector"
     android:orientation="horizontal"
     android:padding="10dip" >
 

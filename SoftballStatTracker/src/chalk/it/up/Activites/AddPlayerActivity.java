@@ -19,7 +19,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +46,7 @@ public class AddPlayerActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_player);
+		setupUI(findViewById(R.id.addPlayerParent));
 		
 		playerImageView = (ImageView) findViewById(R.id.playerImage);
 		
@@ -103,12 +108,17 @@ public class AddPlayerActivity extends Activity {
 	public void savePlayer(View view) throws IOException {
 		
 		playerNumberInput = (EditText)findViewById(R.id.playerNumberInput);
+
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
-		if(DoesPlayerNameExist(playerNameInput, playerNumberInput))
+		if (DoesPlayerNumberNotExist(playerNumberInput))
+		{
+			playerNumberInput.setError("Yo bitch, a player number is required fool");
+		}
+		else if(DoesPlayerNameNotExist(playerNameInput))
 	    {
-			playerNameInput.setError("cmon man, a player name is required, duh");
-			playerNameInput.setError("Yo, a player number is required fool");
+			playerNameInput.setError("cmon mutha fucka, a player name is required");
+
 	    }
 		else
 		{
@@ -145,14 +155,49 @@ public class AddPlayerActivity extends Activity {
 		return isUnique;
 	}
 
-	private boolean DoesPlayerNameExist(EditText playerName, EditText playerNumber) {
-		return (playerName.getText().toString().trim().equals("") || 
-				playerNumber.getText().toString().trim().equals(""));
+	private boolean DoesPlayerNameNotExist(EditText playerName) {
+		return (playerName.getText().toString().trim().equals(""));
+	}
+	
+	private boolean DoesPlayerNumberNotExist(EditText playerNumber) {
+		return (playerNumber.getText().toString().trim().equals(""));
 	}
 	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.add_player, menu);
 		return true;
+	}
+	
+	public void setupUI(View view) {
+
+	    //Set up touch listener for non-text box views to hide keyboard.
+	    if(!(view instanceof EditText)) {
+
+	        view.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(AddPlayerActivity.this);
+					return false;
+				}
+
+				private void hideSoftKeyboard(Activity activity) {
+					 InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+					 inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+				}
+	        });
+	    }
+
+	    //If a layout container, iterate over children and seed recursion.
+	    if (view instanceof ViewGroup) {
+
+	        for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+
+	            View innerView = ((ViewGroup) view).getChildAt(i);
+
+	            setupUI(innerView);
+	        }
+	    }
 	}
 }

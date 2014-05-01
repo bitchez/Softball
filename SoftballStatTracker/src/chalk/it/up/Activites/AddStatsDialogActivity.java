@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -46,6 +50,8 @@ public class AddStatsDialogActivity extends Activity
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_add_stats_dialog);
+		
+		setupUI(findViewById(R.id.addStatsDialogue));
 		initialize();
 	}
 
@@ -145,7 +151,69 @@ public class AddStatsDialogActivity extends Activity
 		
 		if (newStat.getHits() > newStat.getAtBats()) {
 			hasErrors = true;
-			AtBats.setError("You have too many hits mother fucker.");
+			AtBats.setError("You have too many hits per at bats mother fucker.");
 		}
+		
+		checkForNulls(newStat);
+		
+	}
+	
+	private void checkForNulls(Stat newStat) {
+		if(AtBats.getText().equals("")) {
+			newStat.setAtBats(0);}
+		if(Singles.getText().equals("")) {
+			newStat.setSingles(0);}
+		if(Doubles.getText().equals("")) {
+			newStat.setDoubles(0);}
+		if(Triples.getText().equals("")) {
+			newStat.setTriples(0);}
+		if(Homeruns.getText().equals("")) {
+			newStat.setHomeRuns(0);}
+		if(RBIs.getText().equals("")) {
+			newStat.setRbis(0);}
+		if(Runs.getText().equals("")) {
+			newStat.setRuns(0);}
+		if(Walks.getText().equals("")) {
+			newStat.setWalks(0);}
+		if(BeersDrank.getText().equals("")) {
+			newStat.setBeerDrank(0);}
+		if(SacFlys.getText().equals("")) {
+			newStat.setSacFlys(0);}
+		if(PutOuts.getText().equals("")) {
+			newStat.setPutOuts(0);}
+		if(Errors.getText().equals("")) {
+			newStat.setErrors(0);}
+	}
+
+	public void setupUI(View view) {
+
+	    //Set up touch listener for non-text box views to hide keyboard.
+	    if(!(view instanceof EditText)) {
+
+	        view.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(AddStatsDialogActivity.this);
+					return false;
+				}
+
+				private void hideSoftKeyboard(Activity activity) {
+					 InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+					 inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+				}
+	        });
+	    }
+
+	    //If a layout container, iterate over children and seed recursion.
+	    if (view instanceof ViewGroup) {
+
+	        for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+
+	            View innerView = ((ViewGroup) view).getChildAt(i);
+
+	            setupUI(innerView);
+	        }
+	    }
 	}
 }
