@@ -5,6 +5,7 @@ import org.joda.time.DateTime;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -61,18 +62,19 @@ public class AddStatsDialogActivity extends Activity
 		newStat.setGameId(currentGameId);
 		newStat.setPlayerName(currentPlayerName);
 		newStat.setDateCreated(DateTime.now().toString());
-		newStat.setAtBats(Integer.parseInt(AtBats.getText().toString()));
-		newStat.setSingles(Integer.parseInt(Singles.getText().toString()));
-		newStat.setDoubles(Integer.parseInt(Doubles.getText().toString()));
-		newStat.setTriples(Integer.parseInt(Triples.getText().toString()));
-		newStat.setHomeRuns(Integer.parseInt(Homeruns.getText().toString()));
-		newStat.setRbis(Integer.parseInt(RBIs.getText().toString()));
-		newStat.setWalks(Integer.parseInt(Walks.getText().toString()));
-		newStat.setRuns(Integer.parseInt(Runs.getText().toString()));
-		newStat.setPutOuts(Integer.parseInt(PutOuts.getText().toString()));
-		newStat.setSacFlys(Integer.parseInt(SacFlys.getText().toString()));
-		newStat.setBeerDrank(Integer.parseInt(BeersDrank.getText().toString()));
-		newStat.setErrors(Integer.parseInt(Errors.getText().toString()));
+		
+		setAtBats(newStat);
+		setSingles(newStat);
+		setDoubles(newStat);
+		setTriples(newStat);
+		setHomeruns(newStat);
+		setRBIs(newStat);
+		setWalks(newStat);
+		setRuns(newStat);
+		setSacFlys(newStat);
+		setBeers(newStat);
+		setErrors(newStat);
+		setPutOuts(newStat);
 
 		validateNewStat(newStat);
 
@@ -88,6 +90,8 @@ public class AddStatsDialogActivity extends Activity
 		}
 	}
 
+	
+	
 	private void initialize() 
 	{
 		Bundle bundle = getIntent().getExtras();
@@ -153,38 +157,8 @@ public class AddStatsDialogActivity extends Activity
 			hasErrors = true;
 			AtBats.setError("You have too many hits per at bats mother fucker.");
 		}
-		
-		checkForNulls(newStat);
-		
 	}
 	
-	private void checkForNulls(Stat newStat) {
-		if(AtBats.getText().equals("")) {
-			newStat.setAtBats(0);}
-		if(Singles.getText().equals("")) {
-			newStat.setSingles(0);}
-		if(Doubles.getText().equals("")) {
-			newStat.setDoubles(0);}
-		if(Triples.getText().equals("")) {
-			newStat.setTriples(0);}
-		if(Homeruns.getText().equals("")) {
-			newStat.setHomeRuns(0);}
-		if(RBIs.getText().equals("")) {
-			newStat.setRbis(0);}
-		if(Runs.getText().equals("")) {
-			newStat.setRuns(0);}
-		if(Walks.getText().equals("")) {
-			newStat.setWalks(0);}
-		if(BeersDrank.getText().equals("")) {
-			newStat.setBeerDrank(0);}
-		if(SacFlys.getText().equals("")) {
-			newStat.setSacFlys(0);}
-		if(PutOuts.getText().equals("")) {
-			newStat.setPutOuts(0);}
-		if(Errors.getText().equals("")) {
-			newStat.setErrors(0);}
-	}
-
 	public void setupUI(View view) {
 
 	    //Set up touch listener for non-text box views to hide keyboard.
@@ -215,5 +189,173 @@ public class AddStatsDialogActivity extends Activity
 	            setupUI(innerView);
 	        }
 	    }
+	}
+	
+	private void setAtBats(Stat newStat) {
+		int atbats = 0;
+		try
+		{
+			atbats = Integer.parseInt(AtBats.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			atbats = 0;
+		}
+		
+		newStat.setAtBats(atbats);
+	}
+	
+	private void setSingles(Stat newStat) {
+		int singles = 0;
+		try
+		{
+			singles = Integer.parseInt(Singles.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			singles = 0;
+		}
+		
+		newStat.setSingles(singles);
+	}
+	
+	private void setDoubles(Stat newStat) {
+		int doubles = 0;
+		try
+		{
+			doubles = Integer.parseInt(Doubles.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			doubles = 0;
+		}
+		
+		newStat.setDoubles(doubles);
+	}
+	
+	private void setTriples(Stat newStat) {
+		int triples = 0;
+		try
+		{
+			triples = Integer.parseInt(Triples.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			triples = 0;
+		}
+		
+		newStat.setTriples(triples);
+	}
+	
+	private void setHomeruns(Stat newStat) {
+		int homeruns = 0;
+		try
+		{
+			homeruns = Integer.parseInt(Homeruns.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			homeruns = 0;
+		}
+		
+		newStat.setHomeRuns(homeruns);
+	}
+	
+	private void setRBIs(Stat newStat) {
+		int rbis = 0;
+		try
+		{
+			rbis = Integer.parseInt(RBIs.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			rbis = 0;
+		}
+		
+		newStat.setRbis(rbis);
+	}
+
+	private void setWalks(Stat newStat) {
+		int walks = 0;
+		try
+		{
+			walks = Integer.parseInt(Walks.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			walks = 0;
+		}
+		
+		newStat.setWalks(walks);
+	}
+
+	private void setRuns(Stat newStat) {
+		int runs = 0;
+		try
+		{
+			runs = Integer.parseInt(Runs.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			runs = 0;
+		}
+		
+		newStat.setRuns(runs);
+	}
+	
+	private void setSacFlys(Stat newStat) {
+		int sacflys = 0;
+		try
+		{
+			sacflys = Integer.parseInt(SacFlys.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			sacflys = 0;
+		}
+		
+		newStat.setSacFlys(sacflys);
+	}
+	
+	private void setPutOuts(Stat newStat) {
+		int putouts = 0;
+		try
+		{
+			putouts = Integer.parseInt(PutOuts.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			putouts = 0;
+		}
+		
+		newStat.setPutOuts(putouts);
+	}
+	
+	private void setBeers(Stat newStat) {
+		int beers = 0;
+		try
+		{
+			beers = Integer.parseInt(BeersDrank.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			beers = 0;
+		}
+		
+		newStat.setBeerDrank(beers);
+	}
+	
+	private void setErrors(Stat newStat) {
+		int errors = 0;
+		try
+		{
+			errors = Integer.parseInt(Errors.getText().toString());
+		}
+		catch ( Exception e )
+		{
+			errors = 0;
+		}
+		
+		newStat.setErrors(errors);
 	}
 }

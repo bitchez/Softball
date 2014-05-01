@@ -108,12 +108,15 @@ public class AddPlayerActivity extends Activity {
 	public void savePlayer(View view) throws IOException {
 		
 		playerNumberInput = (EditText)findViewById(R.id.playerNumberInput);
-
 		playerNameInput = (EditText)findViewById(R.id.playerNameInput);
 		
 		if (DoesPlayerNumberNotExist(playerNumberInput))
 		{
 			playerNumberInput.setError("Yo bitch, a player number is required fool");
+		}
+		else if (playerNumberInput.getText().length() > 2)
+		{
+			playerNumberInput.setError("cmon yo, numbers 1-99 please. my database cant handle all that shit");
 		}
 		else if(DoesPlayerNameNotExist(playerNameInput))
 	    {
